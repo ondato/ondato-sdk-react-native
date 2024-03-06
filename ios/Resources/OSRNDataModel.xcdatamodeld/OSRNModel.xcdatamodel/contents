@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="OSRNCustomization" representedClassName="OSRNCustomization" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="buttonColor" optional="YES" attributeType="String"/>
+        <attribute name="buttonTextColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowAcceptButtonBackgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowAcceptButtonBorderColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowAcceptButtonBorderWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowAcceptButtonCornerRadius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowAcceptButtonFontName" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowAcceptButtonFontSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowAcceptButtonFontWeight" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowAcceptButtonTintColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowBodyFontName" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowBodyFontSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowBodyFontWeight" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowBodyTextColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowDeclineButtonBackgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowDeclineButtonBorderColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowDeclineButtonBorderWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowDeclineButtonCornerRadius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowDeclineButtonFontName" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowDeclineButtonFontSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowDeclineButtonFontWeight" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowDeclineButtonTintColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowHeaderColor" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowHeaderFontName" optional="YES" attributeType="String"/>
+        <attribute name="consentWindowHeaderFontSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="consentWindowHeaderFontWeight" optional="YES" attributeType="String"/>
+        <attribute name="errorColor" optional="YES" attributeType="String"/>
+        <attribute name="errorTextColor" optional="YES" attributeType="String"/>
+        <attribute name="imageTintColor" optional="YES" attributeType="String"/>
+        <attribute name="progressColor" optional="YES" attributeType="String"/>
+        <attribute name="textColor" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="OSRNLocalConfiguration" representedClassName="OSRNLocalConfiguration" syncable="YES">
+        <attribute name="identityVerificationId" optional="YES" attributeType="String"/>
+        <attribute name="language" optional="YES" attributeType="String"/>
+        <attribute name="mode" optional="YES" attributeType="String"/>
+        <attribute name="showSelfieFrame" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="showSplashScreen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="showStartScreen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="showSuccessWindow" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="skipRegistrationIfDriverLicense" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+</model>
