@@ -15,8 +15,10 @@ PODS:
     - hermes-engine/Pre-built (= 0.71.4)
   - hermes-engine/Pre-built (0.71.4)
   - libevent (2.1.12)
-  - ondato-sdk-react-native (0.1.18):
+  - ondato-sdk-react-native (2.5.2):
+    - OpenSSL-Universal
     - React-Core
+  - OpenSSL-Universal (1.1.2200)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -397,6 +399,7 @@ SPEC REPOS:
   trunk:
     - fmt
     - libevent
+    - OpenSSL-Universal
 
 EXTERNAL SOURCES:
   boost:
@@ -479,7 +482,8 @@ SPEC CHECKSUMS:
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: a1f157c49ea579c28b0296bda8530e980c45bdb3
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  ondato-sdk-react-native: f3549ade3d0a01ed9398ac37a87238e708f0299b
+  ondato-sdk-react-native: 06163037d56fdef8c6693912847de86f1c9dbdda
+  OpenSSL-Universal: 6e1ae0555546e604dbc632a2b9a24a9c46c41ef6
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: 5a024fdf458fa8c0d82fc262e76f982d4dcdecdd
   RCTTypeSafety: b6c253064466411c6810b45f66bc1e43ce0c54ba
@@ -509,6 +513,6 @@ SPEC CHECKSUMS:
   ReactCommon: b49a4b00ca6d181ff74b17c12b2d59ac4add0bde
   Yoga: 79dd7410de6f8ad73a77c868d3d368843f0c93e0
 
-PODFILE CHECKSUM: 289300fe2f1d32a5f1a26495938221cb2fd906d9
+PODFILE CHECKSUM: 2581598c699af70454f1c0af88ae0428ff6a8452
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2
