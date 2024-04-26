@@ -129,7 +129,6 @@ const IOSOndatoSdkView = ({
           language: config.language,
           mode: config.mode,
           showSelfieFrame: config.showSelfieFrame,
-          showSplashScreen: config.showSplashScreen,
           showStartScreen: config.showStartScreen,
           showSuccessWindow: config.showSuccessWindow,
           skipRegistrationIfDriverLicense:

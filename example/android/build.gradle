@@ -25,5 +25,7 @@ allprojects {
         maven {
             url "$rootDir/../../android/local/repo"
         }
+        mavenCentral()
+        jcenter()
     }
 }

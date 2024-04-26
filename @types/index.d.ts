@@ -47,7 +47,6 @@ declare global {
       identityVerificationId: string;
       mode?: OndatoSdkMode;
       language?: OndatoSdkLanguage;
-      showSplashScreen?: boolean;
       showStartScreen?: boolean;
       showSelfieFrame?: boolean;
       skipRegistrationIfDriverLicense?: boolean;
