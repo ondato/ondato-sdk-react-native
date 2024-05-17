@@ -1,34 +1,22 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
-  Button,
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  Switch,
   Text,
   TextInput,
   View,
-  Platform,
   StatusBar,
 } from 'react-native';
+
 import {
   OndatoSdk,
   OndatoSdkState,
   OndatoSdkRef,
   OndatoSdkConfig,
-  OndatoSdkLanguage,
 } from 'ondato-sdk-react-native';
-import type { Items } from './Picker';
-import { Picker } from './Picker';
-import { Button as CustomButton } from './Button';
 
-type OAuth2Data = {
-  access_token: string;
-  expires_in: number;
-  token_type: string;
-  scope: string;
-};
+import { Button as CustomButton } from './Button';
 
 export const COLORS = {
   primary: '#cafc81',
@@ -38,18 +26,10 @@ export const COLORS = {
 
 export default () => {
   const ondatoSdkRef = useRef<OndatoSdkRef>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [newLogEntry, setNewLogEntry] = useState<any>();
   const [log, setLog] = useState<string[]>([]);
-  const [clientSecret, setClientSecret] = useState(0);
-  const [setupId, setSetupId] = useState(0);
-  const [showLanguagePicker, setShowLanguagePicker] = useState<boolean>(false);
-  const [showSetupIdPicker, setShowSetupIdPicker] = useState<boolean>(false);
-  const [showClientSecretPicker, setShowClientSecretPicker] =
-    useState<boolean>(false);
   const [config, setConfig] = useState<OndatoSdkConfig>({
     mode: 'test',
-    showSplashScreen: true,
     showStartScreen: true,
     showSelfieFrame: true,
     showSuccessWindow: true,
@@ -125,11 +105,6 @@ export default () => {
             onPress={() => ondatoSdkRef.current?.open()}
           />
         </View>
-        {isLoading && (
-          <View style={styles.loadingOverlay}>
-            <ActivityIndicator size="large" color="white" />
-          </View>
-        )}
         <OndatoSdk
           ref={ondatoSdkRef}
           config={config}

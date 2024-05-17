@@ -5,17 +5,25 @@ const pak = require('../package.json');
 
 const root = path.resolve(__dirname, '..');
 
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const defaultConfig = getDefaultConfig(__dirname);
+
+const {
+  resolver: { sourceExts, assetExts },
+} = getDefaultConfig(__dirname);
+
 const modules = Object.keys({
   ...pak.peerDependencies,
 });
 
-module.exports = {
+const config = {
   projectRoot: __dirname,
   watchFolders: [root],
 
-  // We need to make sure that only one version is loaded for peerDependencies
-  // So we block them at the root, and alias them to the versions in example's node_modules
   resolver: {
+    assetExts: assetExts.filter((ext) => ext !== 'svg'),
+    sourceExts: [...sourceExts, 'svg'],
+
     blacklistRE: exclusionList(
       modules.map(
         (m) =>
@@ -36,5 +44,8 @@ module.exports = {
         inlineRequires: true,
       },
     }),
+    babelTransformerPath: require.resolve('react-native-svg-transformer'),
   },
 };
+
+module.exports = mergeConfig(defaultConfig, config);

@@ -21,9 +21,9 @@ This SDK provides a drop-in set of screens and tools for iOS applications to all
 ## Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.3.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.4.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.3.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.4.tgz
 ```
 
 ## Requirements
@@ -31,10 +31,6 @@ npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/
 > **_NOTE:_** We recommend you lock your app to `portrait` orientation.
 
 ### Android
-
-- Android 5.0 (API level 21) and above
-  - Your `compileSdkVersion` must be `31`. See [this issue](https://github.com/stripe/stripe-react-native/issues/812) for potential workarounds.
-- Android gradle plugin 4.x and above
 
 1. Add a below repository to your `android/build.gradle`:
 
