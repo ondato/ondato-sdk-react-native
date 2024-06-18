@@ -6,6 +6,7 @@
 - [Installation](#installation)
 - [Handling callbacks](#handling-callbacks)
 - [Customising SDK](#customising-sdk)
+- [Expo Support](#expo-support)
 
 ## Overview
 
@@ -290,3 +291,6 @@ In order to add custom styling to the SDK, you need to create a `colors.xml` fil
   <color name="ondatoInputTextBorderColor">#808080</color>
 </resources>
 ```
+
+## Expo Support 
+To use this SDK in an expo managed react native app, install the [config plugin here](https://www.npmjs.com/package/ondato-expo-config-plugin) and follow the guide to customize. Learn more about expo config plugins [here](https://docs.expo.dev/config-plugins/introduction/). 
