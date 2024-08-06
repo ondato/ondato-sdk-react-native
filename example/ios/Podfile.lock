@@ -7,10 +7,8 @@ PODS:
   - hermes-engine (0.74.1):
     - hermes-engine/Pre-built (= 0.74.1)
   - hermes-engine/Pre-built (0.74.1)
-  - ondato-sdk-react-native (2.5.4):
-    - OpenSSL-Universal
+  - ondato-sdk-react-native (2.5.6):
     - React-Core
-  - OpenSSL-Universal (3.1.5001)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -1232,7 +1230,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - OpenSSL-Universal
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1355,8 +1352,7 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: 16b8530de1b383cdada1476cf52d1b52f0692cbc
-  ondato-sdk-react-native: 572feae1120c8f68dfa7e1580a6eca37bcb7ca75
-  OpenSSL-Universal: 29a9c9d4baf23f5fcd1294b657e4cc275e605bc3
+  ondato-sdk-react-native: 69a98b3177b4b38f08f12e3bf5b1ac938ec2fdcd
   RCT-Folly: 02617c592a293bd6d418e0a88ff4ee1f88329b47
   RCTDeprecation: efb313d8126259e9294dc4ee0002f44a6f676aba
   RCTRequired: f49ea29cece52aee20db633ae7edc4b271435562
@@ -1405,7 +1401,7 @@ SPEC CHECKSUMS:
   React-utils: 3285151c9d1e3a28a9586571fc81d521678c196d
   ReactCommon: f42444e384d82ab89184aed5d6f3142748b54768
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
-  Yoga: b9a182ab00cf25926e7f79657d08c5d23c2d03b0
+  Yoga: 348f8b538c3ed4423eb58a8e5730feec50bce372
 
 PODFILE CHECKSUM: 01a4ff756e9fb6a650fdde213f558fa97b1cea0c
 

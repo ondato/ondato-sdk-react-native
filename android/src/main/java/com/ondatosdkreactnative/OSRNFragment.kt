@@ -65,7 +65,8 @@ class OSRNFragment : Fragment(R.layout.activity_main) {
         .setSkipRegistrationIfDriverLicense(configuration.skipRegistrationIfDriverLicense)
         .build()
 
-      Ondato.init(config)
+
+      Ondato.INSTANCE.init(config)
       updateState(
         OSRNState(
           OSRNStatus.INITIALIZED,
@@ -73,7 +74,7 @@ class OSRNFragment : Fragment(R.layout.activity_main) {
         )
       )
 
-      Ondato.startIdentification(ctx, object : Ondato.ResultListener {
+      Ondato.INSTANCE.startIdentification(ctx, object : Ondato.ResultListener {
         override fun onSuccess(identificationId: String?) {
           Log.d("OndatoSdk", "Success!")
           if (identificationId != null) {

@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* OndatoSdkReactNativeExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OndatoSdkReactNativeExampleTests.m */; };
+		0357AAEB485CC379D3AE42BB /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C559186A6041315C5CD60FBF /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */; };
 		03CCC29229DE95AB002CD064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CCC29129DE95AB002CD064 /* LaunchScreen.storyboard */; };
+		0B60892304E443FCE05A4434 /* libPods-OndatoSdkReactNativeExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5A3180DB087792E124D4AC /* libPods-OndatoSdkReactNativeExample.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3B1DC65BB86A67C9955F814D /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D4387721F54275D791A955 /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */; };
 		3D0137D313C620703970ED64 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 42CB9AB94129F44D5357CAD2 /* PrivacyInfo.xcprivacy */; };
-		E2E62C98365142E7AA3E235E /* libPods-OndatoSdkReactNativeExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E71F0A7AB4E8A6D9E76D4E /* libPods-OndatoSdkReactNativeExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +39,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OndatoSdkReactNativeExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OndatoSdkReactNativeExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = OndatoSdkReactNativeExample/main.m; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample.debug.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample.debug.xcconfig"; sourceTree = "<group>"; };
-		42CB9AB94129F44D5357CAD2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = OndatoSdkReactNativeExample/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-OndatoSdkReactNativeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample.release.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		70E71F0A7AB4E8A6D9E76D4E /* libPods-OndatoSdkReactNativeExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OndatoSdkReactNativeExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		96D4387721F54275D791A955 /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1789173D63523F41CF912D7D /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42CB9AB94129F44D5357CAD2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = OndatoSdkReactNativeExample/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6D5D69D2E15B990A12819EBF /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F5A3180DB087792E124D4AC /* libPods-OndatoSdkReactNativeExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OndatoSdkReactNativeExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A170B10C1E0838F24D15855C /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample.debug.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample.debug.xcconfig"; sourceTree = "<group>"; };
+		C559186A6041315C5CD60FBF /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72AF5DEB53625D3E621BD1E /* Pods-OndatoSdkReactNativeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OndatoSdkReactNativeExample.release.xcconfig"; path = "Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1DC65BB86A67C9955F814D /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a in Frameworks */,
+				0357AAEB485CC379D3AE42BB /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E62C98365142E7AA3E235E /* libPods-OndatoSdkReactNativeExample.a in Frameworks */,
+				0B60892304E443FCE05A4434 /* libPods-OndatoSdkReactNativeExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				70E71F0A7AB4E8A6D9E76D4E /* libPods-OndatoSdkReactNativeExample.a */,
-				96D4387721F54275D791A955 /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */,
+				8F5A3180DB087792E124D4AC /* libPods-OndatoSdkReactNativeExample.a */,
+				C559186A6041315C5CD60FBF /* libPods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,10 +145,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-OndatoSdkReactNativeExample.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */,
+				A170B10C1E0838F24D15855C /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */,
+				D72AF5DEB53625D3E621BD1E /* Pods-OndatoSdkReactNativeExample.release.xcconfig */,
+				1789173D63523F41CF912D7D /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */,
+				6D5D69D2E15B990A12819EBF /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -160,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "OndatoSdkReactNativeExampleTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				B0E6E58557D5CF69C74B3BED /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				D2EEF62445F888AB2A360155 /* [CP] Copy Pods Resources */,
+				8F6E77F886D16BF5299F23C6 /* [CP] Embed Pods Frameworks */,
+				0C644C32018E129F2D6321E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,14 +181,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "OndatoSdkReactNativeExample" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				07195AA3B8A2F5C7BD503905 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				1773A4BDB881607B7317ACBA /* [CP] Copy Pods Resources */,
+				1704E6C2BB740078CAE82C69 /* [CP] Embed Pods Frameworks */,
+				5FE84F3E7ECB0505C3BDB2C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,63 +272,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1773A4BDB881607B7317ACBA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		07195AA3B8A2F5C7BD503905 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,7 +294,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+		0C644C32018E129F2D6321E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1704E6C2BB740078CAE82C69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FE84F3E7ECB0505C3BDB2C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F6E77F886D16BF5299F23C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,21 +362,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2EEF62445F888AB2A360155 /* [CP] Copy Pods Resources */ = {
+		B0E6E58557D5CF69C74B3BED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -436,7 +436,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */;
+			baseConfigurationReference = 1789173D63523F41CF912D7D /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -463,7 +463,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */;
+			baseConfigurationReference = 6D5D69D2E15B990A12819EBF /* Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -487,7 +487,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */;
+			baseConfigurationReference = A170B10C1E0838F24D15855C /* Pods-OndatoSdkReactNativeExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -500,13 +500,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.5.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ondato.sdk.test.rn;
 				PRODUCT_NAME = OndatoSdkReactNativeExample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -516,7 +516,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-OndatoSdkReactNativeExample.release.xcconfig */;
+			baseConfigurationReference = D72AF5DEB53625D3E621BD1E /* Pods-OndatoSdkReactNativeExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -528,13 +528,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.5.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ondato.sdk.test.rn;
 				PRODUCT_NAME = OndatoSdkReactNativeExample;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -614,7 +614,8 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					" ",
+					"-Wl",
+					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -687,7 +688,8 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					" ",
+					"-Wl",
+					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
