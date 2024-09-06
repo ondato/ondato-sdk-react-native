@@ -21,9 +21,9 @@ This SDK provides a drop-in set of screens and tools for iOS applications to all
 ## Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.4.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.8.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.4.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.3/ondato-sdk-react-native-2.5.8.tgz
 ```
 
 ## Requirements

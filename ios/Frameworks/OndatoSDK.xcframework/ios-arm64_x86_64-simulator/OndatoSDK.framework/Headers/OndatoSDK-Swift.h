@@ -455,7 +455,6 @@ SWIFT_CLASS("_TtC9OndatoSDK23CompatibleAnimationView")
 
 
 
-
 @protocol OndatoFlowDelegate;
 @class OndatoServiceConfiguration;
 @class OndatoViewController;
@@ -620,12 +619,31 @@ SWIFT_CLASS_NAMED("OndatoServiceError")
 typedef SWIFT_ENUM_NAMED(NSInteger, OndatoServiceErrorType, "OndatoServiceErrorType", open) {
   OndatoServiceErrorTypeCancelled = 0,
   OndatoServiceErrorTypeConsentDenied = 1,
-  OndatoServiceErrorTypeInvalidServerResponse = 2,
-  OndatoServiceErrorTypeInvalidCredentials = 3,
-  OndatoServiceErrorTypeRecorderPermissions = 4,
-  OndatoServiceErrorTypeUnexpectedInternalError = 5,
-  OndatoServiceErrorTypeVerificationFailed = 6,
-  OndatoServiceErrorTypeNfcNotSupported = 7,
+  OndatoServiceErrorTypeFaceDataNotPresent = 2,
+  OndatoServiceErrorTypeInvalidServerResponse = 3,
+  OndatoServiceErrorTypeInvalidCredentials = 4,
+  OndatoServiceErrorTypeRecorderPermissions = 5,
+  OndatoServiceErrorTypeRecorderStartError = 6,
+  OndatoServiceErrorTypeRecorderEndError = 7,
+  OndatoServiceErrorTypeVerificationFailed = 8,
+  OndatoServiceErrorTypeNfcNotSupported = 9,
+  OndatoServiceErrorTypeAccessToken = 10,
+  OndatoServiceErrorTypeIdvConfig = 11,
+  OndatoServiceErrorTypeIdvSetup = 12,
+  OndatoServiceErrorTypeFacetecSdk = 13,
+  OndatoServiceErrorTypeFaceSetup = 14,
+  OndatoServiceErrorTypeFacetecLicense = 15,
+  OndatoServiceErrorTypeKycCompleted = 16,
+  OndatoServiceErrorTypeKycConfig = 17,
+  OndatoServiceErrorTypeKycId = 18,
+  OndatoServiceErrorTypeKycSetup = 19,
+  OndatoServiceErrorTypeMrzScanner = 20,
+  OndatoServiceErrorTypePersonalCodeUpload = 21,
+  OndatoServiceErrorTypeRecordingUpload = 22,
+  OndatoServiceErrorTypeRestartFailed = 23,
+  OndatoServiceErrorTypeVerificationFailedNoStatus = 24,
+  OndatoServiceErrorTypeVerificationStatusFailed = 25,
+  OndatoServiceErrorTypeWrongBuild = 26,
 };
 
 typedef SWIFT_ENUM_NAMED(NSInteger, OndatoSupportedLanguage, "OndatoSupportedLanguage", open) {
@@ -660,15 +678,6 @@ SWIFT_CLASS("_TtC9OndatoSDK20OndatoViewController")
 - (nonnull instancetype)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<UIPageViewControllerOptionsKey, id> * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
-
-SWIFT_CLASS("_TtC9OndatoSDK14PassportReader") SWIFT_AVAILABILITY(ios,introduced=13)
-@interface PassportReader : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 
 
 
@@ -1163,7 +1172,6 @@ SWIFT_CLASS("_TtC9OndatoSDK23CompatibleAnimationView")
 
 
 
-
 @protocol OndatoFlowDelegate;
 @class OndatoServiceConfiguration;
 @class OndatoViewController;
@@ -1328,12 +1336,31 @@ SWIFT_CLASS_NAMED("OndatoServiceError")
 typedef SWIFT_ENUM_NAMED(NSInteger, OndatoServiceErrorType, "OndatoServiceErrorType", open) {
   OndatoServiceErrorTypeCancelled = 0,
   OndatoServiceErrorTypeConsentDenied = 1,
-  OndatoServiceErrorTypeInvalidServerResponse = 2,
-  OndatoServiceErrorTypeInvalidCredentials = 3,
-  OndatoServiceErrorTypeRecorderPermissions = 4,
-  OndatoServiceErrorTypeUnexpectedInternalError = 5,
-  OndatoServiceErrorTypeVerificationFailed = 6,
-  OndatoServiceErrorTypeNfcNotSupported = 7,
+  OndatoServiceErrorTypeFaceDataNotPresent = 2,
+  OndatoServiceErrorTypeInvalidServerResponse = 3,
+  OndatoServiceErrorTypeInvalidCredentials = 4,
+  OndatoServiceErrorTypeRecorderPermissions = 5,
+  OndatoServiceErrorTypeRecorderStartError = 6,
+  OndatoServiceErrorTypeRecorderEndError = 7,
+  OndatoServiceErrorTypeVerificationFailed = 8,
+  OndatoServiceErrorTypeNfcNotSupported = 9,
+  OndatoServiceErrorTypeAccessToken = 10,
+  OndatoServiceErrorTypeIdvConfig = 11,
+  OndatoServiceErrorTypeIdvSetup = 12,
+  OndatoServiceErrorTypeFacetecSdk = 13,
+  OndatoServiceErrorTypeFaceSetup = 14,
+  OndatoServiceErrorTypeFacetecLicense = 15,
+  OndatoServiceErrorTypeKycCompleted = 16,
+  OndatoServiceErrorTypeKycConfig = 17,
+  OndatoServiceErrorTypeKycId = 18,
+  OndatoServiceErrorTypeKycSetup = 19,
+  OndatoServiceErrorTypeMrzScanner = 20,
+  OndatoServiceErrorTypePersonalCodeUpload = 21,
+  OndatoServiceErrorTypeRecordingUpload = 22,
+  OndatoServiceErrorTypeRestartFailed = 23,
+  OndatoServiceErrorTypeVerificationFailedNoStatus = 24,
+  OndatoServiceErrorTypeVerificationStatusFailed = 25,
+  OndatoServiceErrorTypeWrongBuild = 26,
 };
 
 typedef SWIFT_ENUM_NAMED(NSInteger, OndatoSupportedLanguage, "OndatoSupportedLanguage", open) {
@@ -1368,15 +1395,6 @@ SWIFT_CLASS("_TtC9OndatoSDK20OndatoViewController")
 - (nonnull instancetype)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<UIPageViewControllerOptionsKey, id> * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
-
-SWIFT_CLASS("_TtC9OndatoSDK14PassportReader") SWIFT_AVAILABILITY(ios,introduced=13)
-@interface PassportReader : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 
 
 
