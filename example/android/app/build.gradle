@@ -95,11 +95,11 @@ android {
 
     namespace "com.ondatosdkreactnativeexample"
     defaultConfig {
-        applicationId "com.ondatosdkreactnativeexample"
+        applicationId "com.ondato.sdk.test.rn"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "2.5.6"
     }
 
     splits {
