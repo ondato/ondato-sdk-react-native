@@ -100,6 +100,7 @@ class OSRNFragment : Fragment(R.layout.activity_main) {
 
           var status = when (error) {
             OndatoError.CANCELED -> OSRNStatus.CANCELLED
+            OndatoError.WRONG_BUILD,
             OndatoError.BAD_SERVER_RESPONSE,
             OndatoError.NFC_NOT_SUPPORTED,
             OndatoError.TOO_MANY_ATTEMPTS,

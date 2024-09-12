@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

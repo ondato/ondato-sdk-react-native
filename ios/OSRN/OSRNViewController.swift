@@ -36,18 +36,56 @@ extension OSRNViewController: OndatoFlowDelegate {
             event.message = "The process was cancelled by the user."
         case .consentDenied:
             event.message = "The user has denied consent."
+        case faceDataNotPresent:
+            event.message = "Face authenticaton data is not present."
         case .invalidServerResponse:
             event.message = "Received an invalid server response."
         case .invalidCredentials:
             event.message = "Invalid credentials provided."
         case .recorderPermissions:
             event.message = "Recorder permissions are not granted."
-        case .unexpectedInternalError:
-            event.message = "An unexpected internal error occurred."
+        case recorderStartError:
+            event.message = "Recorder failed to start recording."
+        case recorderEndError:
+            event.message = "Recorder failed to finish recording."
         case .verificationFailed:
             event.message = "Verification process failed."
         case .nfcNotSupported:
             event.message = "NFC is not supported on this device."
+        case accessToken:
+            event.message = "Failed to retrieve full access token."
+        case idvConfig:
+            event.message = "Failed to retrieve IDV configuration."
+        case idvSetup:
+            event.message = "Failed to retrieve IDV setup"
+        case facetecSdk:
+            event.message = "Face recognition sessio failed"
+        case faceSetup:
+            event.message = "Failed to retrive face auth config"
+        case facetecLicense:
+            event.message = "Failed to retrieve face license"
+        case kycCompleted:
+            event.message = "Failed to complete verification"
+        case kycConfig:
+            event.message = "Failed to retrieve kyc config"
+        case kycId:
+            event.message = "Failed to retrieve kyc id"
+        case kycSetup:
+            event.message = "Failed to retrieve kyc setup"
+        case mrzScanner:
+            event.message = "Failed to start mrz scanner"
+        case personalCodeUpload:
+            event.message = "Personal code upload fialed"
+        case recordingUpload:
+            event.message = "Recording upload failed"
+        case restartFailed:
+            event.message = "Session restart failed"
+        case verificationFailedNoStatus:
+            event.message = "Verification failed with an unknown status"
+        case verificationStatusFailed:
+            event.message = "Verification status check failed"
+        case wrongBuild:
+            event.message = "Application is attempting to use unsupported behavior (recording, NFC)"
         @unknown default:
             print("This was unexpected")
         }
