@@ -36,7 +36,7 @@ extension OSRNViewController: OndatoFlowDelegate {
             event.message = "The process was cancelled by the user."
         case .consentDenied:
             event.message = "The user has denied consent."
-        case faceDataNotPresent:
+        case .faceDataNotPresent:
             event.message = "Face authenticaton data is not present."
         case .invalidServerResponse:
             event.message = "Received an invalid server response."
@@ -44,47 +44,47 @@ extension OSRNViewController: OndatoFlowDelegate {
             event.message = "Invalid credentials provided."
         case .recorderPermissions:
             event.message = "Recorder permissions are not granted."
-        case recorderStartError:
+        case .recorderStartError:
             event.message = "Recorder failed to start recording."
-        case recorderEndError:
+        case .recorderEndError:
             event.message = "Recorder failed to finish recording."
         case .verificationFailed:
             event.message = "Verification process failed."
         case .nfcNotSupported:
             event.message = "NFC is not supported on this device."
-        case accessToken:
+        case .accessToken:
             event.message = "Failed to retrieve full access token."
-        case idvConfig:
+        case .idvConfig:
             event.message = "Failed to retrieve IDV configuration."
-        case idvSetup:
+        case .idvSetup:
             event.message = "Failed to retrieve IDV setup"
-        case facetecSdk:
+        case .facetecSdk:
             event.message = "Face recognition sessio failed"
-        case faceSetup:
+        case .faceSetup:
             event.message = "Failed to retrive face auth config"
-        case facetecLicense:
+        case .facetecLicense:
             event.message = "Failed to retrieve face license"
-        case kycCompleted:
+        case .kycCompleted:
             event.message = "Failed to complete verification"
-        case kycConfig:
+        case .kycConfig:
             event.message = "Failed to retrieve kyc config"
-        case kycId:
+        case .kycId:
             event.message = "Failed to retrieve kyc id"
-        case kycSetup:
+        case .kycSetup:
             event.message = "Failed to retrieve kyc setup"
-        case mrzScanner:
+        case .mrzScanner:
             event.message = "Failed to start mrz scanner"
-        case personalCodeUpload:
+        case .personalCodeUpload:
             event.message = "Personal code upload fialed"
-        case recordingUpload:
+        case .recordingUpload:
             event.message = "Recording upload failed"
-        case restartFailed:
+        case .restartFailed:
             event.message = "Session restart failed"
-        case verificationFailedNoStatus:
+        case .verificationFailedNoStatus:
             event.message = "Verification failed with an unknown status"
-        case verificationStatusFailed:
+        case .verificationStatusFailed:
             event.message = "Verification status check failed"
-        case wrongBuild:
+        case .wrongBuild:
             event.message = "Application is attempting to use unsupported behavior (recording, NFC)"
         @unknown default:
             print("This was unexpected")
