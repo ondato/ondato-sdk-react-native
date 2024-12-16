@@ -21,9 +21,9 @@ This SDK provides a drop-in set of screens and tools for iOS applications to all
 ## Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.10/ondato-sdk-react-native-2.5.11.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.10/ondato-sdk-react-native-2.5.12.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.10/ondato-sdk-react-native-2.5.11.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.5.10/ondato-sdk-react-native-2.5.12.tgz
 ```
 
 ## Requirements
@@ -63,7 +63,7 @@ allprojects {
 
 ### iOS
 
-The Stripe React Native SDK requires Xcode 13.2.1 or later and is compatible with apps targeting iOS 13 or above.
+The Ondato React Native SDK requires Xcode 13.2.1 or later and is compatible with apps targeting iOS 13 or above.
 
 1. Add the following to your `Info.plist` file, this is required by `Ondato SDK` to work properly:
 
