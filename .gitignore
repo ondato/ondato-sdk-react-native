@@ -72,4 +72,3 @@ lib/
 # Custom
 *.hprof
 .env
-*.tgz

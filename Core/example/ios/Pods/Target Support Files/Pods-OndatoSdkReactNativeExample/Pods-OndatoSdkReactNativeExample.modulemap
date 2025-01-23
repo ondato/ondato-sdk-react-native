@@ -1,0 +1,6 @@
+module Pods_OndatoSdkReactNativeExample {
+  umbrella header "Pods-OndatoSdkReactNativeExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

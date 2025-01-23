@@ -1,0 +1,1 @@
+../../../Target Support Files/ondato-sdk-react-native/ondato-sdk-react-native-umbrella.h

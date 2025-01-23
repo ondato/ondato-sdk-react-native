@@ -1,0 +1,16 @@
+{
+  "name": "ondato-sdk-react-native-nfc",
+  "version": "2.6.0",
+  "summary": "test",
+  "homepage": "https://github.com/ondato/ondato-sdk-react-native#readme",
+  "license": "MIT",
+  "authors": "Ondato <info@ondato.com> (https://github.com/ondato)",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/ondato/ondato-sdk-react-native.git",
+    "tag": "2.6.0"
+  },
+  "vendored_frameworks": "ios/*.xcframework"
+}

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests/Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/ondato-sdk-react-native/OSRN.bundle
