@@ -62,6 +62,9 @@ allprojects {
         maven {
             url "$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo"
         }
+        maven { 
+            url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/"
+        }
     }
 }
 ```
