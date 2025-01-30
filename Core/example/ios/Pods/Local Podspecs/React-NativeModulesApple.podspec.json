@@ -23,35 +23,15 @@
   },
   "source_files": "ReactCommon/**/*.{mm,cpp,h}",
   "dependencies": {
-    "glog": [
-
-    ],
-    "ReactCommon/turbomodule/core": [
-
-    ],
-    "ReactCommon/turbomodule/bridging": [
-
-    ],
-    "React-callinvoker": [
-
-    ],
-    "React-Core": [
-
-    ],
-    "React-cxxreact": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-runtimeexecutor": [
-
-    ],
-    "React-jsinspector": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "glog": [],
+    "ReactCommon/turbomodule/core": [],
+    "ReactCommon/turbomodule/bridging": [],
+    "React-callinvoker": [],
+    "React-Core": [],
+    "React-cxxreact": [],
+    "React-jsi": [],
+    "React-runtimeexecutor": [],
+    "React-jsinspector": [],
+    "hermes-engine": []
   }
 }

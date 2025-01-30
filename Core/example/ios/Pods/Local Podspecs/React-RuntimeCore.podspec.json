@@ -32,38 +32,16 @@
     "RCT-Folly/Fabric": [
       "2024.01.01.00"
     ],
-    "React-jsiexecutor": [
-
-    ],
-    "React-cxxreact": [
-
-    ],
-    "React-runtimeexecutor": [
-
-    ],
-    "glog": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-jserrorhandler": [
-
-    ],
-    "React-runtimescheduler": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-featureflags": [
-
-    ],
-    "hermes-engine": [
-
-    ],
-    "React-jsinspector": [
-
-    ]
+    "React-jsiexecutor": [],
+    "React-cxxreact": [],
+    "React-runtimeexecutor": [],
+    "glog": [],
+    "React-jsi": [],
+    "React-jserrorhandler": [],
+    "React-runtimescheduler": [],
+    "React-utils": [],
+    "React-featureflags": [],
+    "hermes-engine": [],
+    "React-jsinspector": []
   }
 }

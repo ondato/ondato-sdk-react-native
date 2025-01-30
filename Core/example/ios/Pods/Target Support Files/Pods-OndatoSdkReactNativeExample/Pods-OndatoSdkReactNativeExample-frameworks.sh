@@ -179,17 +179,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/FaceTecSDK.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/OndatoSDK.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-nfc/OndatoNFC.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-nfc/OpenSSL.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-screen-recorder/OndatoScreenRecorder.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/FaceTecSDK.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/OndatoSDK.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-nfc/OndatoNFC.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-nfc/OpenSSL.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native-screen-recorder/OndatoScreenRecorder.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

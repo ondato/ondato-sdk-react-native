@@ -31,20 +31,10 @@
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "React-jsi": [
-
-    ],
-    "React-Core/RCTVibrationHeaders": [
-
-    ],
-    "React-Codegen": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ]
+    "React-jsi": [],
+    "React-Core/RCTVibrationHeaders": [],
+    "React-Codegen": [],
+    "ReactCommon": [],
+    "React-NativeModulesApple": []
   }
 }

@@ -25,14 +25,10 @@
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "DoubleConversion": [
-
-    ],
+    "DoubleConversion": [],
     "fmt": [
       "9.1.0"
     ],
-    "React-debug": [
-
-    ]
+    "React-debug": []
   }
 }

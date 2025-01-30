@@ -16,75 +16,33 @@
   "source_files": "**/*.{h,mm,cpp}",
   "pod_target_xcconfig": {
     "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/RCT-Folly\" \"$(PODS_ROOT)/DoubleConversion\" \"$(PODS_ROOT)/fmt/include\" \"${PODS_ROOT}/Headers/Public/React-Codegen/react/renderer/components\" \"$(PODS_ROOT)/Headers/Private/React-Fabric\" \"$(PODS_ROOT)/Headers/Private/React-RCTFabric\" \"$(PODS_ROOT)/Headers/Private/Yoga\" \"$(PODS_ROOT)/DoubleConversion\" \"$(PODS_ROOT)/fmt/include\" \"$(PODS_TARGET_SRCROOT)\"",
-    "FRAMEWORK_SEARCH_PATHS": [
-
-    ]
+    "FRAMEWORK_SEARCH_PATHS": []
   },
   "dependencies": {
-    "React-jsiexecutor": [
-
-    ],
-    "RCT-Folly": [
-
-    ],
-    "RCTRequired": [
-
-    ],
-    "RCTTypeSafety": [
-
-    ],
-    "React-Core": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "ReactCommon/turbomodule/bridging": [
-
-    ],
-    "ReactCommon/turbomodule/core": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ],
-    "glog": [
-
-    ],
-    "DoubleConversion": [
-
-    ],
-    "React-graphics": [
-
-    ],
-    "React-rendererdebug": [
-
-    ],
-    "React-Fabric": [
-
-    ],
-    "React-FabricImage": [
-
-    ],
-    "React-debug": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-featureflags": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "React-jsiexecutor": [],
+    "RCT-Folly": [],
+    "RCTRequired": [],
+    "RCTTypeSafety": [],
+    "React-Core": [],
+    "React-jsi": [],
+    "ReactCommon/turbomodule/bridging": [],
+    "ReactCommon/turbomodule/core": [],
+    "React-NativeModulesApple": [],
+    "glog": [],
+    "DoubleConversion": [],
+    "React-graphics": [],
+    "React-rendererdebug": [],
+    "React-Fabric": [],
+    "React-FabricImage": [],
+    "React-debug": [],
+    "React-utils": [],
+    "React-featureflags": [],
+    "hermes-engine": []
   },
   "script_phases": {
     "name": "Generate Specs",
     "execution_position": "before_compile",
-    "input_files": [
-
-    ],
+    "input_files": [],
     "show_env_vars_in_log": true,
     "output_files": [
       "${DERIVED_FILE_DIR}/react-codegen.log"

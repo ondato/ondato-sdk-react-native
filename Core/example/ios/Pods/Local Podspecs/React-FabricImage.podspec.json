@@ -34,44 +34,20 @@
     "RCTTypeSafety": [
       "0.74.1"
     ],
-    "React-jsi": [
-
-    ],
-    "React-logger": [
-
-    ],
-    "glog": [
-
-    ],
-    "DoubleConversion": [
-
-    ],
+    "React-jsi": [],
+    "React-logger": [],
+    "glog": [],
+    "DoubleConversion": [],
     "fmt": [
       "9.1.0"
     ],
-    "React-ImageManager": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "Yoga": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "React-graphics": [
-
-    ],
-    "React-Fabric": [
-
-    ],
-    "React-rendererdebug": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "React-ImageManager": [],
+    "React-utils": [],
+    "Yoga": [],
+    "ReactCommon": [],
+    "React-graphics": [],
+    "React-Fabric": [],
+    "React-rendererdebug": [],
+    "hermes-engine": []
   }
 }

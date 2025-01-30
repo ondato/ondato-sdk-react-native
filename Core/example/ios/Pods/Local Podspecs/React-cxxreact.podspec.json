@@ -24,21 +24,15 @@
     "boost": [
       "1.83.0"
     ],
-    "DoubleConversion": [
-
-    ],
+    "DoubleConversion": [],
     "fmt": [
       "9.1.0"
     ],
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "glog": [
-
-    ],
-    "React-jsinspector": [
-
-    ],
+    "glog": [],
+    "React-jsinspector": [],
     "React-callinvoker": [
       "0.74.1"
     ],
@@ -57,8 +51,6 @@
     "React-debug": [
       "0.74.1"
     ],
-    "hermes-engine": [
-
-    ]
+    "hermes-engine": []
   }
 }

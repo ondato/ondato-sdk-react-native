@@ -30,54 +30,22 @@
     "RCT-Folly/Fabric": [
       "2024.01.01.00"
     ],
-    "React-jsiexecutor": [
-
-    ],
-    "React-cxxreact": [
-
-    ],
-    "React-callinvoker": [
-
-    ],
-    "React-runtimeexecutor": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-Core/Default": [
-
-    ],
-    "React-CoreModules": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ],
-    "React-RCTFabric": [
-
-    ],
-    "React-RuntimeCore": [
-
-    ],
-    "React-Mapbuffer": [
-
-    ],
-    "React-jserrorhandler": [
-
-    ],
-    "React-jsinspector": [
-
-    ],
-    "hermes-engine": [
-
-    ],
-    "React-RuntimeHermes": [
-
-    ]
+    "React-jsiexecutor": [],
+    "React-cxxreact": [],
+    "React-callinvoker": [],
+    "React-runtimeexecutor": [],
+    "React-utils": [],
+    "React-jsi": [],
+    "React-Core/Default": [],
+    "React-CoreModules": [],
+    "React-NativeModulesApple": [],
+    "React-RCTFabric": [],
+    "React-RuntimeCore": [],
+    "React-Mapbuffer": [],
+    "React-jserrorhandler": [],
+    "React-jsinspector": [],
+    "hermes-engine": [],
+    "React-RuntimeHermes": []
   },
   "exclude_files": "ReactCommon/RCTJscInstance.{mm,h}"
 }

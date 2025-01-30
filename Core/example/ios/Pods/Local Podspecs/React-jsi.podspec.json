@@ -22,21 +22,15 @@
     "boost": [
       "1.83.0"
     ],
-    "DoubleConversion": [
-
-    ],
+    "DoubleConversion": [],
     "fmt": [
       "9.1.0"
     ],
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "glog": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "glog": [],
+    "hermes-engine": []
   },
   "source_files": "**/*.{cpp,h}",
   "exclude_files": [

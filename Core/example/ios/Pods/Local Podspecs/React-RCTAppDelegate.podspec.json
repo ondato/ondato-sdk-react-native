@@ -25,74 +25,30 @@
     "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Headers/Private/React-Core\""
   },
   "dependencies": {
-    "React-Core": [
-
-    ],
+    "React-Core": [],
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "RCTRequired": [
-
-    ],
-    "RCTTypeSafety": [
-
-    ],
-    "React-RCTNetwork": [
-
-    ],
-    "React-RCTImage": [
-
-    ],
-    "React-CoreModules": [
-
-    ],
-    "React-nativeconfig": [
-
-    ],
-    "React-Codegen": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ],
-    "React-runtimescheduler": [
-
-    ],
-    "React-RCTFabric": [
-
-    ],
-    "React-RuntimeCore": [
-
-    ],
-    "React-RuntimeApple": [
-
-    ],
-    "React-Fabric": [
-
-    ],
-    "React-graphics": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-debug": [
-
-    ],
-    "React-rendererdebug": [
-
-    ],
-    "React-featureflags": [
-
-    ],
-    "React-hermes": [
-
-    ],
-    "React-RuntimeHermes": [
-
-    ]
+    "RCTRequired": [],
+    "RCTTypeSafety": [],
+    "React-RCTNetwork": [],
+    "React-RCTImage": [],
+    "React-CoreModules": [],
+    "React-nativeconfig": [],
+    "React-Codegen": [],
+    "ReactCommon": [],
+    "React-NativeModulesApple": [],
+    "React-runtimescheduler": [],
+    "React-RCTFabric": [],
+    "React-RuntimeCore": [],
+    "React-RuntimeApple": [],
+    "React-Fabric": [],
+    "React-graphics": [],
+    "React-utils": [],
+    "React-debug": [],
+    "React-rendererdebug": [],
+    "React-featureflags": [],
+    "React-hermes": [],
+    "React-RuntimeHermes": []
   }
 }

@@ -32,20 +32,12 @@
     "RCT-Folly": [
       "2024.01.01.00"
     ],
-    "DoubleConversion": [
-
-    ],
+    "DoubleConversion": [],
     "fmt": [
       "9.1.0"
     ],
-    "glog": [
-
-    ],
-    "React-jsinspector": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "glog": [],
+    "React-jsinspector": [],
+    "hermes-engine": []
   }
 }
