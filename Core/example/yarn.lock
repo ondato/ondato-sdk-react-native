@@ -3213,6 +3213,11 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
   integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 log-symbols@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/log-symbols/-/log-symbols-4.1.0.tgz"
@@ -3724,6 +3729,13 @@ once@^1.3.0:
   integrity sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==
   dependencies:
     wrappy "1"
+
+"ondato-sdk-react-native@file:/../../ondato-sdk-react-native-2.6.1.tgz":
+  version "2.6.1"
+  resolved "file:../../ondato-sdk-react-native-2.6.1.tgz"
+  integrity sha512-G6JXfDAKHDIKhmx+mROJlFCoP3s/xY4ocUwVwc1ip8etp1aEJnQktApcFppvZ3dv+874gy0KJEZJif2dDzjE+Q==
+  dependencies:
+    lodash "^4.17.21"
 
 onetime@^5.1.0, onetime@^5.1.2:
   version "5.1.2"
