@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native-screen-recorder",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

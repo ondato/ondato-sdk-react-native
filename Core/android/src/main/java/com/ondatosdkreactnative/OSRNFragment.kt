@@ -66,7 +66,7 @@ class OSRNFragment : Fragment(R.layout.activity_main) {
         .build()
 
 
-      Ondato.INSTANCE.init(config)
+      Ondato.init(config)
       updateState(
         OSRNState(
           OSRNStatus.INITIALIZED,
@@ -74,7 +74,7 @@ class OSRNFragment : Fragment(R.layout.activity_main) {
         )
       )
 
-      Ondato.INSTANCE.startIdentification(ctx, object : Ondato.ResultListener {
+      Ondato.startIdentification(ctx, object : Ondato.ResultListener {
         override fun onSuccess(identificationId: String?) {
           Log.d("OndatoSdk", "Success!")
           if (identificationId != null) {
