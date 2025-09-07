@@ -1,4 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks.sh
-${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes
-${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/FaceTecSDK.framework/FaceTecSDK
-${PODS_XCFRAMEWORKS_BUILD_DIR}/ondato-sdk-react-native/OndatoSDK.framework/OndatoSDK

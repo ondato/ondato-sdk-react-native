@@ -1,6 +1,0 @@
-framework module OndatoNFC {
-  umbrella header "OndatoNFC.h"
-  export *
-
-  module * { export * }
-}

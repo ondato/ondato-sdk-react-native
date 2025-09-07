@@ -1,6 +1,0 @@
-module Pods_OndatoSdkReactNativeExample_OndatoSdkReactNativeExampleTests {
-  umbrella header "Pods-OndatoSdkReactNativeExample-OndatoSdkReactNativeExampleTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

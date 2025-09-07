@@ -1,6 +1,0 @@
-framework module OndatoScreenRecorder {
-  umbrella header "OndatoScreenRecorder.h"
-  export *
-
-  module * { export * }
-}
