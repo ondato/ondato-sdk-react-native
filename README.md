@@ -28,48 +28,13 @@ or
 npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-2.6.6.tgz
 ```
 
-If you additionally require to use the NFC functionality please also add the NFC package
-```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-nfc-2.6.6.tgz
-or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-nfc-2.6.6.tgz
-```
-
-If you additionally require to use the Screen Recorder functionality please also add the Screen Recorder package
-```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-screen-recorder-2.6.6.tgz
-or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-screen-recorder-2.6.6.tgz
-```
-
 ## Requirements
 
 > **_NOTE:_** We recommend you lock your app to `portrait` orientation.
 
 ### Android
 
-1. Add a below repository to your `android/build.gradle`:
-
-```groovy
-// ...
-allprojects {
-    repositories {
-        // ...
-        // Add this to your project
-        maven {
-            url "$rootDir/../../android/local/repo"
-        }
-        maven {
-            url "$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo"
-        }
-        maven { 
-            url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/"
-        }
-    }
-}
-```
-
-2. Add camera permissions to your `AndroidManifest.xml`:
+1. Add camera permissions to your `AndroidManifest.xml`:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -113,57 +78,53 @@ The Ondato React Native SDK requires Xcode 13.2.1 or later and is compatible wit
 ## Example
 
 ```tsx
-import React, { useCallback, useRef, useState } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
-import {
-  OndatoSdk,
-  OndatoSdkState,
-  OndatoSdkRef,
-  OndatoSdkConfig,
-} from 'ondato-sdk-react-native';
+import { useState } from 'react';
+import { IdentityVerificationID } from './IdentityVerificationID';
+import { View, StyleSheet, Pressable, Text } from 'react-native';
+import { startIdentification } from 'ondato-sdk-react-native';
 
-export default () => {
-  const ondatoSdkRef = useRef<OndatoSdkRef>(null);
+// https://ondato.atlassian.net/wiki/spaces/PUB/pages/2320990304/Authentication
+const SECRET = '<Your secret that will be provided by Ondato>';
 
-  const [config] = useState<OndatoSdkConfig>({
-    mode: 'test',
-    identityVerificationId: 'your-identity-verification-id',
-    language: 'en',
-    showSplashScreen: true,
-    showStartScreen: true,
-    showIdentificationWaitingScreen: true,
-    showSelfieFrame: true,
-    skipRegistrationIfDriverLicense: true,
-    showSuccessWindow: true,
-  });
+export default function App() {
+  const [id, setId] = useState('');
 
-  const onStateUpdate = useCallback((state: OndatoSdkState) => {
-    console.log(JSON.stringify(state, null, 2));
-  }, []);
+  const disabled = !id;
+
+  async function runOndato() {
+    try {
+      const result = await startIdentification({
+        identityVerificationId: id,
+      });
+
+      if (result.status === 'success') {
+        console.log('Success, id:', result.id);
+      } else {
+        console.error('Failed:', result.error);
+      }
+    } catch (e) {
+      console.error('Native error:', e);
+    }
+  }
 
   return (
     <View style={styles.container}>
-      <Button
-        disabled={!config?.identityVerificationId}
-        title="Start"
-        onPress={() => ondatoSdkRef.current?.open()}
-      />
-      <OndatoSdk
-        ref={ondatoSdkRef}
-        config={config}
-        onStateUpdate={onStateUpdate}
-      />
+      <IdentityVerificationID secret={SECRET} id={id} setId={setId} />
+
+      <Pressable
+        disabled={disabled}
+        onPress={runOndato}
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed,
+          disabled && styles.buttonDisabled,
+        ]}
+      >
+        <Text style={styles.buttonText}>Start Ondato</Text>
+      </Pressable>
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#eee',
-  },
-});
+}
 ```
 
 ## Styling
@@ -175,76 +136,58 @@ Currently, the SDK styling can be changed programmatically only for iOS side, in
 To change coloring for iOS side, you just need to pass one of the following properties with the config (or above if you want to customize extra styling options):
 
 ```jsx
-<OndatoSdk
-  ref={ondatoSdkRef}
-  config={{
-    // ...
-
-    // This sets the general styling of the SDK
-    simpleCustomization: {
-      primaryColor: '#fd5a28',
-      textColor: '#000000',
-      buttonTextColor: '#ffffff',
+let appearance = {
+  progressColor: '#fd5a28',
+  errorColor: '#fd5a28',
+  errorTextColor: '#ffffff',
+  buttonColor: '#fd5a28',
+  buttonTextColor: '#ffffff',
+  textColor: '#000000',
+  backgroundColor: '#ffffff',
+  imageTintColor: '#fd5a28',
+  consentWindow: {
+    acceptButton: {
+      font: {
+        name: 'default',
+        weight: 'regular',
+        size: 15,
+      },
+      backgroundColor: '#00000000',
+      tintColor: '#0000ff',
+      borderWidth: 0,
+      borderColor: '#00000000',
+      cornerRadius: 0,
     },
-    // You can change specific styling by passing this customization object,
-    // which overrides the simpleCustomization object, you can change as many
-    // values as you want and leave the rest as they are, because
-    // they are merged with the simpleCustomization object anyhow
-    iosCustomization: {
-      progressColor: '#fd5a28',
-      errorColor: '#fd5a28',
-      errorTextColor: '#ffffff',
-      buttonColor: '#fd5a28',
-      buttonTextColor: '#ffffff',
-      textColor: '#000000',
-      backgroundColor: '#ffffff',
-      imageTintColor: '#fd5a28',
-      consentWindow: {
-        acceptButton: {
-          font: {
-            name: 'default',
-            weight: 'regular',
-            size: 15,
-          },
-          backgroundColor: '#00000000',
-          tintColor: '#0000ff',
-          borderWidth: 0,
-          borderColor: '#00000000',
-          cornerRadius: 0,
-        },
-        declineButton: {
-          font: {
-            name: 'default',
-            weight: 'regular',
-            size: 15,
-          },
-          backgroundColor: '#00000000',
-          tintColor: '#0000ff',
-          borderWidth: 0,
-          borderColor: '#00000000',
-          cornerRadius: 0,
-        },
-        header: {
-          color: '#000000',
-          font: {
-            name: 'default',
-            weight: 'semibold',
-            size: 15,
-          },
-        },
-        body: {
-          textColor: '#000000',
-          font: {
-            name: 'default',
-            weight: 'regular',
-            size: 15,
-          },
-        },
+    declineButton: {
+      font: {
+        name: 'default',
+        weight: 'regular',
+        size: 15,
+      },
+      backgroundColor: '#00000000',
+      tintColor: '#0000ff',
+      borderWidth: 0,
+      borderColor: '#00000000',
+      cornerRadius: 0,
+    },
+    header: {
+      color: '#000000',
+      font: {
+        name: 'default',
+        weight: 'semibold',
+        size: 15,
       },
     },
-  }}
-  onStateUpdate={onStateUpdate}
-/>
+    body: {
+      textColor: '#000000',
+      font: {
+        name: 'default',
+        weight: 'regular',
+        size: 15,
+      },
+    },
+  },
+};
 ```
 
 ### Android
