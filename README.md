@@ -1,4 +1,4 @@
-# Ondato SDK for React Native
+# Ondato SDK for React Native (New Arch)
 
 ## Table of contents
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This SDK provides a drop-in set of screens and tools for iOS applications to allow capturing of identity documents and face photos/live videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding/identity verification experience for your customers:
+This SDK provides a drop-in set of screens and tools for React Native applications to allow capturing of identity documents and face photos/live videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding/identity verification experience for your customers:
 
 - Carefully designed UI to guide your customers through the entire photo/video-capturing process
 - Modular design to help you seamlessly integrate the photo/video-capturing process into your application flow
@@ -20,12 +20,12 @@ This SDK provides a drop-in set of screens and tools for iOS applications to all
 
 ## Installation
 
-
 If you want to use the core functionality please install the core package only:
+
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-2.6.6.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-2.6.8.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.6/ondato-sdk-react-native-2.6.6.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-2.6.8.tgz
 ```
 
 ## Requirements
@@ -34,20 +34,11 @@ npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/
 
 ### Android
 
-1. Add camera permissions to your `AndroidManifest.xml`:
-
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- ... -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!-- ... -->
-</manifest>
-
-```
+No native changes are required.
 
 ### iOS
 
-The Ondato React Native SDK requires Xcode 13.2.1 or later and is compatible with apps targeting iOS 13 or above.
+The Ondato React Native SDK requires Xcode 15 or later and is compatible with apps targeting iOS 15 or above.
 
 1. Add the following to your `Info.plist` file, this is required by `Ondato SDK` to work properly:
 
@@ -63,7 +54,13 @@ The Ondato React Native SDK requires Xcode 13.2.1 or later and is compatible wit
 </plist>
 ```
 
-2. Turn on `Near Field Communication Tag Reading` under the Capabilities tab for the project’s target. Official documentation can be found [here](https://help.apple.com/xcode/mac/current/#/dev88ff319e7).
+2. Run `pod install` in your `ios` directory to install the native dependencies.
+
+```bash
+pod install --repo-update
+# or
+bundle exec pod install --repo-update
+```
 
 3. Comment out or remove the following line in your `Podfile` (the example is based on `React Native 0.71.4` and might have variations on different versions), this is required because `Flipper` is currently not supported by `Ondato SDK`:
 
@@ -73,7 +70,75 @@ The Ondato React Native SDK requires Xcode 13.2.1 or later and is compatible wit
     # ...
 ```
 
-4. Run `pod install` in your `ios` directory to install the native dependencies.
+## Adding `Screen Recorder` and/or `NFC` support:
+
+### Android
+
+1. Add external maven repository to your `android/build.gradle`:
+
+```groovy
+allprojects {
+  repositories {
+    maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
+  }
+}
+```
+
+2. Add dependencies to your `android/app/build.gradle`:
+
+```groovy
+dependencies {
+  implementation("com.kyc.ondato:screen-recorder:2.6.7")
+  // and/or
+  implementation("com.kyc.ondato:nfc-reader:2.6.7")
+  // ...
+}
+```
+
+3. Permissions and other requirements are handled by [Manifest Merge](https://developer.android.com/build/manage-manifests#merge-manifests),
+   so no other native changes are required.
+
+### iOS
+
+1. Add relevant pods into your `Podfile` after `use_react_native!()` statement:
+
+```ruby
+  pod 'OndatoSDK', '= 2.6.8'
+  # and/or
+  pod 'OndatoScreenRecorder', '= 2.6.8'
+```
+
+2. Add permissions into your `Info.plist` file:
+
+```xml
+    <!-- Required for NFC -->
+    <key>NFCReaderUsageDescription</key>
+    <string>This app uses NFC to scan identification documents</string>
+
+    <!-- Required by ScreenRecorder -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app uses the microphone to record audio during the screen recording verification process</string>
+```
+
+3. Add entitlement for `NFC` by using one of these ways:
+
+1) [With the help of XCode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) by selecting your application as a target, going into `Signing & Capabilities`, hitting `+` and `Near Field Communication Tag Reading`.
+2) Add it directly to your `ios/AppName/AppName.entitlements`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Add this entitlement -->
+	<key>com.apple.developer.nfc.readersession.formats</key>
+	<array>
+		<string>TAG</string>
+	</array>
+  <!-- ... -->
+</dict>
+</plist>
+```
 
 ## Example
 
