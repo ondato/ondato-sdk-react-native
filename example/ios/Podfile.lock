@@ -8,15 +8,16 @@ PODS:
   - hermes-engine (0.81.0):
     - hermes-engine/Pre-built (= 0.81.0)
   - hermes-engine/Pre-built (0.81.0)
-  - OndatoSDK (2.6.6)
-  - OndatoSdkReactNative (2.6.6):
+  - OndatoScreenRecorder (2.6.8)
+  - OndatoSDK (2.6.8)
+  - OndatoSdkReactNative (2.6.8-newarch.0):
     - boost
     - DoubleConversion
     - fast_float
     - fmt
     - glog
     - hermes-engine
-    - OndatoSDK (= 2.6.6)
+    - OndatoSDK (= 2.6.8)
     - RCT-Folly
     - RCT-Folly/Fabric
     - RCTRequired
@@ -2351,6 +2352,8 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
+  - OndatoScreenRecorder (= 2.6.8)
+  - OndatoSDK (= 2.6.8)
   - OndatoSdkReactNative (from `../..`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -2422,6 +2425,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - OndatoScreenRecorder
     - OndatoSDK
     - SocketRocket
 
@@ -2582,8 +2586,9 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: e7491a2038f2618c8cd444ed411a6deb350a3742
-  OndatoSDK: 4f3d0365cebf13132e5b8573ce1654b82c9989f5
-  OndatoSdkReactNative: e99984b51acf8d47f9390739afe02957f4f5feba
+  OndatoScreenRecorder: 3f4d478eb43d3beb4fe71de99171960416958bfb
+  OndatoSDK: 8fba71ee2a1d950ea30899370a858028b8f82ec5
+  OndatoSdkReactNative: c34e5e5a9a041d093ed5fb48009313ee7c58e5e2
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 0735ab4f6b3ec93a7f98187b5da74d7916e2cf4c
   RCTRequired: 8fcc7801bfc433072287b0f24a662e2816e89d0c
@@ -2651,6 +2656,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: b01392348aeea02064c21a2762a42893d82b60a7
 
-PODFILE CHECKSUM: 52959e5e9fa63ceaca1af85d7d2efe1edb9b6afc
+PODFILE CHECKSUM: 3c77a603ec4113d1e91781a91f52b0c3fc15bbff
 
 COCOAPODS: 1.15.2
