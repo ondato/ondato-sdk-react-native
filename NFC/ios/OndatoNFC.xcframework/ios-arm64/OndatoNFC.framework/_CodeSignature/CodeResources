@@ -10,27 +10,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VGl8qQNHPWz8DCWK0l5Qfmh2vzQ=
+		pFWUsZ2QI2Qmk4F2g6Q2UN4wkyA=
 		</data>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		QhHVWIP3YZ3rEZjD0BR2F56ErhE=
+		r10AWjsnzKzbadL8OqiTU6VeOqk=
 		</data>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		yK4REfuVZbkszpd4Djho+snqQyI=
+		TBZDBd6wHQMTpfQOlHpGmjYsYEw=
 		</data>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		JWkjjnKQU0zAsrKaGwrOSCQc3DE=
+		mYBtCXAzt5Rg5n7yFz+rzp4NfCQ=
 		</data>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		yK4REfuVZbkszpd4Djho+snqQyI=
+		TBZDBd6wHQMTpfQOlHpGmjYsYEw=
 		</data>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		NDyNG+JZXnnm/YEPoe06koAfL2o=
+		ENDBGepC0ppf/7O20fXN7tt7oOA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,35 +50,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hb1hlqs2nyP/QuAxAC0ZW3o8rnPp4t6i+cZV9ecaJt8=
+			LUReQf8sNTkJOuwjfWPaDjRBogc2Y/MKtNl/qiXeVik=
 			</data>
 		</dict>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sCwY4ysLcFvzjj62/AfpJORfeMPvkoX3GeDPAGGc9Rc=
+			0NRqQhBzRTrH8yUW8kogDi2Rgi6IUFGFG1L5RMfGhK0=
 			</data>
 		</dict>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yBoTAr85oFHmhs4Aghe0GMd8GyB2B/3FBe27G4tUAkw=
+			BhObt3qVKYMlt0BzRdSTbz8xTawLjq3MPBDnVian3hE=
 			</data>
 		</dict>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sCwY4ysLcFvzjj62/AfpJORfeMPvkoX3GeDPAGGc9Rc=
+			0NRqQhBzRTrH8yUW8kogDi2Rgi6IUFGFG1L5RMfGhK0=
 			</data>
 		</dict>
 		<key>Modules/OndatoNFC.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JIisTGM+2Z4ZioXdGYdVQ+PoofA73F7YeDSvVB1VucU=
+			aXnLhfGmLnOu2Ken4PaSi/zc5tXBD3UhO1H6OA50kZI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

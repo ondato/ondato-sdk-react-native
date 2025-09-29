@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native-nfc",
-  "version": "2.6.6",
+  "version": "2.6.8",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
