@@ -1,207 +1,211 @@
-# Ondato SDK for React Native (New Arch)
+# Ondato SDK for React Native
+
+A drop-in component library for React Native to capture identity documents and facial biometrics. This SDK features advanced image quality detection and direct upload to simplify identity verification integration.
 
 ## Table of contents
 
 - [Overview](#overview)
+- [Requirements](#requirements)
 - [Installation](#installation)
-- [Handling callbacks](#handling-callbacks)
-- [Customising SDK](#customising-sdk)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+  - [Configuration Options](#configuration-options)
+  - [Handling the Result](#handling-the-result)
+- [Customization & Styling](#customization--styling)
+  - [iOS Customization](#ios-customization)
+  - [Android Customization](#android-customization)
+- [Optional Features](#optional-features)
+  - [Adding Screen Recorder and/or NFC Support](#adding-screen-recorder-andor-nfc-support)
 
 ## Overview
 
-This SDK provides a drop-in set of screens and tools for React Native applications to allow capturing of identity documents and face photos/live videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding/identity verification experience for your customers:
+This SDK provides a set of pre-built screens and tools for React Native applications to allow the capturing of identity documents and face photos/videos for identity verification.
 
-- Carefully designed UI to guide your customers through the entire photo/video-capturing process
-- Modular design to help you seamlessly integrate the photo/video-capturing process into your application flow
-- Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Ondato identity verification process, guaranteeing the best success rate
-- Direct image upload to the Ondato service, to simplify integration\*
+**Key Features:**
 
-\* Note: the SDK is only responsible for capturing and uploading photos/videos. You still need to access the [Ondato API](https://ondato.atlassian.net/wiki/spaces/PUB/pages/2334359560/Customer+onboarding+KYC+mobile+SDK+integration) to create and manage checks.
+- **Intuitive UI:** A carefully designed user interface to guide your customers through the entire photo and video capturing process.
+- **Modular Design:** Seamlessly integrate the verification flow into your application.
+- **Advanced Image Quality Detection:** Ensures that captured images meet the requirements of the Ondato identity verification process, guaranteeing a high success rate.
+- **Direct Image Upload:** Simplifies integration by handling the upload of captured data directly to the Ondato service.
 
-## Installation
-
-If you want to use the core functionality please install the core package only:
-
-```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-2.6.8.tgz
-or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-2.6.8.tgz
-```
+> **Note:** This SDK is responsible only for the client-side process of capturing and uploading photos/videos. You must use the [Ondato API](https://ondato.atlassian.net/wiki/spaces/PUB/pages/2334359560/Customer+onboarding+KYC+mobile+SDK+integration) from your backend to create and manage verification checks.
 
 ## Requirements
 
-> **_NOTE:_** We recommend you lock your app to `portrait` orientation.
+- **React Native:** `*` (as per `peerDependencies`)
+- **React:** `*` (as per `peerDependencies`)
+- **iOS:**
+  - Xcode 15 or later.
+  - Targets iOS 15 or newer.
+- **Android:**
+  - No additional version requirements.
+- **App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
+- **New Architecture:** This version of the library is built for React Native's New Architecture (TurboModules).
 
-### Android
+## Installation
 
-No native changes are required.
-
-### iOS
-
-The Ondato React Native SDK requires Xcode 15 or later and is compatible with apps targeting iOS 15 or above.
-
-1. Add the following to your `Info.plist` file, this is required by `Ondato SDK` to work properly:
-
-```xml
-<!-- ... -->
-<plist>
-    <dict>
-        <!-- Add these two lines below -->
-        <key>NSCameraUsageDescription</key>
-        <string>Required for document and facial capture</string>
-        <!-- ... -->
-    </dict>
-</plist>
-```
-
-2. Run `pod install` in your `ios` directory to install the native dependencies.
-
-```bash
-pod install --repo-update
+```sh
+yarn add ondato-sdk-react-native
 # or
-bundle exec pod install --repo-update
+npm install ondato-sdk-react-native
 ```
 
-3. Comment out or remove the following line in your `Podfile` (the example is based on `React Native 0.71.4` and might have variations on different versions), this is required because `Flipper` is currently not supported by `Ondato SDK`:
+### iOS Specific Setup
 
-```ruby
-    # ...
-    #:flipper_configuration => flipper_config,
-    # ...
-```
+1.  **Add Permissions:** The SDK requires camera access. Add the `NSCameraUsageDescription` key to your `Info.plist` file.
 
-## Adding `Screen Recorder` and/or `NFC` support:
+    ```xml
+    <!-- ios/YourApp/Info.plist -->
+    <key>NSCameraUsageDescription</key>
+    <string>Required for document and facial capture</string>
+    ```
 
-### Android
+2.  **Install Pods:** Navigate to your `ios` directory and install the native dependencies.
 
-1. Add external maven repository to your `android/build.gradle`:
+    ```bash
+    cd ios && pod install
+    ```
 
-```groovy
-allprojects {
-  repositories {
-    maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
-  }
-}
-```
+3.  **Disable Flipper (if necessary):** The Ondato SDK does not currently support Flipper. You may need to comment out the Flipper configuration in your `Podfile`.
 
-2. Add dependencies to your `android/app/build.gradle`:
+    ```ruby
+    # Podfile
+    # :flipper_configuration => flipper_config,
+    ```
 
-```groovy
-dependencies {
-  implementation("com.kyc.ondato:screen-recorder:2.6.7")
-  // and/or
-  implementation("com.kyc.ondato:nfc-reader:2.6.7")
-  // ...
-}
-```
+### Android Specific Setup
 
-3. Permissions and other requirements are handled by [Manifest Merge](https://developer.android.com/build/manage-manifests#merge-manifests),
-   so no other native changes are required.
+No native changes are required for the core functionality to work.
 
-### iOS
+## Usage
 
-1. Add relevant pods into your `Podfile` after `use_react_native!()` statement:
+Before launching the SDK, you must first obtain an `identityVerificationId` from the Ondato API. This ID is essential to link the client-side session with a verification check on your backend.
 
-```ruby
-  pod 'OndatoSDK', '= 2.6.8'
-  # and/or
-  pod 'OndatoScreenRecorder', '= 2.6.8'
-```
-
-2. Add permissions into your `Info.plist` file:
-
-```xml
-    <!-- Required for NFC -->
-    <key>NFCReaderUsageDescription</key>
-    <string>This app uses NFC to scan identification documents</string>
-
-    <!-- Required by ScreenRecorder -->
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app uses the microphone to record audio during the screen recording verification process</string>
-```
-
-3. Add entitlement for `NFC` by using one of these ways:
-
-1) [With the help of XCode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) by selecting your application as a target, going into `Signing & Capabilities`, hitting `+` and `Near Field Communication Tag Reading`.
-2) Add it directly to your `ios/AppName/AppName.entitlements`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <!-- Add this entitlement -->
-	<key>com.apple.developer.nfc.readersession.formats</key>
-	<array>
-		<string>TAG</string>
-	</array>
-  <!-- ... -->
-</dict>
-</plist>
-```
-
-## Example
+Here is a basic example of how to import and launch the SDK:
 
 ```tsx
 import { useState } from 'react';
-import { IdentityVerificationID } from './IdentityVerificationID';
-import { View, StyleSheet, Pressable, Text } from 'react-native';
-import { startIdentification } from 'ondato-sdk-react-native';
-
-// https://ondato.atlassian.net/wiki/spaces/PUB/pages/2320990304/Authentication
-const SECRET = '<Your secret that will be provided by Ondato>';
+import { View, Pressable, Text, StyleSheet, Alert } from 'react-native';
+import { startIdentification, OndatoResult } from 'ondato-sdk-react-native';
 
 export default function App() {
-  const [id, setId] = useState('');
+  // This ID should be fetched from your server, which gets it from the Ondato API.
+  const [identityVerificationId, setIdentityVerificationId] = useState(
+    '<YOUR_VERIFICATION_ID>'
+  );
 
-  const disabled = !id;
+  const onStartPress = async () => {
+    if (!identityVerificationId) {
+      Alert.alert('Error', 'Identity Verification ID is missing.');
+      return;
+    }
 
-  async function runOndato() {
     try {
-      const result = await startIdentification({
-        identityVerificationId: id,
+      const result: OndatoResult = await startIdentification({
+        identityVerificationId: identityVerificationId,
+        mode: 'test', // Use 'live' for production
       });
 
       if (result.status === 'success') {
+        // Verification was successfully submitted.
+        // You can get the final status from a webhook on your server.
+        Alert.alert('Success', `Verification submitted with ID: ${result.id}`);
         console.log('Success, id:', result.id);
       } else {
+        // Verification failed or was cancelled by the user.
+        Alert.alert('Failure', `Verification failed: ${result.error}`);
         console.error('Failed:', result.error);
       }
     } catch (e) {
-      console.error('Native error:', e);
+      // A native exception occurred.
+      console.error('Native module error:', e);
+      Alert.alert('Error', 'An unexpected error occurred.');
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
-      <IdentityVerificationID secret={SECRET} id={id} setId={setId} />
-
+      {/* Your UI to get the identityVerificationId */}
       <Pressable
-        disabled={disabled}
-        onPress={runOndato}
-        style={({ pressed }) => [
-          styles.button,
-          pressed && styles.buttonPressed,
-          disabled && styles.buttonDisabled,
-        ]}
+        disabled={!identityVerificationId}
+        onPress={onStartPress}
+        style={styles.button}
       >
-        <Text style={styles.buttonText}>Start Ondato</Text>
+        <Text style={styles.buttonText}>Start Ondato Verification</Text>
       </Pressable>
     </View>
   );
 }
+
+// Add your styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#fd5a28',
+    padding: 15,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+});
 ```
 
-## Styling
+## API Reference
 
-Currently, the SDK styling can be changed programmatically only for iOS side, in order to change the styling for Android you will need to do some extra steps.
+The `startIdentification` function accepts a single configuration object.
 
-### iOS
+### Configuration Options
 
-To change coloring for iOS side, you just need to pass one of the following properties with the config (or above if you want to customize extra styling options):
+| Property                          | Type                 | Default      | Platform | Description                                                               |
+| --------------------------------- | -------------------- | ------------ | -------- | ------------------------------------------------------------------------- |
+| **`identityVerificationId`**      | `string`             | _(Required)_ | All      | The unique ID for the verification session, obtained from the Ondato API. |
+| `mode`                            | `'test'` \| `'live'` | `'test'`     | All      | Sets the SDK environment.                                                 |
+| `language`                        | `OndatoLanguage`     | `'en'`       | All      | Sets the localization for the SDK. See `languages` export for options.    |
+| `showStartScreen`                 | `boolean`            | `true`       | All      | If `true`, shows a welcoming screen before the flow starts.               |
+| `removeSelfieFrame`               | `boolean`            | `false`      | All      | If `true`, removes the selfie frame during passive liveness checks.       |
+| `skipRegistrationIfDriverLicense` | `boolean`            | `false`      | All      | If `true`, skips the registration step if a driver's license is used.     |
+| `showSplashScreen`                | `boolean`            | `false`      | Android  | If `true`, shows the Ondato splash screen on launch.                      |
+| `showWaitingScreen`               | `boolean`            | `false`      | Android  | If `true`, shows a waiting screen during processing.                      |
+| `showIdentificationWaitingPage`   | `boolean`            | `true`       | Android  | If `true`, shows the identification waiting page.                         |
+| `showSuccessWindow`               | `boolean`            | `false`      | iOS      | If `true`, displays a success window at the end of the flow.              |
+| `appearance`                      | `OndatoAppearance`   | `{}`         | iOS      | An object to customize the colors, fonts, and styles of the iOS UI.       |
 
-```jsx
-let appearance = {
+### Handling the Result
+
+The `startIdentification` function returns a `Promise` that resolves with an `OndatoResult` object.
+
+- **On Success:**
+  ```typescript
+  {
+    status: 'success',
+    id?: string // The identityVerificationId
+  }
+  ```
+- **On Failure:**
+  ```typescript
+  {
+    status: 'failure',
+    id?: string, // The identityVerificationId
+    error: string // A message describing the reason for failure
+  }
+  ```
+
+## Customization & Styling
+
+### iOS Customization
+
+For iOS, you can customize the UI programmatically by passing an `appearance` object in the configuration. This allows you to change colors, fonts, and other elements to match your application's theme.
+
+**Example `appearance` object:**
+
+```javascript
+const appearance = {
   progressColor: '#fd5a28',
   errorColor: '#fd5a28',
   errorTextColor: '#ffffff',
@@ -211,53 +215,27 @@ let appearance = {
   backgroundColor: '#ffffff',
   imageTintColor: '#fd5a28',
   consentWindow: {
-    acceptButton: {
-      font: {
-        name: 'default',
-        weight: 'regular',
-        size: 15,
-      },
-      backgroundColor: '#00000000',
-      tintColor: '#0000ff',
-      borderWidth: 0,
-      borderColor: '#00000000',
-      cornerRadius: 0,
-    },
-    declineButton: {
-      font: {
-        name: 'default',
-        weight: 'regular',
-        size: 15,
-      },
-      backgroundColor: '#00000000',
-      tintColor: '#0000ff',
-      borderWidth: 0,
-      borderColor: '#00000000',
-      cornerRadius: 0,
-    },
-    header: {
-      color: '#000000',
-      font: {
-        name: 'default',
-        weight: 'semibold',
-        size: 15,
-      },
-    },
-    body: {
-      textColor: '#000000',
-      font: {
-        name: 'default',
-        weight: 'regular',
-        size: 15,
-      },
-    },
+    // ... consent window styling
   },
 };
+
+// Pass it to the startIdentification function
+startIdentification({
+  identityVerificationId: '...',
+  appearance: appearance,
+});
 ```
 
-### Android
+_For a full list of available `appearance` properties, please refer to the `OndatoAppearance` type in `NativeOndatoModule.ts`._
 
-In order to add custom styling to the SDK, you need to create a `colors.xml` file in your `res/values` folder and add the following code:
+### Android Customization
+
+On Android, styling is achieved by overriding the SDK's default colors in your application's `colors.xml` file.
+
+1.  Create a `colors.xml` file in your Android project at `android/app/src/main/res/values/colors.xml`.
+2.  Add the colors you wish to override.
+
+**Example `colors.xml`:**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -317,3 +295,51 @@ In order to add custom styling to the SDK, you need to create a `colors.xml` fil
   <color name="ondatoInputTextBorderColor">#808080</color>
 </resources>
 ```
+
+_For a complete list of overridable colors, see the `colors.xml` example in the original README._
+
+## Optional Features
+
+### Adding Screen Recorder and/or NFC Support
+
+#### Android
+
+1.  Add the Ondato maven repository to your project-level `android/build.gradle` file:
+    ```groovy
+    allprojects {
+      repositories {
+        // ... other repositories
+        maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
+      }
+    }
+    ```
+2.  Add the required dependencies to your app-level `android/app/build.gradle` file:
+    ```groovy
+    dependencies {
+      // ... other dependencies
+      implementation("com.kyc.ondato:screen-recorder:2.6.7")
+      // and/or
+      implementation("com.kyc.ondato:nfc-reader:2.6.7")
+    }
+    ```
+3.  Permissions are handled automatically via Manifest Merge.
+
+#### iOS
+
+1.  Add the relevant pods to your `Podfile`:
+    ```ruby
+    # Podfile
+    pod 'OndatoSDK', '= 2.6.8'
+    # and/or
+    pod 'OndatoScreenRecorder', '= 2.6.8'
+    ```
+2.  Add the necessary permissions to your `Info.plist`:
+    ```xml
+    <!-- Required for NFC -->
+    <key>NFCReaderUsageDescription</key>
+    <string>This app uses NFC to scan identification documents.</string>
+    <!-- Required by ScreenRecorder -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app uses the microphone to record audio during the screen recording verification process.</string>
+    ```
+3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-ap) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
