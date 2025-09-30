@@ -9,7 +9,7 @@ import {
   MICROPHONE_USAGE_DESCRIPTION,
   CAMERA_USAGE_DESCRIPTION,
   NFC_USAGE_DESCRIPTION,
-  ONDATO_VERSION,
+  ONDATO_VERSION_IOS,
 } from './constants';
 import { type OndatoPluginProps } from '.';
 
@@ -99,8 +99,8 @@ export const addPods = (
   }
 
   const podsToAdd = [];
-  const nfcPod = `pod 'OndatoNFC', '= ${ONDATO_VERSION}'`;
-  const screenRecorderPod = `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION}'`;
+  const nfcPod = `pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`;
+  const screenRecorderPod = `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`;
 
   if (enableNfc && !podfile.includes(nfcPod)) {
     podsToAdd.push(nfcPod);

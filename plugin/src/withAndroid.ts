@@ -10,7 +10,7 @@ import {
 } from 'expo/config-plugins';
 import {
   ONDATO_MAVEN_REPO_URL,
-  ONDATO_VERSION,
+  ONDATO_VERSION_ANDROID,
   DEFAULT_COLORS,
 } from './constants';
 import { type OndatoPluginProps } from '.';
@@ -111,8 +111,8 @@ export const addDependencies = (
   }: { enableNfc: boolean; enableScreenRecorder: boolean }
 ): string => {
   const dependenciesToAdd = [];
-  const nfcDependency = `implementation "com.kyc.ondato:nfc-reader:${ONDATO_VERSION}"`;
-  const screenRecorderDependency = `implementation "com.kyc.ondato:screen-recorder:${ONDATO_VERSION}"`;
+  const nfcDependency = `implementation "com.kyc.ondato:nfc-reader:${ONDATO_VERSION_ANDROID}"`;
+  const screenRecorderDependency = `implementation "com.kyc.ondato:recorder:${ONDATO_VERSION_ANDROID}"`;
 
   if (enableNfc && !buildGradle.includes('com.kyc.ondato:nfc-reader')) {
     dependenciesToAdd.push(nfcDependency);

@@ -1,9 +1,7 @@
-export const MIN_SDK_VERSION = 26;
-export const DEPLOYMENT_TARGET = '15.1';
-
-export const ONDATO_VERSION = '3.0.9';
+export const ONDATO_VERSION_IOS = '2.6.8';
+export const ONDATO_VERSION_ANDROID = '2.6.7';
 export const ONDATO_MAVEN_REPO_URL =
-  '$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo';
+  'https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/';
 
 export const NFC_USAGE_DESCRIPTION =
   'This app uses NFC to scan identification documents';
