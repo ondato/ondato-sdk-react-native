@@ -4,7 +4,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { WarningAggregator } from 'expo/config-plugins';
 import { addPods } from '../src/withIos';
-import { ONDATO_VERSION } from '../src/constants';
+import { ONDATO_VERSION_IOS } from '../src/constants';
 
 describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
   let podfile: string;
@@ -30,9 +30,9 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
       enableScreenRecorder: true,
     });
     expect(result).toMatchSnapshot();
-    expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION}'`);
+    expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
     expect(result).toContain(
-      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION}'`
+      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`
     );
     expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
   });
@@ -43,9 +43,9 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
       enableScreenRecorder: false,
     });
     expect(result).toMatchSnapshot();
-    expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION}'`);
+    expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
     expect(result).not.toContain(
-      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION}'`
+      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`
     );
     expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
   });
@@ -56,9 +56,9 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
       enableScreenRecorder: true,
     });
     expect(result).toMatchSnapshot();
-    expect(result).not.toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION}'`);
+    expect(result).not.toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
     expect(result).toContain(
-      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION}'`
+      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`
     );
     expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
   });
@@ -74,7 +74,7 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
   });
 
   it('skips adding duplicate NFC pod', async () => {
-    const podfileWithNfc = `${podfile}\n  pod 'OndatoNFC', '= ${ONDATO_VERSION}'`;
+    const podfileWithNfc = `${podfile}\n  pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`;
     const result = addPods(podfileWithNfc, {
       enableNfc: true,
       enableScreenRecorder: false,

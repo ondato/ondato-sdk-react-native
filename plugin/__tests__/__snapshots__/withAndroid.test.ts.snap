@@ -46,7 +46,7 @@ buildscript {
 
 allprojects {
   repositories {
-    maven { url "$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo" }
+    maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
     google()
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
@@ -214,8 +214,8 @@ android {
 }
 
 dependencies {
-    implementation "com.kyc.ondato:nfc-reader:3.0.9"
-    implementation "com.kyc.ondato:screen-recorder:3.0.9"
+    implementation "com.kyc.ondato:nfc-reader:2.6.7"
+    implementation "com.kyc.ondato:recorder:2.6.7"
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -402,7 +402,7 @@ android {
 }
 
 dependencies {
-    implementation "com.kyc.ondato:nfc-reader:3.0.9"
+    implementation "com.kyc.ondato:nfc-reader:2.6.7"
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -589,7 +589,7 @@ android {
 }
 
 dependencies {
-    implementation "com.kyc.ondato:screen-recorder:3.0.9"
+    implementation "com.kyc.ondato:recorder:2.6.7"
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
