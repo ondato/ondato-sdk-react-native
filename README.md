@@ -5,17 +5,22 @@ A drop-in component library for React Native to capture identity documents and f
 ## Table of contents
 
 - [Overview](#overview)
-- [Requirements](#requirements)
-- [Installation](#installation)
+- [For Expo](#for-expo-projects)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configure-ondato-sdk-with-config-plugin)
+- [For Bare React Native](#for-bare-react-native-projects)
+  - [Prerequisites](#prerequisites-1)
+  - [Installation](#installation)
+  - [Customization & Styling](#customization--styling)
+    - [iOS](#ios)
+    - [Android](#android)
+  - [Optional Features](#optional-features)
+    - [Adding Screen Recorder and/or NFC Support](#adding-screen-recorder-andor-nfc-support)
 - [Usage](#usage)
 - [API Reference](#api-reference)
   - [Configuration Options](#configuration-options)
   - [Handling the Result](#handling-the-result)
-- [Customization & Styling](#customization--styling)
-  - [iOS Customization](#ios-customization)
-  - [Android Customization](#android-customization)
-- [Optional Features](#optional-features)
-  - [Adding Screen Recorder and/or NFC Support](#adding-screen-recorder-andor-nfc-support)
 
 ## Overview
 
@@ -30,19 +35,98 @@ This SDK provides a set of pre-built screens and tools for React Native applicat
 
 > **Note:** This SDK is responsible only for the client-side process of capturing and uploading photos/videos. You must use the [Ondato API](https://ondato.atlassian.net/wiki/spaces/PUB/pages/2334359560/Customer+onboarding+KYC+mobile+SDK+integration) from your backend to create and manage verification checks.
 
-## Requirements
+## For Expo Projects
 
-- **React Native:** `*` (as per `peerDependencies`)
-- **React:** `*` (as per `peerDependencies`)
+The Ondato SDK for React Native can be integrated into Expo projects using a [development build](https://docs.expo.dev/workflow/overview/#development-builds). You can configure the project using [Expo Config Plugins](https://docs.expo.dev/config-plugins/introduction/) or manually configure the native projects (the "bare workflow," not recommended).
+
+**Note**: The Ondato SDK for React Native cannot be used in the pre-compiled [Expo Go app](https://docs.expo.dev/workflow/overview/#expo-go-an-optional-tool-for-learning) because it includes native code not compiled into Expo Go.
+
+To create a new Expo project, see the [Get Started](https://docs.expo.dev/get-started/create-a-project/) guide in the Expo documentation.
+
+### Prerequisites
+
+- **Expo SDK:** Version 53 or higher
+- **Node.js:** Version 20 or higher
+- **App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
+
+### Install Ondato SDK for React Native
+
+Install the required dependencies:
+
+```bash
+npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.0.9/ondato-sdk-react-native-3.0.9.tgz
+```
+
+### Configure Ondato SDK with config plugin
+
+The recommended approach is to use the [Expo Config Plugin](https://docs.expo.dev/config-plugins/introduction/). Add the `ondato-sdk-react-native` plugin to the `plugins` array in your `app.json` or `app.config.js`.
+
+Below is an example `app.json` configuration:
+
+```json
+{
+  "expo": {
+    "plugins": [
+      [
+        "ondato-sdk-react-native",
+        {
+          "enableNfc": true,
+          "enableScreenRecorder": true,
+          "android": {
+            "mavenRepoUrl": "https://custom.maven.repo",
+            "colors": {
+              "ondatoColorPrimary": "#fd5a28",
+              "ondatoColorAccent": "#FF5A28"
+            },
+            "colorsNight": {
+              "ondatoColorPrimary": "#fd5a28",
+              "ondatoColorAccent": "#FF5A28"
+            },
+            "defaultTranslationOverrides": {
+              "ondato_start_button": "Start"
+            }
+          },
+          "ios": {
+            "nfcUsageDescription": "Scan NFC-enabled identification documents.",
+            "cameraUsageDescription": "Capture documents and facial images.",
+            "microphoneUsageDescription": "Record audio during screen recording."
+          }
+        }
+      ]
+    ]
+  }
+}
+```
+
+#### Plugin Options
+
+| Option                                | Type      | Description                                                                  | Default                                                                                            |
+| ------------------------------------- | --------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `enableNfc`                           | `boolean` | Enables NFC support for scanning identification documents.                   | `false`                                                                                            |
+| `enableScreenRecorder`                | `boolean` | Enables screen recording with audio for verification.                        | `false`                                                                                            |
+| `android.mavenRepoUrl`                | `string`  | Custom Maven repository URL for Android dependencies.                        | Local path (`$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo`)                 |
+| `android.colors`                      | `object`  | Custom colors for Android theming (partial override of default colors).      | Default colors object (see `constants.ts` for full defaults like `#fd5a28` for primary colors)     |
+| `android.colorsNight`                 | `object`  | Custom colors for Android night mode theming (partial override of defaults). | Default colors object (same as `android.colors` defaults)                                          |
+| `android.defaultTranslationOverrides` | `object`  | Overrides for default string translations on Android.                        | Empty object (uses defaults from `constants.ts` like `"Start"` for `ondato_start_button`)          |
+| `ios.nfcUsageDescription`             | `string`  | iOS NFC usage description for `Info.plist`.                                  | `"This app uses NFC to scan identification documents"`                                             |
+| `ios.cameraUsageDescription`          | `string`  | iOS camera usage description for `Info.plist`.                               | `"Required for document and facial capture"`                                                       |
+| `ios.microphoneUsageDescription`      | `string`  | iOS microphone usage description for `Info.plist`.                           | `"This app uses the microphone to record audio during the screen recording verification process."` |
+
+**Note**: All options are optional. If not provided, defaults are used as shown above. For `android.colors`, `android.colorsNight`, and `android.defaultTranslationOverrides`, provide partial objects to override specific values from the defaults defined in `constants.ts`.
+
+## For Bare React Native Projects
+
+### Prerequisites
+
+- **React Native:** `*` (new architecture enabled)
 - **iOS:**
   - Xcode 15 or later.
   - Targets iOS 15 or newer.
 - **Android:**
   - No additional version requirements.
 - **App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
-- **New Architecture:** This version of the library is built for React Native's New Architecture (TurboModules).
 
-## Installation
+### Installation
 
 ```sh
 yarn add ondato-sdk-react-native
@@ -50,7 +134,7 @@ yarn add ondato-sdk-react-native
 npm install ondato-sdk-react-native
 ```
 
-### iOS Specific Setup
+#### iOS Specific Setup
 
 1.  **Add Permissions:** The SDK requires camera access. Add the `NSCameraUsageDescription` key to your `Info.plist` file.
 
@@ -73,9 +157,183 @@ npm install ondato-sdk-react-native
     # :flipper_configuration => flipper_config,
     ```
 
-### Android Specific Setup
+#### Android Specific Setup
 
 No native changes are required for the core functionality to work.
+
+### Customization & Styling
+
+#### iOS
+
+##### Customization
+
+For iOS, you can customize the UI programmatically by passing an `appearance` object in the configuration. This allows you to change colors, fonts, and other elements to match your application's theme.
+
+**Example `appearance` object:**
+
+```javascript
+const appearance = {
+  progressColor: '#fd5a28',
+  errorColor: '#fd5a28',
+  errorTextColor: '#ffffff',
+  buttonColor: '#fd5a28',
+  buttonTextColor: '#ffffff',
+  textColor: '#000000',
+  backgroundColor: '#ffffff',
+  imageTintColor: '#fd5a28',
+  consentWindow: {
+    // ... consent window styling
+  },
+};
+
+// Pass it to the startIdentification function
+startIdentification({
+  identityVerificationId: '...',
+  appearance: appearance,
+});
+```
+
+_For a full list of available `appearance` properties, please refer to the `OndatoAppearance` type in `NativeOndatoModule.ts`._
+
+#### Android
+
+##### Customization
+
+On Android, styling is achieved by overriding the SDK's default colors in your application's `colors.xml` file.
+
+1.  Create a `colors.xml` file in your Android project at `android/app/src/main/res/values/colors.xml`.
+2.  Add the colors you wish to override.
+
+**Example `colors.xml`:**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Ondato's Status Bar -->
+  <color name="ondatoColorPrimaryDark">#fd5a28</color>
+
+  <!-- Ondato's Primary and Accent Colors -->
+  <color name="ondatoColorPrimary">#fd5a28</color>
+  <color name="ondatoColorAccent">#FF5A28</color>
+
+  <!-- Ondato's Text Colors -->
+  <color name="ondatoTextColor">#000000</color>
+  <color name="ondatoSecondaryTextColor">#244D50</color>
+
+  <!-- Ondato's Primary Button with Gradient colors -->
+  <color name="ondatoColorButton">#fd5a28</color>
+  <color name="ondatoColorButtonFocusedStart">#fd5a28</color>
+  <color name="ondatoColorButtonFocusedCenter">#FF8000</color>
+  <color name="ondatoColorButtonFocusedEnd">#FF9700</color>
+  <color name="ondatoColorButtonText">#ffffff</color>
+
+  <!-- Ondato's Outlined Button Colors -->
+  <color name="ondatoOutlinedButtonColor">#fd5a28</color>
+  <color name="ondatoOutlinedButtonTextColor">#fd5a28</color>
+
+  <color name="ondatoColorBackground">#ffffff</color>
+
+  <!-- Ondato's Illustration Colors -->
+  <color name="ondatoIconColor">#fd5a28</color>
+
+  <!-- Ondato's Active Liveness Screen Colors -->
+  <color name="ondatoActiveLivenessOvalProgressColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessOvalProgressColorSecondary">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultActivityIndicatorColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultAnimationBackgroundColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultUploadProgressColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultAnimationForegroundColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultUploadProgressTrackColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessResultForegroundColor">#FF5A28</color>
+  <color name="ondatoActiveLivenessCameraFilter">#fff</color>
+
+  <!-- Used for Active Liveness Screen Buttons -->
+  <color name="ondatoDisabledButtonColor">#FAB2A5</color>
+  <color name="ondatoHighlightButtonColor">#b02e16</color>
+
+  <!-- Ondato's Error Colors -->
+  <color name="ondatoColorErrorBg">#fd5a28</color>
+  <color name="ondatoColorErrorText">#ffffff</color>
+
+  <!-- Other -->
+  <color name="ondatoColorSeparatorColor">#e5e6e7</color>
+  <color name="ondatoColorAlmostTransparent">#70ffffff</color>
+  <color name="ondatoColorAlmostTransparent2">#CCFFFFFF</color>
+  <color name="ondatoColorLanguagesBorder">#E2E2E2</color>>
+  <color name="ondatoColorCameraFilter">#65000000</color>
+  <color name="ondatoInputTextBorderColor">#808080</color>
+</resources>
+```
+
+_For a complete list of overridable colors, see the `colors.xml` example in the original README._
+
+##### Localisation
+
+Ondato Android SDK already comes with out-of-the-box translations for the following locales:
+
+- English (en) 🇬🇧
+- Lithuanian (lt) 🇱🇹
+- German (de) 🇩🇪
+- Latvian (lv) 🇱🇻
+- Estonian (et) 🇪🇪
+- Russian (ru) 🇷🇺
+- Albanian (sq) 🇦🇱
+- Bulgarian (bg) 🇧🇬
+- Spanish (es) 🇪🇸
+- French (fr) 🇫🇷
+- Italian (it) 🇮🇹
+- Romanian (ro) 🇷🇴
+- Greek (el) 🇬🇷
+- Dutch (nl) 🇳🇱
+- System ⚙️ (if device language is not translated, everything will be in English)
+
+You can also **provide your own translations** by overriding [Ondato's string keys](https://github.com/ondato/ondato-sdk-android/blob/main/strings/strings.xml) in your `strings.xml`.
+
+### Optional Features
+
+#### Adding Screen Recorder and/or NFC Support
+
+##### Android
+
+1.  Add the Ondato maven repository to your project-level `android/build.gradle` file:
+    ```groovy
+    allprojects {
+      repositories {
+        // ... other repositories
+        maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
+      }
+    }
+    ```
+2.  Add the required dependencies to your app-level `android/app/build.gradle` file:
+    ```groovy
+    dependencies {
+      // ... other dependencies
+      implementation("com.kyc.ondato:screen-recorder:2.6.7")
+      // and/or
+      implementation("com.kyc.ondato:nfc-reader:2.6.7")
+    }
+    ```
+3.  Permissions are handled automatically via Manifest Merge.
+
+##### iOS
+
+1.  Add the relevant pods to your `Podfile`:
+    ```ruby
+    # Podfile
+    pod 'OndatoSDK', '= 2.6.8'
+    # and/or
+    pod 'OndatoScreenRecorder', '= 2.6.8'
+    ```
+2.  Add the necessary permissions to your `Info.plist`:
+    ```xml
+    <!-- Required for NFC -->
+    <key>NFCReaderUsageDescription</key>
+    <string>This app uses NFC to scan identification documents.</string>
+    <!-- Required by ScreenRecorder -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app uses the microphone to record audio during the screen recording verification process.</string>
+    ```
+3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-ap) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
 
 ## Usage
 
@@ -195,151 +453,3 @@ The `startIdentification` function returns a `Promise` that resolves with an `On
     error: string // A message describing the reason for failure
   }
   ```
-
-## Customization & Styling
-
-### iOS Customization
-
-For iOS, you can customize the UI programmatically by passing an `appearance` object in the configuration. This allows you to change colors, fonts, and other elements to match your application's theme.
-
-**Example `appearance` object:**
-
-```javascript
-const appearance = {
-  progressColor: '#fd5a28',
-  errorColor: '#fd5a28',
-  errorTextColor: '#ffffff',
-  buttonColor: '#fd5a28',
-  buttonTextColor: '#ffffff',
-  textColor: '#000000',
-  backgroundColor: '#ffffff',
-  imageTintColor: '#fd5a28',
-  consentWindow: {
-    // ... consent window styling
-  },
-};
-
-// Pass it to the startIdentification function
-startIdentification({
-  identityVerificationId: '...',
-  appearance: appearance,
-});
-```
-
-_For a full list of available `appearance` properties, please refer to the `OndatoAppearance` type in `NativeOndatoModule.ts`._
-
-### Android Customization
-
-On Android, styling is achieved by overriding the SDK's default colors in your application's `colors.xml` file.
-
-1.  Create a `colors.xml` file in your Android project at `android/app/src/main/res/values/colors.xml`.
-2.  Add the colors you wish to override.
-
-**Example `colors.xml`:**
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <!-- Ondato's Status Bar -->
-  <color name="ondatoColorPrimaryDark">#fd5a28</color>
-
-  <!-- Ondato's Primary and Accent Colors -->
-  <color name="ondatoColorPrimary">#fd5a28</color>
-  <color name="ondatoColorAccent">#FF5A28</color>
-
-  <!-- Ondato's Text Colors -->
-  <color name="ondatoTextColor">#000000</color>
-  <color name="ondatoSecondaryTextColor">#244D50</color>
-
-  <!-- Ondato's Primary Button with Gradient colors -->
-  <color name="ondatoColorButton">#fd5a28</color>
-  <color name="ondatoColorButtonFocusedStart">#fd5a28</color>
-  <color name="ondatoColorButtonFocusedCenter">#FF8000</color>
-  <color name="ondatoColorButtonFocusedEnd">#FF9700</color>
-  <color name="ondatoColorButtonText">#ffffff</color>
-
-  <!-- Ondato's Outlined Button Colors -->
-  <color name="ondatoOutlinedButtonColor">#fd5a28</color>
-  <color name="ondatoOutlinedButtonTextColor">#fd5a28</color>
-
-  <color name="ondatoColorBackground">#ffffff</color>
-
-  <!-- Ondato's Illustration Colors -->
-  <color name="ondatoIconColor">#fd5a28</color>
-
-  <!-- Ondato's Active Liveness Screen Colors -->
-  <color name="ondatoActiveLivenessOvalProgressColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessOvalProgressColorSecondary">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultActivityIndicatorColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultAnimationBackgroundColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultUploadProgressColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultAnimationForegroundColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultUploadProgressTrackColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessResultForegroundColor">#FF5A28</color>
-  <color name="ondatoActiveLivenessCameraFilter">#fff</color>
-
-  <!-- Used for Active Liveness Screen Buttons -->
-  <color name="ondatoDisabledButtonColor">#FAB2A5</color>
-  <color name="ondatoHighlightButtonColor">#b02e16</color>
-
-  <!-- Ondato's Error Colors -->
-  <color name="ondatoColorErrorBg">#fd5a28</color>
-  <color name="ondatoColorErrorText">#ffffff</color>
-
-  <!-- Other -->
-  <color name="ondatoColorSeparatorColor">#e5e6e7</color>
-  <color name="ondatoColorAlmostTransparent">#70ffffff</color>
-  <color name="ondatoColorAlmostTransparent2">#CCFFFFFF</color>
-  <color name="ondatoColorLanguagesBorder">#E2E2E2</color>>
-  <color name="ondatoColorCameraFilter">#65000000</color>
-  <color name="ondatoInputTextBorderColor">#808080</color>
-</resources>
-```
-
-_For a complete list of overridable colors, see the `colors.xml` example in the original README._
-
-## Optional Features
-
-### Adding Screen Recorder and/or NFC Support
-
-#### Android
-
-1.  Add the Ondato maven repository to your project-level `android/build.gradle` file:
-    ```groovy
-    allprojects {
-      repositories {
-        // ... other repositories
-        maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/" }
-      }
-    }
-    ```
-2.  Add the required dependencies to your app-level `android/app/build.gradle` file:
-    ```groovy
-    dependencies {
-      // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:2.6.7")
-      // and/or
-      implementation("com.kyc.ondato:nfc-reader:2.6.7")
-    }
-    ```
-3.  Permissions are handled automatically via Manifest Merge.
-
-#### iOS
-
-1.  Add the relevant pods to your `Podfile`:
-    ```ruby
-    # Podfile
-    pod 'OndatoSDK', '= 2.6.8'
-    # and/or
-    pod 'OndatoScreenRecorder', '= 2.6.8'
-    ```
-2.  Add the necessary permissions to your `Info.plist`:
-    ```xml
-    <!-- Required for NFC -->
-    <key>NFCReaderUsageDescription</key>
-    <string>This app uses NFC to scan identification documents.</string>
-    <!-- Required by ScreenRecorder -->
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app uses the microphone to record audio during the screen recording verification process.</string>
-    ```
-3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-ap) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
