@@ -103,6 +103,22 @@ Below is an example `app.json` configuration:
 }
 ```
 
+After adding the Ondato SDK plugin to your `app.json` (or after making any changes to the plugin configuration), you must run `expo prebuild` to apply these changes to the native project files.
+
+```bash
+npx expo prebuild --clean
+```
+
+This command regenerates the native `android` and `ios` directories. After prebuilding, you can create a new development build with `eas build` or run the app directly on a simulator/device:
+
+```bash
+# Run on an Android emulator or connected device
+npx expo run:android
+
+# Run on an iOS simulator or connected device
+npx expo run:ios
+```
+
 #### Plugin Options
 
 | Option                                | Type      | Description                                                                  | Default                                                                                            |
@@ -318,15 +334,15 @@ You can also **provide your own translations** by overriding [Ondato's string ke
     pod 'OndatoScreenRecorder', '= 2.6.8'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
-    ````xml
+    ```xml
     <!-- Required for NFC -->
     <key>NFCReaderUsageDescription</key>
     <string>This app uses NFC to scan identification documents</string>
     <!-- Required by ScreenRecorder -->
     <key>NSMicrophoneUsageDescription</key>
     <string>This app uses the microphone to record audio during the screen recording verification process</string>
-    ```3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
-    ````
+    ```
+3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
 
 ## Usage
 
