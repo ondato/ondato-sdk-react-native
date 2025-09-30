@@ -11996,7 +11996,7 @@ __metadata:
     typescript: ^5.8.3
     zod: ^3.25.76
   peerDependencies:
-    expo: ">=50.0.0"
+    expo: ">=53.0.0"
     react: "*"
     react-native: "*"
   peerDependenciesMeta:
