@@ -5,16 +5,16 @@ A drop-in component library for React Native to capture identity documents and f
 ## Table of contents
 
 - [Overview](#overview)
-- [For Expo](#for-expo-projects)
-  - [Prerequisites](#prerequisites)
+- [Compatibility](#compatibility)
+- [Prerequisites](#prerequisites)
+- [For Expo Projects](#for-expo-projects)
   - [Installation](#installation)
   - [Configuration](#configure-ondato-sdk-with-config-plugin)
-- [For Bare React Native](#for-bare-react-native-projects)
-  - [Prerequisites](#prerequisites-1)
-  - [Installation](#installation)
-  - [Customization & Styling](#customization--styling)
-    - [iOS](#ios)
-    - [Android](#android)
+- [For Bare React Native Projects](#for-bare-react-native-projects)
+  - [Installation](#installation-1)
+  - [Customization](#customization)
+    - [Styling](#styling)
+    - [Localisation](#localisation)
   - [Optional Features](#optional-features)
     - [Adding Screen Recorder and/or NFC Support](#adding-screen-recorder-andor-nfc-support)
 - [Usage](#usage)
@@ -35,23 +35,28 @@ This SDK provides a set of pre-built screens and tools for React Native applicat
 
 > **Note:** This SDK is responsible only for the client-side process of capturing and uploading photos/videos. You must use the [Ondato API](https://ondato.atlassian.net/wiki/spaces/PUB/pages/2334359560/Customer+onboarding+KYC+mobile+SDK+integration) from your backend to create and manage verification checks.
 
+## Compatibility
+
+| Platform     | Version  |
+| :----------- | :------- |
+| React Native | New Arch |
+| Expo SDK     | 53+      |
+
+## Prerequisites
+
+**App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
+
 ## For Expo Projects
 
-The Ondato SDK for React Native can be integrated into Expo projects using a [development build](https://docs.expo.dev/workflow/overview/#development-builds). You can configure the project using [Expo Config Plugins](https://docs.expo.dev/config-plugins/introduction/) or manually configure the native projects (the "bare workflow," not recommended).
+The Ondato SDK for React Native can be integrated into Expo projects using a [development build](https://docs.expo.dev/workflow/overview/#development-builds). You can configure the project using [Expo Config Plugins](https://docs.expo.dev/config-plugins/introduction/) or by manually configuring the native projects (the "bare workflow," which is not recommended).
 
-**Note**: The Ondato SDK for React Native cannot be used in the pre-compiled [Expo Go app](https://docs.expo.dev/workflow/overview/#expo-go-an-optional-tool-for-learning) because it includes native code not compiled into Expo Go.
+**Note**: The Ondato SDK for React Native cannot be used in the pre-compiled [Expo Go app](https://docs.expo.dev/workflow/overview/#expo-go-an-optional-tool-for-learning) because it includes native code that is not compiled into Expo Go.
 
 To create a new Expo project, see the [Get Started](https://docs.expo.dev/get-started/create-a-project/) guide in the Expo documentation.
 
-### Prerequisites
+### Installation
 
-- **Expo SDK:** Version 53 or higher
-- **Node.js:** Version 20 or higher
-- **App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
-
-### Install Ondato SDK for React Native
-
-Install the required dependencies:
+Install Ondato SDK React Native:
 
 ```bash
 npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.0.9/ondato-sdk-react-native-3.0.9.tgz
@@ -112,19 +117,9 @@ Below is an example `app.json` configuration:
 | `ios.cameraUsageDescription`          | `string`  | iOS camera usage description for `Info.plist`.                               | `"Required for document and facial capture"`                                                       |
 | `ios.microphoneUsageDescription`      | `string`  | iOS microphone usage description for `Info.plist`.                           | `"This app uses the microphone to record audio during the screen recording verification process."` |
 
-**Note**: All options are optional. If not provided, defaults are used as shown above. For `android.colors`, `android.colorsNight`, and `android.defaultTranslationOverrides`, provide partial objects to override specific values from the defaults defined in `constants.ts`.
+**Note**: All plugin options are optional. If not provided, defaults are used as shown above. For `android.colors`, `android.colorsNight`, and `android.defaultTranslationOverrides`, you only need to provide a partial object to override specific values.
 
 ## For Bare React Native Projects
-
-### Prerequisites
-
-- **React Native:** `*` (new architecture enabled)
-- **iOS:**
-  - Xcode 15 or later.
-  - Targets iOS 15 or newer.
-- **Android:**
-  - No additional version requirements.
-- **App Orientation:** We strongly recommend locking your application to **portrait** orientation for the best user experience.
 
 ### Installation
 
@@ -161,11 +156,11 @@ npm install ondato-sdk-react-native
 
 No native changes are required for the core functionality to work.
 
-### Customization & Styling
+### Customization
 
-#### iOS
+#### Styling
 
-##### Customization
+##### iOS
 
 For iOS, you can customize the UI programmatically by passing an `appearance` object in the configuration. This allows you to change colors, fonts, and other elements to match your application's theme.
 
@@ -195,9 +190,7 @@ startIdentification({
 
 _For a full list of available `appearance` properties, please refer to the `OndatoAppearance` type in `NativeOndatoModule.ts`._
 
-#### Android
-
-##### Customization
+##### Android
 
 On Android, styling is achieved by overriding the SDK's default colors in your application's `colors.xml` file.
 
@@ -259,17 +252,17 @@ On Android, styling is achieved by overriding the SDK's default colors in your a
   <color name="ondatoColorSeparatorColor">#e5e6e7</color>
   <color name="ondatoColorAlmostTransparent">#70ffffff</color>
   <color name="ondatoColorAlmostTransparent2">#CCFFFFFF</color>
-  <color name="ondatoColorLanguagesBorder">#E2E2E2</color>>
+  <color name="ondatoColorLanguagesBorder">#E2E2E2</color>
   <color name="ondatoColorCameraFilter">#65000000</color>
   <color name="ondatoInputTextBorderColor">#808080</color>
 </resources>
 ```
 
-_For a complete list of overridable colors, see the `colors.xml` example in the original README._
+#### Localisation
 
-##### Localisation
+##### Android
 
-Ondato Android SDK already comes with out-of-the-box translations for the following locales:
+The Ondato Android SDK comes with out-of-the-box translations for the following locales:
 
 - English (en) 🇬🇧
 - Lithuanian (lt) 🇱🇹
@@ -285,7 +278,7 @@ Ondato Android SDK already comes with out-of-the-box translations for the follow
 - Romanian (ro) 🇷🇴
 - Greek (el) 🇬🇷
 - Dutch (nl) 🇳🇱
-- System ⚙️ (if device language is not translated, everything will be in English)
+- System ⚙️ (if the device language is not translated, everything will be in English)
 
 You can also **provide your own translations** by overriding [Ondato's string keys](https://github.com/ondato/ondato-sdk-android/blob/main/strings/strings.xml) in your `strings.xml`.
 
@@ -325,19 +318,19 @@ You can also **provide your own translations** by overriding [Ondato's string ke
     pod 'OndatoScreenRecorder', '= 2.6.8'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
-    ```xml
+    ````xml
     <!-- Required for NFC -->
     <key>NFCReaderUsageDescription</key>
-    <string>This app uses NFC to scan identification documents.</string>
+    <string>This app uses NFC to scan identification documents</string>
     <!-- Required by ScreenRecorder -->
     <key>NSMicrophoneUsageDescription</key>
-    <string>This app uses the microphone to record audio during the screen recording verification process.</string>
-    ```
-3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-ap) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
+    <string>This app uses the microphone to record audio during the screen recording verification process</string>
+    ```3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
+    ````
 
 ## Usage
 
-Before launching the SDK, you must first obtain an `identityVerificationId` from the Ondato API. This ID is essential to link the client-side session with a verification check on your backend.
+Before launching the SDK, you must first obtain an `identityVerificationId` from the [Ondato API](https://ondato.atlassian.net/wiki/spaces/PUB/pages/2320990304/Authentication). This ID is essential for linking the client-side session with a verification check on your backend.
 
 Here is a basic example of how to import and launch the SDK:
 
@@ -413,6 +406,8 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+A full example can be found in this repository's `example` folder.
 
 ## API Reference
 
