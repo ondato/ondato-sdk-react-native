@@ -23,23 +23,23 @@ This SDK provides a drop-in set of screens and tools for iOS applications to all
 
 If you want to use the core functionality please install the core package only:
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-2.6.8.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-2.6.9.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-2.6.8.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-2.6.9.tgz
 ```
 
 If you additionally require to use the NFC functionality please also add the NFC package
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-nfc-2.6.8.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-nfc-2.6.9.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-nfc-2.6.8.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-nfc-2.6.9.tgz
 ```
 
 If you additionally require to use the Screen Recorder functionality please also add the Screen Recorder package
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-screen-recorder-2.6.8.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-screen-recorder-2.6.9.tgz
 or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8/ondato-sdk-react-native-screen-recorder-2.6.8.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9/ondato-sdk-react-native-screen-recorder-2.6.9.tgz
 ```
 
 ## Requirements
