@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native",
-  "version": "2.6.1",
+  "version": "2.6.8",
   "summary": "test",
   "homepage": "https://github.com/ondato/ondato-sdk-react-native#readme",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/ondato/ondato-sdk-react-native.git",
-    "tag": "2.6.1"
+    "tag": "2.6.8"
   },
   "source_files": "ios/OSRN/**/*",
   "resource_bundles": {

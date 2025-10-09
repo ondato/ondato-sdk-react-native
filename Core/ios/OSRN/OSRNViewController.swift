@@ -128,7 +128,7 @@ class OSRNViewController: UIViewController {
             
             // Change language
             if let language = config.ondatoLanguage {
-                OndatoLocalizeHelper.language = language
+                OndatoLocalizeHelper.shared.language = language
             }
             // To do: add custom language support
             //

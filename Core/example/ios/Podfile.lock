@@ -7,7 +7,7 @@ PODS:
   - hermes-engine (0.74.1):
     - hermes-engine/Pre-built (= 0.74.1)
   - hermes-engine/Pre-built (0.74.1)
-  - ondato-sdk-react-native (2.6.1):
+  - ondato-sdk-react-native (2.6.8):
     - React-Core
   - RCT-Folly (2024.01.01.00):
     - boost
@@ -1352,7 +1352,7 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: 16b8530de1b383cdada1476cf52d1b52f0692cbc
-  ondato-sdk-react-native: c05245d7c9fb16a7982b92f79e56a36930148c3f
+  ondato-sdk-react-native: 3c88100550436bb441acd35fd04abbd5c85aef68
   RCT-Folly: 02617c592a293bd6d418e0a88ff4ee1f88329b47
   RCTDeprecation: efb313d8126259e9294dc4ee0002f44a6f676aba
   RCTRequired: f49ea29cece52aee20db633ae7edc4b271435562
