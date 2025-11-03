@@ -119,7 +119,7 @@ export const addDependencies = (
   }
   if (
     enableScreenRecorder &&
-    !buildGradle.includes('com.kyc.ondato:screen-recorder')
+    !buildGradle.includes('com.kyc.ondato:recorder')
   ) {
     dependenciesToAdd.push(screenRecorderDependency);
   }

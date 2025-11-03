@@ -8,16 +8,17 @@ PODS:
   - hermes-engine (0.81.0):
     - hermes-engine/Pre-built (= 0.81.0)
   - hermes-engine/Pre-built (0.81.0)
-  - OndatoScreenRecorder (2.6.8)
-  - OndatoSDK (2.6.8)
-  - OndatoSdkReactNative (2.6.8-newarch.0):
+  - OndatoNFC (2.6.9)
+  - OndatoScreenRecorder (2.6.9)
+  - OndatoSDK (2.6.9)
+  - OndatoSdkReactNative (2.6.9-newarch):
     - boost
     - DoubleConversion
     - fast_float
     - fmt
     - glog
     - hermes-engine
-    - OndatoSDK (= 2.6.8)
+    - OndatoSDK (= 2.6.9)
     - RCT-Folly
     - RCT-Folly/Fabric
     - RCTRequired
@@ -2352,8 +2353,8 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - OndatoScreenRecorder (= 2.6.8)
-  - OndatoSDK (= 2.6.8)
+  - OndatoNFC (= 2.6.9)
+  - OndatoScreenRecorder (= 2.6.9)
   - OndatoSdkReactNative (from `../..`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -2425,6 +2426,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - OndatoNFC
     - OndatoScreenRecorder
     - OndatoSDK
     - SocketRocket
@@ -2586,9 +2588,10 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: e7491a2038f2618c8cd444ed411a6deb350a3742
-  OndatoScreenRecorder: 3f4d478eb43d3beb4fe71de99171960416958bfb
-  OndatoSDK: 8fba71ee2a1d950ea30899370a858028b8f82ec5
-  OndatoSdkReactNative: c34e5e5a9a041d093ed5fb48009313ee7c58e5e2
+  OndatoNFC: b048eb5b7c40c459b5a5726ba4161b363ab30106
+  OndatoScreenRecorder: 684abc4d6e9fcea5dd566ac366c266dee058a4fa
+  OndatoSDK: 999c3cd6cede5d8ab18dbf09059d65de872e5d6f
+  OndatoSdkReactNative: 5c1d9af8dcedb34fabe817c480124ffcca76de79
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 0735ab4f6b3ec93a7f98187b5da74d7916e2cf4c
   RCTRequired: 8fcc7801bfc433072287b0f24a662e2816e89d0c
@@ -2656,6 +2659,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: b01392348aeea02064c21a2762a42893d82b60a7
 
-PODFILE CHECKSUM: 3c77a603ec4113d1e91781a91f52b0c3fc15bbff
+PODFILE CHECKSUM: a10a39434c51403fb66ab22e0b5ea2e05b452fa3
 
 COCOAPODS: 1.15.2
