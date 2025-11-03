@@ -108,7 +108,7 @@ android {
 }
 
 dependencies {
-  implementation("com.kyc.ondato:screen-recorder:2.6.7")
+  implementation("com.kyc.ondato:recorder:2.6.7")
   implementation("com.kyc.ondato:nfc-reader:2.6.7")
 
   // The version of react-native is set by the React Native Gradle Plugin

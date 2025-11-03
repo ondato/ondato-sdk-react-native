@@ -317,7 +317,7 @@ You can also **provide your own translations** by overriding [Ondato's string ke
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:2.6.7")
+      implementation("com.kyc.ondato:recorder:2.6.7")
       // and/or
       implementation("com.kyc.ondato:nfc-reader:2.6.7")
     }
