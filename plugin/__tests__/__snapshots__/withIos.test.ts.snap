@@ -44,8 +44,8 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 2.6.8'
-  pod 'OndatoScreenRecorder', '= 2.6.8'
+  pod 'OndatoNFC', '= 2.6.9'
+  pod 'OndatoScreenRecorder', '= 2.6.9'
 
   post_install do |installer|
     react_native_post_install(
@@ -103,7 +103,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 2.6.8'
+  pod 'OndatoNFC', '= 2.6.9'
 
   post_install do |installer|
     react_native_post_install(
@@ -161,7 +161,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoScreenRecorder', '= 2.6.8'
+  pod 'OndatoScreenRecorder', '= 2.6.9'
 
   post_install do |installer|
     react_native_post_install(
@@ -233,7 +233,7 @@ target 'HelloWorld' do
   end
 end
 
-  pod 'OndatoNFC', '= 2.6.8'"
+  pod 'OndatoNFC', '= 2.6.9'"
 `;
 
 exports[`Config Plugin iOS Tests for SDK 54 - addPods skips adding pods when none are enabled 1`] = `
