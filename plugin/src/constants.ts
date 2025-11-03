@@ -1,4 +1,4 @@
-export const ONDATO_VERSION_IOS = '2.6.8';
+export const ONDATO_VERSION_IOS = '2.6.9';
 export const ONDATO_VERSION_ANDROID = '2.6.7';
 export const ONDATO_MAVEN_REPO_URL =
   'https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos/';

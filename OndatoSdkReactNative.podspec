@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
   s.private_header_files = "ios/**/*.h"
 
-  s.dependency "OndatoSDK", "= 2.6.8"
+  s.dependency "OndatoSDK", "= 2.6.9"
 
   install_modules_dependencies(s)
 end

@@ -59,7 +59,7 @@ To create a new Expo project, see the [Get Started](https://docs.expo.dev/get-st
 Install Ondato SDK React Native:
 
 ```bash
-npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-v2.6.8-newarch.0.tgz
+npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9-newarch/osrn-v2.6.9-newarch.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -140,9 +140,9 @@ npx expo run:ios
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-v2.6.8-newarch.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9-newarch/osrn-v2.6.9-newarch.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.8-newarch.0/osrn-v2.6.8-newarch.0.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.9-newarch/osrn-v2.6.9-newarch.tgz
 ```
 
 #### iOS Specific Setup
@@ -329,9 +329,9 @@ You can also **provide your own translations** by overriding [Ondato's string ke
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoSDK', '= 2.6.8'
+    pod 'OndatoSDK', '= 2.6.9'
     # and/or
-    pod 'OndatoScreenRecorder', '= 2.6.8'
+    pod 'OndatoScreenRecorder', '= 2.6.9'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
