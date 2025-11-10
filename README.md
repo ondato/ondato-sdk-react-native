@@ -37,10 +37,32 @@ This SDK provides a set of pre-built screens and tools for React Native applicat
 
 ## Compatibility
 
-| Platform     | Version  |
-| :----------- | :------- |
-| React Native | New Arch |
-| Expo SDK     | 53+      |
+| Platform     | Version |
+| :----------- | :------ |
+| React Native | 0.77+   |
+| Expo SDK     | 53+     |
+
+| React Native Version | Architecture              | Status                               |
+| -------------------: | ------------------------- | :----------------------------------- |
+|            **0.80+** | ✅ **New Architecture**   | Fully supported                      |
+|      **0.77 – 0.79** | ⚙️ **New Arch (partial)** | Supported via fallback legacy bridge |
+|           **< 0.77** | ❌                        | Not supported                        |
+
+> **React Native 0.77 – 0.79**
+>
+> The new architecture in these versions uses an outdated TurboModule API.
+> To use the Ondato SDK, you must **disable new arch** in your Podfile:
+>
+> ```ruby
+> use_react_native!(
+>   :path => config[:reactNativePath],
+>   :new_arch_enabled => false # add this line
+> )
+> ```
+>
+> Then run `pod install` again.
+>
+> The package will automatically fall back to the legacy bridge.
 
 ## Prerequisites
 
