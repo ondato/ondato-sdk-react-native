@@ -81,7 +81,7 @@ To create a new Expo project, see the [Get Started](https://docs.expo.dev/get-st
 Install Ondato SDK React Native:
 
 ```bash
-npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.10-newarch/osrn-v2.6.10-newarch.tgz
+npx expo install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.11-newarch/osrn-v2.6.11-newarch.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -162,9 +162,9 @@ npx expo run:ios
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.10-newarch/osrn-v2.6.10-newarch.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.11-newarch/osrn-v2.6.11-newarch.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.10-newarch/osrn-v2.6.10-newarch.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/2.6.11-newarch/osrn-v2.6.11-newarch.tgz
 ```
 
 #### iOS Specific Setup
