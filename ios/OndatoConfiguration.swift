@@ -22,7 +22,7 @@ struct OndatoConfiguration {
   static func fromDictionary(_ dict: NSDictionary) throws -> OndatoConfiguration {
     // Reject Android-only fields
     if dict["showSplashScreen"] != nil || dict["showWaitingScreen"] != nil || dict["showIdentificationWaitingPage"] != nil {
-      throw NSError(domain: "OndatoConfig", code: 1, userInfo: [NSLocalizedDescriptionKey: "Android-only fields (showSplashScreen, showWaitingScreen, showIdentificationWaitingPage) not supported on iOS"])
+      NSLog("[Ondato] Ignoring android-only fields (showSplashScreen, showWaitingScreen, showIdentificationWaitingPage) - they are not supported on iOS");
     }
     
     // Required fields

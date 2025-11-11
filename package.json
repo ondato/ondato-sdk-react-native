@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native",
-  "version": "2.6.9-newarch",
+  "version": "2.6.10-newarch",
   "description": "Ondato React Native SDK: A drop-in component library for capturing identity documents and facial biometrics. Features advanced image quality detection and direct upload to simplify identity verification integration.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -103,7 +103,7 @@
   "peerDependencies": {
     "expo": ">=53.0.0",
     "react": "*",
-    "react-native": "*"
+    "react-native": ">=0.77.0"
   },
   "peerDependenciesMeta": {
     "expo": {
