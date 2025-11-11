@@ -11998,7 +11998,7 @@ __metadata:
   peerDependencies:
     expo: ">=53.0.0"
     react: "*"
-    react-native: "*"
+    react-native: ">=0.77.0"
   peerDependenciesMeta:
     expo:
       optional: true
