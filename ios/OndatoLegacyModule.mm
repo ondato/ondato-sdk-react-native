@@ -25,7 +25,7 @@ RCT_EXPORT_METHOD(startIdentification:(NSDictionary *)config
 {
   dispatch_async(dispatch_get_main_queue(), ^{
     @try {
-      OndatoModule *swiftModule = [OndatoModule new];
+      OndatoLogic *swiftModule = [OndatoLogic new];
       [swiftModule startIdentificationWithConfig:config
                                          resolve:resolve
                                           reject:reject];

@@ -1,10 +1,3 @@
-//
-//  OndatoConfiguration.swift
-//  Pods
-//
-//  Created by Darius Rainys on 01/09/2025.
-//
-
 import Foundation
 import OndatoSDK
 import React

@@ -1,15 +1,8 @@
-//
-//  OSRNModule.swift
-//  Pods
-//
-//  Created by Darius Rainys on 01/09/2025.
-//
-
 import Foundation
 import OndatoSDK
 import React
 
-@objc public class OndatoModule: NSObject {
+@objc public class OndatoLogic: NSObject {
   private var resolve: RCTPromiseResolveBlock?
   private var reject: RCTPromiseRejectBlock?
   
@@ -57,7 +50,7 @@ import React
   }
 }
 
-extension OndatoModule: OndatoFlowDelegate {
+extension OndatoLogic: OndatoFlowDelegate {
   public func flowDidSucceed(identificationId: String?) {
     finish(with: ["status": "success", "id": identificationId ?? ""])
   }

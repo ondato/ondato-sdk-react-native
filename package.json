@@ -171,18 +171,11 @@
     ]
   },
   "codegenConfig": {
-    "name": "OndatoSpec",
+    "name": "RNOndatoSpec",
     "type": "modules",
     "jsSrcsDir": "src",
     "android": {
       "javaPackageName": "com.ondato"
-    },
-    "ios": {
-      "modules": {
-        "OndatoModule": {
-          "className": "OSRNModule"
-        }
-      }
     }
   },
   "create-react-native-library": {
