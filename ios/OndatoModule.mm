@@ -1,4 +1,4 @@
-#import "OSRNModule.h"
+#import "OndatoModule.h"
 #import <React/RCTConvert.h>
 #import <OndatoSDK/OndatoSDK-Swift.h>
 
@@ -8,13 +8,13 @@
 #import <OndatoSdkReactNative/OndatoSdkReactNative-Swift.h>
 #endif
 
-@implementation OSRNModule {
-  OndatoModule *ondato;
+@implementation OndatoModule {
+  OndatoLogic *ondato;
 }
 
 - (id)init {
   if (self = [super init]) {
-    ondato = [OndatoModule new];
+    ondato = [OndatoLogic new];
   }
   return self;
 }
@@ -33,7 +33,7 @@
   configDict[@"showSuccessWindow"] = @(config.showSuccessWindow());
   configDict[@"removeSelfieFrame"] = @(config.removeSelfieFrame());
   configDict[@"skipRegistrationIfDriverLicense"] = @(config.skipRegistrationIfDriverLicense());
-
+  
   // Handle appearance
   if (auto appearance = config.appearance()) {
     NSMutableDictionary *appearanceDict = [NSMutableDictionary dictionary];
@@ -45,7 +45,7 @@
     appearanceDict[@"textColor"] = appearance->textColor() ?: [NSNull null];
     appearanceDict[@"backgroundColor"] = appearance->backgroundColor() ?: [NSNull null];
     appearanceDict[@"imageTintColor"] = appearance->imageTintColor() ?: [NSNull null];
-
+    
     if (auto consentWindow = appearance->consentWindow()) {
       NSMutableDictionary *consentDict = [NSMutableDictionary dictionary];
       // Header
@@ -96,7 +96,7 @@
     }
     configDict[@"appearance"] = appearanceDict;
   }
-
+  
   [ondato startIdentificationWithConfig:configDict resolve:resolve reject:reject];
 }
 
