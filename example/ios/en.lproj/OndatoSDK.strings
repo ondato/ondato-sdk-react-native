@@ -1,0 +1,9 @@
+/* 
+  OndatoSDK.strings
+  OndatoSdkReactNativeExample
+
+  Created by Darius Rainys on 28/10/2025.
+  
+*/
+
+"Document.Instructions.Passport.DataPage.Heading" = "Custom Title";
