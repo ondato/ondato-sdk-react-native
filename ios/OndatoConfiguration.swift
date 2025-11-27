@@ -31,37 +31,37 @@ struct OndatoConfiguration {
     let switchButtons = dict["switchPrimaryButtons"] as? Bool ?? false
     
     // Language
-    let langCode = dict["language"] as? String
-    let language: OndatoSupportedLanguage = {
-      guard let code = langCode?.uppercased() else { return nil }
-      switch code {
-      case "BG": return .BG
-      case "CA": return .CA
-      case "CS": return .CS
-      case "DE": return .DE
-      case "EL": return .EL
-      case "EN": return .EN
-      case "ES": return .ES
-      case "ET": return .ET
-      case "FI": return .FI
-      case "FR": return .FR
-      case "HU": return .HU
-      case "IT": return .IT
-      case "LT": return .LT
-      case "LV": return .LV
-      case "NL": return .NL
-      case "PL": return .PL
-      case "PT": return .PT
-      case "RO": return .RO
-      case "RU": return .RU
-      case "SK": return .SK
-      case "SQ": return .SQ
-      case "SV": return .SV
-      case "UA": return .UA
-      case "VI": return .VI
-      default: return nil
-      }
-    }() ?? .EN
+    let languageCode = dict["language"] as? String
+    let language: OndatoSupportedLanguage
+    
+    switch (languageCode) {
+    case "bg": language = .BG
+    case "ca": language = .CA
+    case "cs": language = .CS
+    case "de": language = .DE
+    case "el": language = .EL
+    case "en": language = .EN
+    case "es": language = .ES
+    case "et": language = .ET
+    case "fi": language = .FI
+    case "fr": language = .FR
+    case "hu": language = .HU
+    case "it": language = .IT
+    case "lt": language = .LT
+    case "lv": language = .LV
+    case "nl": language = .NL
+    case "pl": language = .PL
+    case "pt": language = .PT
+    case "ro": language = .RO
+    case "ru": language = .RU
+    case "sk": language = .SK
+    case "sq": language = .SQ
+    case "sv": language = .SV
+    case "ua": language = .UA
+    case "vi": language = .VI
+    default:
+      language = .EN
+    }
     
     // Appearance JSON
     let appearance = dict["appearance"] as? String

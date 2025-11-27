@@ -42,7 +42,7 @@ export const languages: Language[] = [
   'sl',
   'sq',
   'sv',
-  'uk',
+  'ua',
   'vi',
 ];
 export const logLevels: LogLevel[] = ['error', 'info', 'debug'];

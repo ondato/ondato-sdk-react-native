@@ -50,7 +50,7 @@ data class OndatoConfiguration(
         "sl" -> Language.Slovenian
         "sq" -> Language.Albanian
         "sv" -> Language.Swedish
-        "uk" -> Language.Ukrainian
+        "ua" -> Language.Ukrainian
         "vi" -> Language.Vietnamese
         else -> null
       }

@@ -28,7 +28,7 @@ export type Language =
   | 'sl'
   | 'sq'
   | 'sv'
-  | 'uk'
+  | 'ua'
   | 'vi';
 
 export type IosFontWeight =

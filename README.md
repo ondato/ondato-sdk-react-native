@@ -73,7 +73,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.0/osrn-v3.2.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.1/osrn-v3.2.1-beta.1.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -297,9 +297,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.0/osrn-v3.2.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.1/osrn-v3.2.1-beta.1.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.0/osrn-v3.2.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.1/osrn-v3.2.1-beta.1.tgz
 ```
 
 #### iOS Specific Setup
@@ -960,7 +960,7 @@ Ondato SDK comes with out-of-the-box translations for the following locales:
 - Slovak (sk) 🇸🇰
 - Slovenian (sl) 🇸🇮
 - Swedish (sv) 🇸🇪
-- Ukrainian (uk) 🇺🇦
+- Ukrainian (ua) 🇺🇦
 - Vietnamese (vi) 🇻🇳
 
 You can also **provide your own translations** by overriding Ondato's string keys in your platform-specific resources.
@@ -1076,9 +1076,9 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.2.0") { exclude group: "com.squareup.okhttp3" }
+      implementation("com.kyc.ondato:screen-recorder:3.2.1") { exclude group: "com.squareup.okhttp3" }
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.2.0") { exclude group: "com.squareup.okhttp3" }
+      implementation("com.kyc.ondato:nfc-reader:3.2.1") { exclude group: "com.squareup.okhttp3" }
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.

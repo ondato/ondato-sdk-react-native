@@ -76,7 +76,7 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
   // SDK core - required in all cases
-  implementation("com.kyc.ondato:sdk-core:3.2.0") {
+  implementation("com.kyc.ondato:sdk-core:3.2.1") {
     // Current bundled version causes java.lang.NoClassDefFoundError
     exclude group: "com.squareup.okhttp3"
   }
@@ -94,16 +94,16 @@ afterEvaluate {
   rootProject.allprojects {
     repositories {
       // Local repo bundled with this React Native package (used in npm installs)
-      // maven {
-      //   url "$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo"
-      // }
+      maven {
+        url "$rootDir/../node_modules/ondato-sdk-react-native/android/local/repo"
+      }
 
       // Remote repo hosting Ondato SDK v3 artifacts
       // List of all versions for manual viewing: https://gitlab.com/ondato/ondato-sdk-android/-/packages
-      maven { url "https://gitlab.com/api/v4/projects/65297321/packages/maven" }
+      // maven { url "https://gitlab.com/api/v4/projects/65297321/packages/maven" }
 
       // Remote repo hosting Ondato SDK v2 and Facetec SDK artifacts
-      maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos" }
+      // maven { url "https://raw.githubusercontent.com/ondato/ondato-sdk-android/main/repos" }
     }
   }
 }

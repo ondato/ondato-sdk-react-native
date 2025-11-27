@@ -1,0 +1,248 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.kyc.ondato",
+    "module": "nfc-reader",
+    "version": "3.2.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "nfc-reader-3.2.1.aar",
+          "url": "nfc-reader-3.2.1.aar",
+          "size": 594622,
+          "sha512": "b37441405cd3f9f6ff347352943ef4dc215049f5ad8e543e0eb434eddf62d307c4d4daad95a01b3ed5876c2f0268b043c646a70a3e1e70b20dd9acb58a8bc2f0",
+          "sha256": "06353eec05d0070679497306fac0b58013bf9c23fb28a66b109bdce04df382a5",
+          "sha1": "a671ec04979194948edfe1d80e0318e91d484d62",
+          "md5": "4b3ae69751bf9a2cc3e8738fc42605f9"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.kyc.ondato",
+          "module": "sdk-core",
+          "version": {
+            "requires": "3.2.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.16.0"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.7.1"
+          }
+        },
+        {
+          "group": "androidx.fragment",
+          "module": "fragment-ktx",
+          "version": {
+            "requires": "1.8.8"
+          }
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "androidx.viewpager2",
+          "module": "viewpager2",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2025.07.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.foundation",
+          "module": "foundation"
+        },
+        {
+          "group": "androidx.compose.foundation",
+          "module": "foundation-layout"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.material",
+          "module": "material-icons-extended"
+        },
+        {
+          "group": "androidx.compose.material3.adaptive",
+          "module": "adaptive"
+        },
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-livedata"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling"
+        },
+        {
+          "group": "androidx.activity",
+          "module": "activity-compose",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "androidx.fragment",
+          "module": "fragment-compose",
+          "version": {
+            "requires": "1.8.8"
+          }
+        },
+        {
+          "group": "com.airbnb.android",
+          "module": "lottie",
+          "version": {
+            "requires": "6.6.7"
+          }
+        },
+        {
+          "group": "com.airbnb.android",
+          "module": "lottie-compose",
+          "version": {
+            "requires": "6.6.7"
+          }
+        },
+        {
+          "group": "org.jmrtd",
+          "module": "jmrtd",
+          "version": {
+            "requires": "0.7.18"
+          }
+        },
+        {
+          "group": "dev.keiji.jp2",
+          "module": "jp2-android",
+          "version": {
+            "requires": "1.0.5"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-android",
+          "version": {
+            "requires": "1.7.36"
+          }
+        },
+        {
+          "group": "com.github.mhshams",
+          "module": "jnbis",
+          "version": {
+            "requires": "2.0.2"
+          }
+        },
+        {
+          "group": "net.sf.scuba",
+          "module": "scuba-sc-android",
+          "version": {
+            "requires": "0.0.23"
+          }
+        },
+        {
+          "group": "org.ejbca.cvc",
+          "module": "cert-cvc",
+          "version": {
+            "requires": "1.4.6"
+          }
+        },
+        {
+          "group": "com.madgag.spongycastle",
+          "module": "prov",
+          "version": {
+            "requires": "1.58.0.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "nfc-reader-3.2.1.aar",
+          "url": "nfc-reader-3.2.1.aar",
+          "size": 594622,
+          "sha512": "b37441405cd3f9f6ff347352943ef4dc215049f5ad8e543e0eb434eddf62d307c4d4daad95a01b3ed5876c2f0268b043c646a70a3e1e70b20dd9acb58a8bc2f0",
+          "sha256": "06353eec05d0070679497306fac0b58013bf9c23fb28a66b109bdce04df382a5",
+          "sha1": "a671ec04979194948edfe1d80e0318e91d484d62",
+          "md5": "4b3ae69751bf9a2cc3e8738fc42605f9"
+        }
+      ]
+    }
+  ]
+}
