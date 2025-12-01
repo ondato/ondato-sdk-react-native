@@ -35,11 +35,11 @@
         {
           "name": "nfc-reader-3.2.1.aar",
           "url": "nfc-reader-3.2.1.aar",
-          "size": 594622,
-          "sha512": "b37441405cd3f9f6ff347352943ef4dc215049f5ad8e543e0eb434eddf62d307c4d4daad95a01b3ed5876c2f0268b043c646a70a3e1e70b20dd9acb58a8bc2f0",
-          "sha256": "06353eec05d0070679497306fac0b58013bf9c23fb28a66b109bdce04df382a5",
-          "sha1": "a671ec04979194948edfe1d80e0318e91d484d62",
-          "md5": "4b3ae69751bf9a2cc3e8738fc42605f9"
+          "size": 594664,
+          "sha512": "93d83f22362fd88dc95062bdc01f163797de60922fc0a6a74321e50eed6ef51995f74b344ef6c710dbcccb97f38607e6fa966bfe50c2833beaf1a844a0d50451",
+          "sha256": "cdab3f661faeb4301a0ae0b8b66af13c05a3228c0a6c9c9280cfb2194a82b142",
+          "sha1": "d1cdc87d71edee8860cb8df51b44937703a9d723",
+          "md5": "ef796dac560daedf21fbeaa451fb29bf"
         }
       ]
     },
@@ -84,7 +84,7 @@
           "group": "androidx.constraintlayout",
           "module": "constraintlayout",
           "version": {
-            "requires": "2.1.4"
+            "requires": "2.2.1"
           }
         },
         {
@@ -236,11 +236,11 @@
         {
           "name": "nfc-reader-3.2.1.aar",
           "url": "nfc-reader-3.2.1.aar",
-          "size": 594622,
-          "sha512": "b37441405cd3f9f6ff347352943ef4dc215049f5ad8e543e0eb434eddf62d307c4d4daad95a01b3ed5876c2f0268b043c646a70a3e1e70b20dd9acb58a8bc2f0",
-          "sha256": "06353eec05d0070679497306fac0b58013bf9c23fb28a66b109bdce04df382a5",
-          "sha1": "a671ec04979194948edfe1d80e0318e91d484d62",
-          "md5": "4b3ae69751bf9a2cc3e8738fc42605f9"
+          "size": 594664,
+          "sha512": "93d83f22362fd88dc95062bdc01f163797de60922fc0a6a74321e50eed6ef51995f74b344ef6c710dbcccb97f38607e6fa966bfe50c2833beaf1a844a0d50451",
+          "sha256": "cdab3f661faeb4301a0ae0b8b66af13c05a3228c0a6c9c9280cfb2194a82b142",
+          "sha1": "d1cdc87d71edee8860cb8df51b44937703a9d723",
+          "md5": "ef796dac560daedf21fbeaa451fb29bf"
         }
       ]
     }
