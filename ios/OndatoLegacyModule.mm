@@ -13,11 +13,19 @@
 #if !RCT_NEW_ARCH_ENABLED   // Compile only when the old bridge is active
 
 @interface OndatoLegacyModule : NSObject <RCTBridgeModule>
+@property (nonatomic, strong) OndatoLogic *logic;
 @end
 
 @implementation OndatoLegacyModule
 
 RCT_EXPORT_MODULE(OndatoModule);
+
+- (instancetype)init {
+  if (self = [super init]) {
+    _logic = [OndatoLogic new];
+  }
+  return self;
+}
 
 RCT_EXPORT_METHOD(startIdentification:(NSDictionary *)config
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -30,14 +38,13 @@ RCT_EXPORT_METHOD(startIdentification:(NSDictionary *)config
       if (fonts && [fonts isKindOfClass:[NSDictionary class]]) {
         NSDictionary *iosFonts = fonts[@"ios"];
         if (iosFonts && [iosFonts isKindOfClass:[NSDictionary class]]) {
-          flattened[@"fonts"] = iosFonts; // strip android + flatten ios
+          flattened[@"fonts"] = iosFonts;
         }
       }
-
-      OndatoLogic *swiftModule = [OndatoLogic new];
-      [swiftModule startIdentificationWithConfig:flattened
-                                         resolve:resolve
-                                          reject:reject];
+      
+      [self.logic startIdentificationWithConfig:flattened
+                                        resolve:resolve
+                                         reject:reject];
     }
     @catch (NSException *exception) {
       RCTLogError(@"[Ondato] startIdentification exception: %@", exception);
@@ -48,8 +55,7 @@ RCT_EXPORT_METHOD(startIdentification:(NSDictionary *)config
 
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getLogs)
 {
-  OndatoLogic *swiftModule = [OndatoLogic new];
-  return [swiftModule getLogs];
+  return [self.logic getLogs];
 }
 
 @end
