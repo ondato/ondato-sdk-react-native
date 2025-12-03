@@ -960,7 +960,7 @@ Ondato SDK comes with out-of-the-box translations for the following locales:
 - Slovak (sk) 🇸🇰
 - Slovenian (sl) 🇸🇮
 - Swedish (sv) 🇸🇪
-- Ukrainian (ua) 🇺🇦
+- Ukrainian (uk) 🇺🇦
 - Vietnamese (vi) 🇻🇳
 
 You can also **provide your own translations** by overriding Ondato's string keys in your platform-specific resources.

@@ -13,27 +13,27 @@ struct OndatoConfiguration {
   let switchPrimaryButtons: Bool
   let appearance: String?
   let logLevel: Int
-  
+
   static func fromDictionary(_ dict: NSDictionary) throws -> OndatoConfiguration {
     // Required fields
     guard let id = dict["identityVerificationId"] as? String, !id.isEmpty else {
       throw NSError(domain: "OndatoConfig", code: 0, userInfo: [NSLocalizedDescriptionKey: "identityVerificationId is required and must be non-empty"])
     }
-    
+
     // Mode
     let mode: OndatoEnvironment = (dict["mode"] as? String)?.lowercased() == "live" ? .live : .test
-    
+
     // Booleans with defaults
     let showTransKeys = dict["showTranslationKeys"] as? Bool ?? false
     let skipReg = dict["skipRegistrationIfDriverLicense"] as? Bool ?? false
     let showNoInternet = dict["enableNetworkIssuesScreen"] as? Bool ?? true
     let disablePdf = dict["disablePdfFileUpload"] as? Bool ?? false
     let switchButtons = dict["switchPrimaryButtons"] as? Bool ?? false
-    
+
     // Language
     let languageCode = dict["language"] as? String
     let language: OndatoSupportedLanguage
-    
+
     switch (languageCode) {
     case "bg": language = .BG
     case "ca": language = .CA
@@ -57,15 +57,15 @@ struct OndatoConfiguration {
     case "sk": language = .SK
     case "sq": language = .SQ
     case "sv": language = .SV
-    case "ua": language = .UA
+    case "uk": language = .UA
     case "vi": language = .VI
     default:
       language = .EN
     }
-    
+
     // Appearance JSON
     let appearance = dict["appearance"] as? String
-    
+
     // Logging level
     let logLevelString = dict["logLevel"] as? String ?? "info"
     let logLevel: Int = {
@@ -75,7 +75,7 @@ struct OndatoConfiguration {
       default: return 0  // info
       }
     }()
-    
+
     return OndatoConfiguration(
       identityVerificationId: id,
       mode: mode,
