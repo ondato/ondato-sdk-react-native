@@ -1062,7 +1062,7 @@ To find the full list of available string keys to override, please refer to the 
 
 ##### Android
 
-1.  Add the Ondato maven repositories to your project-level `android/build.gradle` file:
+1.  Add the Ondato maven repositories to your project-level `android/build.gradle` file (skip this step for beta releases):
     ```groovy
     allprojects {
       repositories {
@@ -1076,9 +1076,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.2.1") { exclude group: "com.squareup.okhttp3" }
+      implementation("com.kyc.ondato:screen-recorder:3.2.1")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.2.1") { exclude group: "com.squareup.okhttp3" }
+      implementation("com.kyc.ondato:nfc-reader:3.2.1")
+      // and/or
+      implementation("com.kyc.ondato:document-autoresolver:3.2.1")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
