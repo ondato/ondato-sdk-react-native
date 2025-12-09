@@ -8,7 +8,7 @@
   <!-- do_not_remove: published-with-gradle-metadata -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kyc.ondato</groupId>
-  <artifactId>sdk-core</artifactId>
+  <artifactId>document-autoresolver</artifactId>
   <version>3.2.1</version>
   <packaging>aar</packaging>
   <dependencyManagement>
@@ -30,39 +30,9 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.jetbrains.kotlinx</groupId>
-      <artifactId>kotlinx-coroutines-android</artifactId>
-      <version>1.10.2</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.insert-koin</groupId>
-      <artifactId>koin-android</artifactId>
-      <version>4.1.0</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.insert-koin</groupId>
-      <artifactId>koin-androidx-compose</artifactId>
-      <version>4.1.0</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>androidx.databinding</groupId>
-      <artifactId>viewbinding</artifactId>
-      <version>8.11.1</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-parcelize-runtime</artifactId>
-      <version>2.0.21</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-android</artifactId>
-      <version>1.7.36</version>
+      <groupId>com.kyc.ondato</groupId>
+      <artifactId>sdk-core</artifactId>
+      <version>3.2.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -99,24 +69,6 @@
       <groupId>androidx.viewpager2</groupId>
       <artifactId>viewpager2</artifactId>
       <version>1.1.0</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>androidx.lifecycle</groupId>
-      <artifactId>lifecycle-process</artifactId>
-      <version>2.9.3</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>androidx.lifecycle</groupId>
-      <artifactId>lifecycle-common</artifactId>
-      <version>2.9.3</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>androidx.exifinterface</groupId>
-      <artifactId>exifinterface</artifactId>
-      <version>1.4.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -165,55 +117,15 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>androidx.compose.animation</groupId>
-      <artifactId>animation</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>androidx.compose.animation</groupId>
-      <artifactId>animation-graphics</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
       <groupId>androidx.activity</groupId>
       <artifactId>activity-compose</artifactId>
       <version>1.10.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-reflect</artifactId>
-      <version>2.0.21</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.retrofit2</groupId>
-      <artifactId>retrofit</artifactId>
-      <version>3.0.0</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.retrofit2</groupId>
-      <artifactId>converter-gson</artifactId>
-      <version>3.0.0</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.retrofit2</groupId>
-      <artifactId>converter-scalars</artifactId>
-      <version>3.0.0</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.13.1</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>logging-interceptor</artifactId>
-      <version>4.12.0</version>
+      <groupId>androidx.fragment</groupId>
+      <artifactId>fragment-compose</artifactId>
+      <version>1.8.8</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -227,19 +139,6 @@
       <artifactId>lottie-compose</artifactId>
       <version>6.6.7</version>
       <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.facetec</groupId>
-      <artifactId>sdk</artifactId>
-      <version>9.7.97</version>
-      <type>aar</type>
-      <scope>runtime</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>*</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>androidx.camera</groupId>
@@ -272,9 +171,9 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>androidx.multidex</groupId>
-      <artifactId>multidex</artifactId>
-      <version>2.0.1</version>
+      <groupId>com.microsoft.onnxruntime</groupId>
+      <artifactId>onnxruntime-android</artifactId>
+      <version>1.22.0</version>
       <scope>runtime</scope>
     </dependency>
   </dependencies>
