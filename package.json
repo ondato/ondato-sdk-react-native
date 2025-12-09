@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native",
-  "version": "3.2.1-beta.3",
+  "version": "3.2.1-beta.4",
   "description": "Ondato React Native SDK: A drop-in component library for capturing identity documents and facial biometrics. Features advanced image quality detection and direct upload to simplify identity verification integration.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
