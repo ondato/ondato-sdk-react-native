@@ -1,29 +1,25 @@
 // Mock the direct dependencies of index.tsx at the top.
 jest.mock('../NativeOndatoModule', () => ({
-  // We are mocking the native module itself.
   startIdentification: jest.fn(),
   getLogs: jest.fn(),
 }));
 
 jest.mock('../appearance', () => ({
-  // We are mocking the appearance helper.
   mergeAppearance: jest.fn(),
 }));
 
 // Import the functions we want to test.
 import { startIdentification, getLogs } from '../index';
 
-// Import the mocked modules so we can control and assert against them.
+// Import mocked modules.
 import Ondato, { type OndatoConfig } from '../NativeOndatoModule';
 import { mergeAppearance } from '../appearance';
 
 type Global = typeof globalThis & { __DEV__: boolean };
 
 describe('Ondato SDK Module (index.tsx)', () => {
-  // Use resetAllMocks for a clean slate before every test.
   beforeEach(() => {
     jest.resetAllMocks();
-    // Set a default return value for the merge helper.
     (mergeAppearance as jest.Mock).mockReturnValue({ merged: true });
   });
 
@@ -39,25 +35,23 @@ describe('Ondato SDK Module (index.tsx)', () => {
 
       // ASSERT
       expect(Ondato.startIdentification).toHaveBeenCalledTimes(1);
-      // Check the native config passed to the actual native module.
       expect(Ondato.startIdentification).toHaveBeenCalledWith({
         identityVerificationId: 'test-id-123',
-        mode: 'test', // Default
+        mode: 'test',
         language: undefined,
-        switchPrimaryButtons: false, // Default
-        enableNetworkIssuesScreen: true, // Default
-        disablePdfFileUpload: false, // Default
-        skipRegistrationIfDriverLicense: false, // Default
-        showTranslationKeys: false, // Default
-        logLevel: 'info', // Default
+        switchPrimaryButtons: false,
+        enableNetworkIssuesScreen: true,
+        disablePdfFileUpload: false,
+        skipRegistrationIfDriverLicense: false,
+        showTranslationKeys: false,
+        logLevel: 'info',
         fonts: undefined,
-        appearance: undefined, // No appearance was provided
+        appearance: undefined,
       });
-      // Ensure the appearance helper was NOT called.
       expect(mergeAppearance).not.toHaveBeenCalled();
     });
 
-    it('should pass through all valid properties and stringify the appearance object', () => {
+    it('should pass through valid properties and stringify appearance', () => {
       // ARRANGE
       const fullConfig = {
         identityVerificationId: 'test-id-456',
@@ -72,16 +66,14 @@ describe('Ondato SDK Module (index.tsx)', () => {
       startIdentification(fullConfig);
 
       // ASSERT
-      // Verify the appearance helper was called with the partial appearance object.
       expect(mergeAppearance).toHaveBeenCalledWith(fullConfig.appearance);
-      // Verify the native module was called with the correct, transformed config.
       expect(Ondato.startIdentification).toHaveBeenCalledWith({
         identityVerificationId: 'test-id-456',
         mode: 'live',
         language: 'de',
         logLevel: 'debug',
         fonts: { android: { title: 'my_font' } },
-        appearance: '{"merged":true}', // Correctly stringified result from the mock
+        appearance: '{"merged":true}',
         // Defaults for unspecified booleans
         switchPrimaryButtons: false,
         enableNetworkIssuesScreen: true,
@@ -91,60 +83,115 @@ describe('Ondato SDK Module (index.tsx)', () => {
       });
     });
 
+    // ---- Language Normalization ----
+
+    it('should leave language undefined when not provided', () => {
+      // ARRANGE
+      const config = { identityVerificationId: 'test-id' };
+
+      // ACT
+      startIdentification(config);
+
+      // ASSERT
+      expect(Ondato.startIdentification).toHaveBeenCalledWith({
+        disablePdfFileUpload: false,
+        enableNetworkIssuesScreen: true,
+        identityVerificationId: 'test-id',
+        logLevel: 'info',
+        mode: 'test',
+        showTranslationKeys: false,
+        skipRegistrationIfDriverLicense: false,
+        switchPrimaryButtons: false,
+      });
+    });
+
+    it('should treat empty string language as undefined', () => {
+      // ARRANGE
+      const config = {
+        identityVerificationId: 'test-id',
+        language: '',
+      };
+
+      // ACT
+      startIdentification(config as OndatoConfig);
+
+      // ASSERT
+      expect(Ondato.startIdentification).toHaveBeenCalledWith(
+        expect.objectContaining({ language: undefined })
+      );
+    });
+
+    it('should fall back to English for unsupported language', () => {
+      // ARRANGE
+      const config = {
+        identityVerificationId: 'test-id',
+        language: 'xx',
+      };
+
+      // ACT
+      startIdentification(config as OndatoConfig);
+
+      // ASSERT
+      expect(Ondato.startIdentification).toHaveBeenCalledWith(
+        expect.objectContaining({ language: 'en' })
+      );
+    });
+
     // ---- Validation and Error Handling ----
 
-    it('should throw an error if identityVerificationId is missing', () => {
+    it('should throw if identityVerificationId is missing', () => {
       // ARRANGE
       const invalidConfig = { mode: 'test' };
 
-      // ACT & ASSERT
-      // We expect this call to throw an error due to Zod validation.
+      // ACT + ASSERT
       expect(() =>
         startIdentification(invalidConfig as OndatoConfig)
       ).toThrow();
     });
 
-    it('should throw an error for an unknown property', () => {
+    it('should throw for unknown property', () => {
       // ARRANGE
       const invalidConfig = {
         identityVerificationId: 'test-id',
-        unknownProp: 'this-should-fail',
+        unknownProp: 'nope',
       };
 
-      // ACT & ASSERT
+      // ACT + ASSERT
       expect(() =>
         startIdentification(invalidConfig as OndatoConfig)
       ).toThrow();
     });
 
-    it('should throw a detailed error in DEV mode', () => {
+    it('should throw detailed error in DEV mode', () => {
       // ARRANGE
-      (global as Global).__DEV__ = true; // Simulate development environment
-      const invalidConfig = { identityVerificationId: '' }; // Invalid ID
+      (global as Global).__DEV__ = true;
+      const invalidConfig = { identityVerificationId: '' };
 
-      // ACT & ASSERT
+      // ACT + ASSERT
       expect(() => startIdentification(invalidConfig as OndatoConfig)).toThrow(
         /Invalid Ondato config:[\s\S]*identityVerificationId/
       );
     });
 
-    it('should throw a generic error and console.error in production mode', () => {
+    it('should throw generic error and log in PROD mode', () => {
       // ARRANGE
-      (global as Global).__DEV__ = false; // Simulate production environment
+      (global as Global).__DEV__ = false;
       const consoleErrorSpy = jest
         .spyOn(console, 'error')
         .mockImplementation(() => {});
       const invalidConfig = { identityVerificationId: '' };
 
-      // ACT & ASSERT
+      // ACT + ASSERT
       expect(() => startIdentification(invalidConfig as OndatoConfig)).toThrow(
         'Invalid Ondato config'
       );
       expect(consoleErrorSpy).toHaveBeenCalled();
 
-      consoleErrorSpy.mockRestore(); // Clean up the spy
+      consoleErrorSpy.mockRestore();
     });
   });
+
+  // ---- getLogs ----
 
   describe('getLogs', () => {
     it('should call the native getLogs method and return its value', () => {
