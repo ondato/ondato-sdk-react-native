@@ -11,7 +11,7 @@ PODS:
   - OndatoNFC (3.2.0)
   - OndatoScreenRecorder (3.2.0)
   - OndatoSDK (3.2.0)
-  - OndatoSdkReactNative (3.2.1-beta.4):
+  - OndatoSdkReactNative (3.2.1-beta.5):
     - boost
     - DoubleConversion
     - fast_float
@@ -2621,7 +2621,7 @@ SPEC CHECKSUMS:
   OndatoNFC: 2c822650815f014364fdfaa4685080b0f6fc0f1a
   OndatoScreenRecorder: c0d0283f0415f1f65efb9f474996a7e04ad2d557
   OndatoSDK: 1b3f811fedee96f98a8d941fb8c0d6bc8ca9b2d7
-  OndatoSdkReactNative: cee4c66487482fd05518e007bb061f11cf2fff56
+  OndatoSdkReactNative: 38701f6f27eebcbabb48272a6ec866f15bd2887c
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: c4b9e2fd0ab200e3af72b013ed6113187c607077
   RCTRequired: e97dd5dafc1db8094e63bc5031e0371f092ae92a
