@@ -11,7 +11,7 @@ PODS:
   - OndatoNFC (3.2.0)
   - OndatoScreenRecorder (3.2.0)
   - OndatoSDK (3.2.0)
-  - OndatoSdkReactNative (3.2.1-beta.5):
+  - OndatoSdkReactNative (3.2.1):
     - boost
     - DoubleConversion
     - fast_float

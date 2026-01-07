@@ -73,7 +73,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.5/osrn-v3.2.1-beta.5.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -297,9 +297,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.5/osrn-v3.2.1-beta.5.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
 # or
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1-beta.5/osrn-v3.2.1-beta.5.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
 ```
 
 #### iOS Specific Setup
