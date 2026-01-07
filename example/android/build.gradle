@@ -22,8 +22,8 @@ apply plugin: "com.facebook.react.rootproject"
 
 // Adds the local Maven repo for testing the SDK inside example application.
 // Comment this block out when using the external remote repository instead.
-allprojects {
-  repositories {
-    maven { url "$rootDir/../../android/local/repo" }
-  }
-}
+// allprojects {
+//   repositories {
+//     maven { url "$rootDir/../../android/local/repo" }
+//   }
+// }
