@@ -335,7 +335,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
   // CORE STYLING
   "brand": {
     "colors": {
-      "primaryColor": "#64749c", // Primary brand color - used in illustration and primary button
+      "primaryColor": "#64749c", // Primary brand color
 
       "textColor": "#000000", // Text color for content
       "backgroundColor": "#FFFFFF", // Base background color for screens
