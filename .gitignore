@@ -103,3 +103,7 @@ tmp/
 # TypeScript build info
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+
+# local dev env
+.env
+.env.*

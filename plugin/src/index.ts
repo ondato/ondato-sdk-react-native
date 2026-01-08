@@ -12,6 +12,7 @@ import pak from '../../package.json'; // Note: compiled code should be with the 
 export interface OndatoPluginProps {
   enableNfc?: boolean;
   enableScreenRecorder?: boolean;
+  enableDocumentResolver?: boolean;
 
   customLocalizationPath?: string;
   customIllustrationsPath?: string;

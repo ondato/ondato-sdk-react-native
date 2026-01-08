@@ -38,6 +38,7 @@ export const withExtraDependencies: ConfigPlugin<OndatoPluginProps> = (
 ) => {
   const enableNfc = props.enableNfc ?? false;
   const enableScreenRecorder = props.enableScreenRecorder ?? false;
+  const enableDocumentResolver = props.enableDocumentResolver ?? false;
 
   return withAppBuildGradle(configuration, (config) => {
     if (config.modResults.language !== 'groovy') {
@@ -51,6 +52,7 @@ export const withExtraDependencies: ConfigPlugin<OndatoPluginProps> = (
     config.modResults.contents = addDependencies(config.modResults.contents, {
       enableNfc,
       enableScreenRecorder,
+      enableDocumentResolver,
     });
     return config;
   });
@@ -87,11 +89,17 @@ export const addDependencies = (
   {
     enableNfc,
     enableScreenRecorder,
-  }: { enableNfc: boolean; enableScreenRecorder: boolean }
+    enableDocumentResolver,
+  }: {
+    enableNfc: boolean;
+    enableScreenRecorder: boolean;
+    enableDocumentResolver: boolean;
+  }
 ): string => {
   const dependenciesToAdd = [];
-  const nfcDependency = `implementation("com.kyc.ondato:nfc-reader:${ONDATO_VERSION_ANDROID}") { exclude group: "com.squareup.okhttp3" }`;
-  const screenRecorderDependency = `implementation("com.kyc.ondato:screen-recorder:${ONDATO_VERSION_ANDROID}") { exclude group: "com.squareup.okhttp3" }`;
+  const nfcDependency = `implementation("com.kyc.ondato:nfc-reader:${ONDATO_VERSION_ANDROID}")`;
+  const screenRecorderDependency = `implementation("com.kyc.ondato:screen-recorder:${ONDATO_VERSION_ANDROID}")`;
+  const documentResolverDependency = `implementation("com.kyc.ondato:document-autoresolver:${ONDATO_VERSION_ANDROID}")`;
 
   if (enableNfc && !buildGradle.includes('com.kyc.ondato:nfc-reader')) {
     dependenciesToAdd.push(nfcDependency);
@@ -101,6 +109,12 @@ export const addDependencies = (
     !buildGradle.includes('com.kyc.ondato:screen-recorder')
   ) {
     dependenciesToAdd.push(screenRecorderDependency);
+  }
+  if (
+    enableDocumentResolver &&
+    !buildGradle.includes('com.kyc.ondato:document-autoresolver')
+  ) {
+    dependenciesToAdd.push(documentResolverDependency);
   }
 
   if (dependenciesToAdd.length === 0) {

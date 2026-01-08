@@ -80,45 +80,76 @@ describe('Config Plugin Android Tests for SDK 54', function () {
     const result = addDependencies(appBuildGradle, {
       enableNfc: false,
       enableScreenRecorder: false,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
   });
 
-  it('adds nfc dependency with exclude to android/app/build.gradle', async function () {
+  it('adds nfc dependency to android/app/build.gradle', async function () {
     const result = addDependencies(appBuildGradle, {
       enableNfc: true,
       enableScreenRecorder: false,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
   });
 
-  it('adds screen recorder dependency with exclude to android/app/build.gradle', async function () {
+  it('adds screen recorder dependency to android/app/build.gradle', async function () {
     const result = addDependencies(appBuildGradle, {
       enableNfc: false,
       enableScreenRecorder: true,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
   });
 
-  it('adds nfc and screen recorder dependencies with excludes to android/app/build.gradle', async function () {
+  it('adds nfc and screen recorder dependencies to android/app/build.gradle', async function () {
     const result = addDependencies(appBuildGradle, {
       enableNfc: true,
       enableScreenRecorder: true,
+      enableDocumentResolver: false,
     });
+    expect(result).toMatchSnapshot();
+  });
+
+  it('adds document resolver dependency to android/app/build.gradle', async function () {
+    const result = addDependencies(appBuildGradle, {
+      enableNfc: false,
+      enableScreenRecorder: false,
+      enableDocumentResolver: true,
+    });
+    expect(result).toContain(
+      `implementation("com.kyc.ondato:document-autoresolver:${ONDATO_VERSION_ANDROID}")`
+    );
+    expect(result).toMatchSnapshot();
+  });
+
+  it('adds all dependencies (nfc, screen recorder, document resolver) to android/app/build.gradle', async function () {
+    const result = addDependencies(appBuildGradle, {
+      enableNfc: true,
+      enableScreenRecorder: true,
+      enableDocumentResolver: true,
+    });
+    expect(result).toContain('com.kyc.ondato:nfc-reader');
+    expect(result).toContain('com.kyc.ondato:screen-recorder');
+    expect(result).toContain('com.kyc.ondato:document-autoresolver');
     expect(result).toMatchSnapshot();
   });
 
   it('does not add duplicate dependencies if already present', async () => {
     // Pre-add the deps to simulate existing
-    const nfcDep = `implementation("com.kyc.ondato:nfc-reader:${ONDATO_VERSION_ANDROID}") { exclude group: "com.squareup.okhttp3" }`;
-    const screenDep = `implementation("com.kyc.ondato:screen-recorder:${ONDATO_VERSION_ANDROID}") { exclude group: "com.squareup.okhttp3" }`;
+    const nfcDep = `implementation("com.kyc.ondato:nfc-reader:${ONDATO_VERSION_ANDROID}")`;
+    const screenDep = `implementation("com.kyc.ondato:screen-recorder:${ONDATO_VERSION_ANDROID}")`;
+    const docDep = `implementation("com.kyc.ondato:document-autoresolver:${ONDATO_VERSION_ANDROID}")`;
+
     const modifiedGradle = appBuildGradle.replace(
       /dependencies\s*{/,
-      `$&\n    ${nfcDep}\n    ${screenDep}`
+      `$&\n    ${nfcDep}\n    ${screenDep}\n    ${docDep}`
     );
     const result = addDependencies(modifiedGradle, {
       enableNfc: true,
       enableScreenRecorder: true,
+      enableDocumentResolver: true,
     });
     expect(result).toBe(modifiedGradle);
   });

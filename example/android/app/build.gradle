@@ -110,12 +110,11 @@ android {
 dependencies {
   // The version of react-native is set by the React Native Gradle Plugin
   implementation("com.facebook.react:react-android")
-  implementation("com.kyc.ondato:screen-recorder:3.2.1") {
-    exclude group: "com.squareup.okhttp3"
-  }
-  implementation("com.kyc.ondato:nfc-reader:3.2.1") {
-    exclude group: "com.squareup.okhttp3"
-  }
+
+  // Ondato SDK extra dependencies
+  implementation("com.kyc.ondato:nfc-reader:3.2.2")
+  implementation("com.kyc.ondato:screen-recorder:3.2.2")
+  implementation("com.kyc.ondato:document-autoresolver:3.2.2")
 
   if (hermesEnabled.toBoolean()) {
     implementation("com.facebook.react:hermes-android")
