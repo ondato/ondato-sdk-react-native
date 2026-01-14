@@ -33,7 +33,7 @@ class OndatoModule(reactContext: ReactApplicationContext) :
           promise.resolve(
             Arguments.createMap().apply {
               putString("status", "success")
-              putString("id", identificationId)
+              putString("id", identificationId ?: "")
             }
           )
         }
@@ -42,7 +42,7 @@ class OndatoModule(reactContext: ReactApplicationContext) :
           promise.resolve(
             Arguments.createMap().apply {
               putString("status", "failure")
-              putString("id", identificationId)
+              putString("id", identificationId ?: "")
               putString("error", error.name)
             }
           )

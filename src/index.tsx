@@ -68,7 +68,15 @@ const configSchema = z
         'identityVerificationId is required and must be a non-empty string'
       ),
     mode: z.enum(modes as [Mode, ...Mode[]]).default('test'),
-    language: z.enum(languages as [Language, ...Language[]]).optional(),
+    language: z
+      .string()
+      .optional()
+      .transform((lang): Language | undefined => {
+        if (!lang) return undefined;
+        return (languages as readonly string[]).includes(lang)
+          ? (lang as Language)
+          : 'en';
+      }),
     switchPrimaryButtons: z.boolean().default(false),
     enableNetworkIssuesScreen: z.boolean().default(true),
     disablePdfFileUpload: z.boolean().default(false),

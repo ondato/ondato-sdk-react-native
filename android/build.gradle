@@ -76,7 +76,7 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
   // SDK core - required in all cases
-  implementation("com.kyc.ondato:sdk-core:3.2.0") {
+  implementation("com.kyc.ondato:sdk-core:3.2.1") {
     // Current bundled version causes java.lang.NoClassDefFoundError
     exclude group: "com.squareup.okhttp3"
   }

@@ -1,4 +1,4 @@
-#import "OSRNModule.h"
+#import "OndatoModule.h"
 #import <React/RCTConvert.h>
 #import <OndatoSDK/OndatoSDK-Swift.h>
 
@@ -10,13 +10,13 @@
 
 using namespace facebook::react;
 
-@implementation OSRNModule {
-  OndatoModule *ondato;
+@implementation OndatoModule {
+  OndatoLogic *ondato;
 }
 
 - (id)init {
   if (self = [super init]) {
-    ondato = [OndatoModule new];
+    ondato = [OndatoLogic new];
   }
   return self;
 }
