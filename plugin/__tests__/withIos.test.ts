@@ -28,6 +28,7 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
     const result = addPods(podfile, {
       enableNfc: true,
       enableScreenRecorder: true,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
     expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
@@ -41,6 +42,7 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
     const result = addPods(podfile, {
       enableNfc: true,
       enableScreenRecorder: false,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
     expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
@@ -54,6 +56,7 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
     const result = addPods(podfile, {
       enableNfc: false,
       enableScreenRecorder: true,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
     expect(result).not.toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
@@ -63,10 +66,45 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
     expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
   });
 
+  it('adds document resolver pod to Podfile', async () => {
+    const result = addPods(podfile, {
+      enableNfc: false,
+      enableScreenRecorder: false,
+      enableDocumentResolver: true,
+    });
+    expect(result).toMatchSnapshot();
+    expect(result).not.toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
+    expect(result).not.toContain(
+      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`
+    );
+    expect(result).toContain(
+      `pod 'OndatoAutocapture', '= ${ONDATO_VERSION_IOS}'`
+    );
+    expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
+  });
+
+  it('adds all pods (NFC, screen recorder, document resolver) to Podfile', async () => {
+    const result = addPods(podfile, {
+      enableNfc: true,
+      enableScreenRecorder: true,
+      enableDocumentResolver: true,
+    });
+    expect(result).toMatchSnapshot();
+    expect(result).toContain(`pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`);
+    expect(result).toContain(
+      `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`
+    );
+    expect(result).toContain(
+      `pod 'OndatoAutocapture', '= ${ONDATO_VERSION_IOS}'`
+    );
+    expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
+  });
+
   it('skips adding pods when none are enabled', async () => {
     const result = addPods(podfile, {
       enableNfc: false,
       enableScreenRecorder: false,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
     expect(result).toBe(podfile);
@@ -78,9 +116,22 @@ describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
     const result = addPods(podfileWithNfc, {
       enableNfc: true,
       enableScreenRecorder: false,
+      enableDocumentResolver: false,
     });
     expect(result).toMatchSnapshot();
     expect(result).toBe(podfileWithNfc);
+    expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
+  });
+
+  it('skips adding duplicate document resolver pod', async () => {
+    const podfileWithResolver = `${podfile}\n  pod 'OndatoAutocapture', '= ${ONDATO_VERSION_IOS}'`;
+    const result = addPods(podfileWithResolver, {
+      enableNfc: false,
+      enableScreenRecorder: false,
+      enableDocumentResolver: true,
+    });
+    expect(result).toMatchSnapshot();
+    expect(result).toBe(podfileWithResolver);
     expect(WarningAggregator.addWarningIOS).not.toHaveBeenCalled();
   });
 

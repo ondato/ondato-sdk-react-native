@@ -32,12 +32,12 @@ import React
       Ondato.sdk.configuration.flowConfiguration.switchPrimaryButtons = conf.switchPrimaryButtons
       
       let language = conf.language
-      OndatoLocalizeHelper.shared.setLanguage(code: language.rawValue)
+      OndatoLocalizeHelper.shared.setLanguage(code: language.identifier)
       // By convention, check for a user-provided "OndatoSDK.strings" file.
       let customTableName = "OndatoSDK"
       // Manually find the localized strings file for the active language, load it into a
       // dictionary, and pass it directly to the Ondato SDK.
-      if let path = Bundle.main.path(forResource: customTableName, ofType: "strings", inDirectory: nil, forLocalization: language.rawValue),
+      if let path = Bundle.main.path(forResource: customTableName, ofType: "strings", inDirectory: nil, forLocalization: language.identifier),
          let translations = NSDictionary(contentsOfFile: path) as? [String: String] {
         OndatoLocalizeHelper.shared.setLocalization(table: translations, for: language)
       }

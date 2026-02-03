@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -124,9 +124,9 @@ npx expo run:ios
 
 | Option                           | Type      | Description                                                | Default                                                                                            |
 | -------------------------------- | --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `enableNfc`                      | `boolean` | Enables NFC support for scanning identification documents. | `false`                                                                                            |
-| `enableScreenRecorder`           | `boolean` | Enables screen recording with audio for verification.      | `false`                                                                                            |
-| `enableDocumentResolver`         | `boolean` | Enables document auto-resolver dependency (Android only).  | `false`                                                                                            |
+| `enableNfc`                      | `boolean` | Adds NFC support for scanning identification documents. | `false`                                                                                            |
+| `enableScreenRecorder`           | `boolean` | Adds screen recording with audio for verification.      | `false`                                                                                            |
+| `enableDocumentResolver`         | `boolean` | Adds document auto-resolver dependency for Android and OndatoAutocapture Pod for iOS.  | `false`                                                                                            |
 | `ios.nfcUsageDescription`        | `string`  | iOS NFC usage description for `Info.plist`.                | `"This app uses NFC to scan identification documents."`                                            |
 | `ios.cameraUsageDescription`     | `string`  | iOS camera usage description for `Info.plist`.             | `"Required for document and facial capture"`                                                       |
 | `ios.microphoneUsageDescription` | `string`  | iOS microphone usage description for `Info.plist`.         | `"This app uses the microphone to record audio during the screen recording verification process."` |
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
 ```
 
 #### iOS Specific Setup
@@ -1091,9 +1091,11 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.2.0'
+    pod 'OndatoNFC', '= 3.2.1'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.2.0'
+    pod 'OndatoAutocapture', '= 3.2.1'
+    # and/or
+    pod 'OndatoScreenRecorder', '= 3.2.1'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
