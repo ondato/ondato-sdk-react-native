@@ -19,7 +19,6 @@ A drop-in component library for React Native to capture identity documents and f
     - [Localisation](#localisation)
     - [Overriding Translations](#overriding-translations)
   - [Optional Features](#optional-features)
-    - [Adding Screen Recorder and/or NFC Support](#adding-screen-recorder-andor-nfc-support)
 - [Usage](#usage)
 - [API Reference](#api-reference)
   - [Configuration Options](#configuration-options)
@@ -73,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -91,6 +90,7 @@ Below is an example `app.json` configuration:
         {
           "enableNfc": true,
           "enableScreenRecorder": true,
+          "enableDocumentResolver": true,
           "ios": {
             "nfcUsageDescription": "Scan NFC-enabled identification documents.",
             "cameraUsageDescription": "Capture documents and facial images.",
@@ -126,6 +126,7 @@ npx expo run:ios
 | -------------------------------- | --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | `enableNfc`                      | `boolean` | Enables NFC support for scanning identification documents. | `false`                                                                                            |
 | `enableScreenRecorder`           | `boolean` | Enables screen recording with audio for verification.      | `false`                                                                                            |
+| `enableDocumentResolver`         | `boolean` | Enables document auto-resolver dependency (Android only).  | `false`                                                                                            |
 | `ios.nfcUsageDescription`        | `string`  | iOS NFC usage description for `Info.plist`.                | `"This app uses NFC to scan identification documents."`                                            |
 | `ios.cameraUsageDescription`     | `string`  | iOS camera usage description for `Info.plist`.             | `"Required for document and facial capture"`                                                       |
 | `ios.microphoneUsageDescription` | `string`  | iOS microphone usage description for `Info.plist`.         | `"This app uses the microphone to record audio during the screen recording verification process."` |
@@ -297,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
 # or
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.1/osrn-v3.2.1.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.2/osrn-v3.2.2.tgz
 ```
 
 #### iOS Specific Setup
@@ -1058,11 +1059,11 @@ To find the full list of available string keys to override, please refer to the 
 
 ### Optional Features
 
-#### Adding Screen Recorder and/or NFC Support
+#### Adding Optional Modules (Screen Recorder, NFC, Document Resolver)
 
 ##### Android
 
-1.  Add the Ondato maven repositories to your project-level `android/build.gradle` file (skip this step for beta releases):
+1.  Add the Ondato maven repositories to your project-level `android/build.gradle` file:
     ```groovy
     allprojects {
       repositories {
@@ -1076,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.2.1")
+      implementation("com.kyc.ondato:screen-recorder:3.2.2")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.2.1")
+      implementation("com.kyc.ondato:nfc-reader:3.2.2")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.2.1")
+      implementation("com.kyc.ondato:document-autoresolver:3.2.2")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.

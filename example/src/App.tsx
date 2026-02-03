@@ -5,7 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { startIdentification, getLogs } from 'ondato-sdk-react-native';
 
 // https://ondato.atlassian.net/wiki/spaces/PUB/pages/2320990304/Authentication
-const SECRET = '<Your secret that will be provided by Ondato>';
+// Your secret that will be provided by Ondato
+const SECRET = process.env.ONDATO_SECRET_KEY;
 
 export default function App() {
   const [id, setId] = useState('');
@@ -47,6 +48,16 @@ export default function App() {
     } catch (e) {
       console.error('Native error:', e);
     }
+  }
+
+  if (!SECRET) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.missingSecret}>
+          Please set ONDATO_SECRET_KEY in your .env file.
+        </Text>
+      </SafeAreaView>
+    );
   }
 
   return (
@@ -142,5 +153,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#333',
     fontFamily: 'monospace',
+  },
+
+  missingSecret: {
+    color: 'red',
+    fontWeight: 'bold',
+    fontSize: 24,
+    textAlign: 'center',
   },
 });
