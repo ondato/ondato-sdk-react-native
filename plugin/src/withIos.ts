@@ -62,6 +62,7 @@ export const withDependencies: ConfigPlugin<OndatoPluginProps> = (
     config.modResults.contents = addPods(podfile, {
       enableNfc: props.enableNfc ?? false,
       enableScreenRecorder: props.enableScreenRecorder ?? false,
+      enableDocumentResolver: props.enableDocumentResolver ?? false,
     });
 
     return config;
@@ -87,7 +88,12 @@ export const addPods = (
   {
     enableNfc,
     enableScreenRecorder,
-  }: { enableNfc: boolean; enableScreenRecorder: boolean }
+    enableDocumentResolver,
+  }: {
+    enableNfc?: boolean;
+    enableScreenRecorder?: boolean;
+    enableDocumentResolver?: boolean;
+  }
 ): string => {
   const insertionRegex = /use_react_native!\([^)]*\)\n/;
   if (!podfile.match(insertionRegex)) {
@@ -101,12 +107,16 @@ export const addPods = (
   const podsToAdd = [];
   const nfcPod = `pod 'OndatoNFC', '= ${ONDATO_VERSION_IOS}'`;
   const screenRecorderPod = `pod 'OndatoScreenRecorder', '= ${ONDATO_VERSION_IOS}'`;
+  const documentResolverPod = `pod 'OndatoAutocapture', '= ${ONDATO_VERSION_IOS}'`;
 
   if (enableNfc && !podfile.includes(nfcPod)) {
     podsToAdd.push(nfcPod);
   }
   if (enableScreenRecorder && !podfile.includes(screenRecorderPod)) {
     podsToAdd.push(screenRecorderPod);
+  }
+  if (enableDocumentResolver && !podfile.includes(documentResolverPod)) {
+    podsToAdd.push(documentResolverPod);
   }
 
   if (podsToAdd.length > 0) {
