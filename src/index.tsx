@@ -81,6 +81,8 @@ const configSchema = z
     enableNetworkIssuesScreen: z.boolean().default(true),
     disablePdfFileUpload: z.boolean().default(false),
     skipRegistrationIfDriverLicense: z.boolean().default(false),
+    requireScrollToEnableTermsButton: z.boolean().default(true),
+    termsButtonTimeout: z.number().default(10000),
     showTranslationKeys: z.boolean().default(false),
     logLevel: z.enum(logLevels as [LogLevel, ...LogLevel[]]).default('info'),
     fonts: z

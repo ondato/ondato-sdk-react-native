@@ -96,6 +96,10 @@ export type OndatoConfig = {
   logLevel?: LogLevel;
   /** An object specifying custom fonts to use */
   fonts?: Fonts;
+  /** Require scrolling to the end of consent text before enabling the "agree" button (Android only, defaults to true) */
+  requireScrollToEnableTermsButton?: boolean;
+  /** Delay in milliseconds before enabling the "agree" button (Android only, defaults to 10000) */
+  termsButtonTimeout?: number;
 };
 
 /** Native configuration with defaults applied */
@@ -111,6 +115,8 @@ export type OndatoNativeConfig = {
   appearance?: string;
   logLevel: LogLevel;
   fonts?: Fonts;
+  requireScrollToEnableTermsButton: boolean;
+  termsButtonTimeout: number;
 };
 
 /** Result of the identification process */

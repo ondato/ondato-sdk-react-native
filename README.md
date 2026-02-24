@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -122,16 +122,16 @@ npx expo run:ios
 
 #### Plugin Options
 
-| Option                           | Type      | Description                                                | Default                                                                                            |
-| -------------------------------- | --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `enableNfc`                      | `boolean` | Adds NFC support for scanning identification documents. | `false`                                                                                            |
-| `enableScreenRecorder`           | `boolean` | Adds screen recording with audio for verification.      | `false`                                                                                            |
-| `enableDocumentResolver`         | `boolean` | Adds document auto-resolver dependency for Android and OndatoAutocapture Pod for iOS.  | `false`                                                                                            |
-| `ios.nfcUsageDescription`        | `string`  | iOS NFC usage description for `Info.plist`.                | `"This app uses NFC to scan identification documents."`                                            |
-| `ios.cameraUsageDescription`     | `string`  | iOS camera usage description for `Info.plist`.             | `"Required for document and facial capture"`                                                       |
-| `ios.microphoneUsageDescription` | `string`  | iOS microphone usage description for `Info.plist`.         | `"This app uses the microphone to record audio during the screen recording verification process."` |
-| `customLocalizationPath`         | `string`  | Path to a directory with custom localization files.        | `undefined`                                                                                        |
-| `customIllustrationsPath`        | `string`  | Path to a directory with custom illustration files.        | `undefined`                                                                                        |
+| Option                           | Type      | Description                                                                           | Default                                                                                            |
+| -------------------------------- | --------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `enableNfc`                      | `boolean` | Adds NFC support for scanning identification documents.                               | `false`                                                                                            |
+| `enableScreenRecorder`           | `boolean` | Adds screen recording with audio for verification.                                    | `false`                                                                                            |
+| `enableDocumentResolver`         | `boolean` | Adds document auto-resolver dependency for Android and OndatoAutocapture Pod for iOS. | `false`                                                                                            |
+| `ios.nfcUsageDescription`        | `string`  | iOS NFC usage description for `Info.plist`.                                           | `"This app uses NFC to scan identification documents."`                                            |
+| `ios.cameraUsageDescription`     | `string`  | iOS camera usage description for `Info.plist`.                                        | `"Required for document and facial capture"`                                                       |
+| `ios.microphoneUsageDescription` | `string`  | iOS microphone usage description for `Info.plist`.                                    | `"This app uses the microphone to record audio during the screen recording verification process."` |
+| `customLocalizationPath`         | `string`  | Path to a directory with custom localization files.                                   | `undefined`                                                                                        |
+| `customIllustrationsPath`        | `string`  | Path to a directory with custom illustration files.                                   | `undefined`                                                                                        |
 
 ---
 
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.2.3/osrn-v3.2.3.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
 ```
 
 #### iOS Specific Setup
@@ -1077,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.2.2")
+      implementation("com.kyc.ondato:screen-recorder:3.3.0")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.2.2")
+      implementation("com.kyc.ondato:nfc-reader:3.3.0")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.2.2")
+      implementation("com.kyc.ondato:document-autoresolver:3.3.0")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1149,6 +1149,8 @@ export default function App() {
         appearance: {
           /* whitelabel JSON object, see Customization > Styling */
         },
+        requireScrollToEnableTermsButton: true, // Android only
+        termsButtonTimeout: 15000, // Android only
       });
 
       if (result.status === 'success') {
@@ -1213,18 +1215,20 @@ The `startIdentification` function accepts a single configuration object. There 
 
 ### Configuration Options
 
-| Property                          | Type                               | Default      | Platform | Description                                                               |
-| --------------------------------- | ---------------------------------- | ------------ | -------- | ------------------------------------------------------------------------- |
-| **`identityVerificationId`**      | `string`                           | _(Required)_ | All      | The unique ID for the verification session, obtained from the Ondato API. |
-| `mode`                            | `'test'` \| `'live'`               | `'test'`     | All      | Sets the SDK environment.                                                 |
-| `language`                        | `string`                           | `'en'`       | All      | Sets the localization for the SDK (e.g., 'bg', 'ca', 'cs', etc.).         |
-| `logLevel`                        | `'error'` \| `'info'` \| `'debug'` | `'info'`     | All      | Sets the verbosity of logs. See [Logging](#logging) for details.          |
-| `switchPrimaryButtons`            | `boolean`                          | `false`      | All      | Switches primary buttons if true.                                         |
-| `enableNetworkIssuesScreen`       | `boolean`                          | `true`       | All      | Enables network issues screen if true.                                    |
-| `disablePdfFileUpload`            | `boolean`                          | `false`      | All      | Disables PDF file upload if true.                                         |
-| `skipRegistrationIfDriverLicense` | `boolean`                          | `false`      | iOS      | Skips registration if driver's license is used.                           |
-| `showTranslationKeys`             | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                           |
-| `appearance`                      | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.           |
+| Property                           | Type                               | Default      | Platform | Description                                                                     |
+| ---------------------------------- | ---------------------------------- | ------------ | -------- | ------------------------------------------------------------------------------- |
+| **`identityVerificationId`**       | `string`                           | _(Required)_ | All      | The unique ID for the verification session, obtained from the Ondato API.       |
+| `mode`                             | `'test'` \| `'live'`               | `'test'`     | All      | Sets the SDK environment.                                                       |
+| `language`                         | `string`                           | `'en'`       | All      | Sets the localization for the SDK (e.g., 'bg', 'ca', 'cs', etc.).               |
+| `logLevel`                         | `'error'` \| `'info'` \| `'debug'` | `'info'`     | All      | Sets the verbosity of logs. See [Logging](#logging) for details.                |
+| `switchPrimaryButtons`             | `boolean`                          | `false`      | All      | Switches primary buttons if true.                                               |
+| `enableNetworkIssuesScreen`        | `boolean`                          | `true`       | All      | Enables network issues screen if true.                                          |
+| `disablePdfFileUpload`             | `boolean`                          | `false`      | All      | Disables PDF file upload if true.                                               |
+| `skipRegistrationIfDriverLicense`  | `boolean`                          | `false`      | iOS      | Skips registration if driver's license is used.                                 |
+| `showTranslationKeys`              | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                                 |
+| `appearance`                       | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.                 |
+| `requireScrollToEnableTermsButton` | `boolean`                          | `true`       | Android  | Requires scrolling to the end of consent text before enabling the agree button. |
+| `termsButtonTimeout`               | `number`                           | `10000`      | Android  | Delay in milliseconds before enabling the agree button.                         |
 
 ### Handling the Result
 
