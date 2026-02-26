@@ -43,6 +43,8 @@ describe('Ondato SDK Module (index.tsx)', () => {
         enableNetworkIssuesScreen: true,
         disablePdfFileUpload: false,
         skipRegistrationIfDriverLicense: false,
+        requireScrollToEnableTermsButton: true,
+        termsButtonTimeout: 10000,
         showTranslationKeys: false,
         logLevel: 'info',
         fonts: undefined,
@@ -79,6 +81,8 @@ describe('Ondato SDK Module (index.tsx)', () => {
         enableNetworkIssuesScreen: true,
         disablePdfFileUpload: false,
         skipRegistrationIfDriverLicense: false,
+        requireScrollToEnableTermsButton: true,
+        termsButtonTimeout: 10000,
         showTranslationKeys: false,
       });
     });
@@ -102,7 +106,26 @@ describe('Ondato SDK Module (index.tsx)', () => {
         showTranslationKeys: false,
         skipRegistrationIfDriverLicense: false,
         switchPrimaryButtons: false,
+        requireScrollToEnableTermsButton: true,
+        termsButtonTimeout: 10000,
       });
+    });
+
+    it('should pass through requireScrollToEnableTermsButton and termsButtonTimeout when provided', () => {
+      const config = {
+        identityVerificationId: 'test-id-789',
+        requireScrollToEnableTermsButton: false,
+        termsButtonTimeout: 1234,
+      };
+
+      startIdentification(config as OndatoConfig);
+
+      expect(Ondato.startIdentification).toHaveBeenCalledWith(
+        expect.objectContaining({
+          requireScrollToEnableTermsButton: false,
+          termsButtonTimeout: 1234,
+        })
+      );
     });
 
     it('should treat empty string language as undefined', () => {

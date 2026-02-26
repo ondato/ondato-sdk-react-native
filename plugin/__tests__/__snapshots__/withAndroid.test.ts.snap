@@ -156,9 +156,9 @@ android {
 }
 
 dependencies {
-    implementation("com.kyc.ondato:nfc-reader:3.2.2")
-    implementation("com.kyc.ondato:screen-recorder:3.2.2")
-    implementation("com.kyc.ondato:document-autoresolver:3.2.2")
+    implementation("com.kyc.ondato:nfc-reader:3.3.0")
+    implementation("com.kyc.ondato:screen-recorder:3.3.0")
+    implementation("com.kyc.ondato:document-autoresolver:3.3.0")
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -345,7 +345,7 @@ android {
 }
 
 dependencies {
-    implementation("com.kyc.ondato:document-autoresolver:3.2.2")
+    implementation("com.kyc.ondato:document-autoresolver:3.3.0")
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -562,8 +562,8 @@ android {
 }
 
 dependencies {
-    implementation("com.kyc.ondato:nfc-reader:3.2.2")
-    implementation("com.kyc.ondato:screen-recorder:3.2.2")
+    implementation("com.kyc.ondato:nfc-reader:3.3.0")
+    implementation("com.kyc.ondato:screen-recorder:3.3.0")
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -750,7 +750,7 @@ android {
 }
 
 dependencies {
-    implementation("com.kyc.ondato:nfc-reader:3.2.2")
+    implementation("com.kyc.ondato:nfc-reader:3.3.0")
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -937,7 +937,7 @@ android {
 }
 
 dependencies {
-    implementation("com.kyc.ondato:screen-recorder:3.2.2")
+    implementation("com.kyc.ondato:screen-recorder:3.3.0")
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 

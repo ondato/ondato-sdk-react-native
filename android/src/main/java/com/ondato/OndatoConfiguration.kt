@@ -15,7 +15,9 @@ data class OndatoConfiguration(
   val switchPrimaryButtons: Boolean,
   val appearance: String?,
   val logLevel: OndatoLoggingLevel,
-  val fonts: ReadableMap?
+  val fonts: ReadableMap?,
+  val requireScrollToEnableTermsButton: Boolean,
+  val termsButtonTimeout: Long
 ) {
   companion object {
     fun fromReadableMap(map: ReadableMap): OndatoConfiguration {
@@ -68,6 +70,10 @@ data class OndatoConfiguration(
         if (fullFonts?.hasKey("android") == true) fullFonts.getMap("android") else null
       } else null
 
+      // Terms and Conditions button configuration
+      val requireScrollToEnableTermsButton = map.getBoolean("requireScrollToEnableTermsButton")
+      val termsButtonTimeout = map.getDouble("termsButtonTimeout").toLong()
+
       return OndatoConfiguration(
         identityVerificationId = id,
         mode = mode,
@@ -77,7 +83,9 @@ data class OndatoConfiguration(
         switchPrimaryButtons = map.getBoolean("switchPrimaryButtons"),
         appearance = map.getString("appearance"),
         logLevel = logLevel,
-        fonts = androidFonts
+        fonts = androidFonts,
+        requireScrollToEnableTermsButton = requireScrollToEnableTermsButton,
+        termsButtonTimeout = termsButtonTimeout
       )
     }
   }
@@ -90,6 +98,10 @@ data class OndatoConfiguration(
       .disablePdfFileUploadForProofOfAddress(disablePdfFileUpload)
       .setSwitchPrimaryButtons(switchPrimaryButtons)
       .setLoggingLevel(logLevel)
+      .setTermsAndConditionsRules(
+        requireScrollToEnableTermsButton,
+        termsButtonTimeout
+      )
 
     // Apply language if provided
     language?.let { builder.setLanguage(it) }
