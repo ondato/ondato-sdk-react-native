@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.0/osrn-v3.3.0.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
 ```
 
 #### iOS Specific Setup
@@ -1077,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.3.0")
+      implementation("com.kyc.ondato:screen-recorder:3.3.2")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.3.0")
+      implementation("com.kyc.ondato:nfc-reader:3.3.2")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.3.0")
+      implementation("com.kyc.ondato:document-autoresolver:3.3.2")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1091,11 +1091,11 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.2.1'
+    pod 'OndatoNFC', '= 3.2.2'
     # and/or
-    pod 'OndatoAutocapture', '= 3.2.1'
+    pod 'OndatoAutocapture', '= 3.2.2'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.2.1'
+    pod 'OndatoScreenRecorder', '= 3.2.2'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
@@ -1141,10 +1141,10 @@ export default function App() {
         mode: 'test', // Use 'live' for production
         language: 'en', // optional: bg, ca, cs, de, el, en, es, et, fi, fr, hr, hu, it, lt, lv, nl, pl, pt, ro, ru, sk, sl, sq, sv, uk, vi
         logLevel: 'debug', // 'error', 'info' or 'debug'
-        switchPrimaryButtons: false, // iOS and Android
-        enableNetworkIssuesScreen: true, // iOS and Android
-        disablePdfFileUpload: false, // iOS and Android
-        skipRegistrationIfDriverLicense: false, // iOS only
+        switchPrimaryButtons: false,
+        enableNetworkIssuesScreen: true,
+        disablePdfFileUpload: false,
+        skipRegistrationIfDriverLicense: false,
         showTranslationKeys: false, // iOS only
         appearance: {
           /* whitelabel JSON object, see Customization > Styling */
@@ -1224,7 +1224,7 @@ The `startIdentification` function accepts a single configuration object. There 
 | `switchPrimaryButtons`             | `boolean`                          | `false`      | All      | Switches primary buttons if true.                                               |
 | `enableNetworkIssuesScreen`        | `boolean`                          | `true`       | All      | Enables network issues screen if true.                                          |
 | `disablePdfFileUpload`             | `boolean`                          | `false`      | All      | Disables PDF file upload if true.                                               |
-| `skipRegistrationIfDriverLicense`  | `boolean`                          | `false`      | iOS      | Skips registration if driver's license is used.                                 |
+| `skipRegistrationIfDriverLicense`  | `boolean`                          | `false`      | All      | Skips registration if driver's license is used.                                 |
 | `showTranslationKeys`              | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                                 |
 | `appearance`                       | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.                 |
 | `requireScrollToEnableTermsButton` | `boolean`                          | `true`       | Android  | Requires scrolling to the end of consent text before enabling the agree button. |
