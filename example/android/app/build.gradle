@@ -112,9 +112,9 @@ dependencies {
   implementation("com.facebook.react:react-android")
 
   // Ondato SDK extra dependencies
-  implementation("com.kyc.ondato:nfc-reader:3.3.0")
-  implementation("com.kyc.ondato:screen-recorder:3.3.0")
-  implementation("com.kyc.ondato:document-autoresolver:3.3.0")
+  implementation("com.kyc.ondato:nfc-reader:3.3.2")
+  implementation("com.kyc.ondato:screen-recorder:3.3.2")
+  implementation("com.kyc.ondato:document-autoresolver:3.3.2")
 
   if (hermesEnabled.toBoolean()) {
     implementation("com.facebook.react:hermes-android")

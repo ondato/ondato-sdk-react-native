@@ -13,6 +13,7 @@ data class OndatoConfiguration(
   val enableNetworkIssuesScreen: Boolean,
   val disablePdfFileUpload: Boolean,
   val switchPrimaryButtons: Boolean,
+  val skipRegistrationIfDriverLicense: Boolean,
   val appearance: String?,
   val logLevel: OndatoLoggingLevel,
   val fonts: ReadableMap?,
@@ -64,15 +65,10 @@ data class OndatoConfiguration(
         else -> OndatoLoggingLevel.Info
       }
 
-      // Extract only the 'android' sub-map if present, for flat string-based font handling
       val androidFonts = if (map.hasKey("fonts")) {
         val fullFonts = map.getMap("fonts")
         if (fullFonts?.hasKey("android") == true) fullFonts.getMap("android") else null
       } else null
-
-      // Terms and Conditions button configuration
-      val requireScrollToEnableTermsButton = map.getBoolean("requireScrollToEnableTermsButton")
-      val termsButtonTimeout = map.getDouble("termsButtonTimeout").toLong()
 
       return OndatoConfiguration(
         identityVerificationId = id,
@@ -81,11 +77,12 @@ data class OndatoConfiguration(
         enableNetworkIssuesScreen = map.getBoolean("enableNetworkIssuesScreen"),
         disablePdfFileUpload = map.getBoolean("disablePdfFileUpload"),
         switchPrimaryButtons = map.getBoolean("switchPrimaryButtons"),
+        skipRegistrationIfDriverLicense = map.getBoolean("skipRegistrationIfDriverLicense"),
         appearance = map.getString("appearance"),
         logLevel = logLevel,
         fonts = androidFonts,
-        requireScrollToEnableTermsButton = requireScrollToEnableTermsButton,
-        termsButtonTimeout = termsButtonTimeout
+        requireScrollToEnableTermsButton = map.getBoolean("requireScrollToEnableTermsButton"),
+        termsButtonTimeout = map.getDouble("termsButtonTimeout").toLong()
       )
     }
   }
@@ -97,29 +94,24 @@ data class OndatoConfiguration(
       .enableNetworkIssuesScreen(enableNetworkIssuesScreen)
       .disablePdfFileUploadForProofOfAddress(disablePdfFileUpload)
       .setSwitchPrimaryButtons(switchPrimaryButtons)
+      .setSkipRegistrationIfDriverLicense(skipRegistrationIfDriverLicense)
       .setLoggingLevel(logLevel)
-      .setTermsAndConditionsRules(
-        requireScrollToEnableTermsButton,
-        termsButtonTimeout
-      )
+      .setTermsAndConditionsRules(requireScrollToEnableTermsButton, termsButtonTimeout)
 
-    // Apply language if provided
     language?.let { builder.setLanguage(it) }
 
-    // Apply whitelabel JSON if provided
     appearance?.let { builder.setConfiguration(it) }
 
-    // Dynamically resolve font resource IDs
     fonts?.let { fonts ->
-      val resources = context.resources
-      val packageName = context.packageName
+      val res = context.resources
+      val pkg = context.packageName
       val getFontId = { key: String ->
-        fonts.getString(key)?.let { fontName ->
-          val id = resources.getIdentifier(fontName, "font", packageName)
+        fonts.getString(key)?.let { name ->
+          val id = res.getIdentifier(name, "font", pkg)
           if (id == 0) {
             android.util.Log.w(
               "OndatoModule",
-              "Font resource '$fontName' not found for key '$key'"
+              "Font resource '$name' not found for key '$key'"
             )
             null
           } else {
@@ -128,24 +120,22 @@ data class OndatoConfiguration(
         }
       }
 
-      val heading1Font = getFontId("title")
-      val heading2Font = getFontId("subtitle")
-      val normalFont = getFontId("body")
-      val listFont = getFontId("list")
-      val inputLabelFont = getFontId("inputLabel")
-      val buttonTextFont = getFontId("button")
+      val h1 = getFontId("title")
+      val h2 = getFontId("subtitle")
+      val body = getFontId("body")
+      val list = getFontId("list")
+      val label = getFontId("inputLabel")
+      val btn = getFontId("button")
 
-      // Only set custom fonts if at least one was resolved successfully
-      if (heading1Font != null || heading2Font != null || normalFont != null ||
-        listFont != null || inputLabelFont != null || buttonTextFont != null
-      ) {
+      // Only apply if at least one valid resource ID was resolved
+      if (h1 != null || h2 != null || body != null || list != null || label != null || btn != null) {
         builder.setCustomFonts(
-          heading1FontResource = heading1Font,
-          heading2FontResource = heading2Font,
-          normalFontResource = normalFont,
-          listFontResource = listFont,
-          inputLabelFontResource = inputLabelFont,
-          buttonTextFontResource = buttonTextFont
+          heading1FontResource = h1,
+          heading2FontResource = h2,
+          normalFontResource = body,
+          listFontResource = list,
+          inputLabelFontResource = label,
+          buttonTextFontResource = btn
         )
       }
     }

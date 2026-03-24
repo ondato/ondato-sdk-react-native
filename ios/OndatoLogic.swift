@@ -56,12 +56,12 @@ import React
         }
       }
       
-      // Apply provided fonts
       if let fontsDict = config["fonts"] as? [String: Any] {
         self.applyCustomFonts(fontsDict: fontsDict)
       }
       
-      // Apply custom illustrations
+      self.applyCustomAnimations()
+      
       self.applyCustomIllustrations()
       
       // Present view controller
@@ -166,10 +166,23 @@ extension OndatoLogic: OndatoFlowDelegate {
     }
   }
   
+  private func applyCustomAnimations() {
+    var resources = Ondato.sdk.configuration.resources
+    var animations = resources.animations
+    
+    // Maps to: OndatoAnimations.waitingScreenAnimationFilePath
+    let animationName = "ondato.animations.waitingScreenAnimation"
+    if let animationPath = Bundle.main.path(forResource: animationName, ofType: "json") {
+      animations.waitingScreenAnimationFilePath = animationPath
+      
+      resources.animations = animations
+      Ondato.sdk.configuration.resources = resources
+    }
+  }
+  
   private func applyCustomIllustrations() {
-    let resources = Ondato.sdk.configuration.resources
+    var resources = Ondato.sdk.configuration.resources
     let images = resources.images
-    let animations = resources.animations
     
     // --- Part A: Simple Top-Level Images ---
     // Maps to: OndatoImages.backButton, .closeButton, .warning
@@ -286,13 +299,6 @@ extension OndatoLogic: OndatoFlowDelegate {
     
     if !customNFCInstructions.isEmpty {
       images.nfcCaptureInstructions = customNFCInstructions
-    }
-    
-    // --- Part G: Lottie Animations ---
-    // Maps to: OndatoAnimations.waitingScreenAnimationFilePath
-    let animationName = "ondato.animations.waitingScreenAnimation"
-    if let animationPath = Bundle.main.path(forResource: animationName, ofType: "json") {
-      animations.waitingScreenAnimationFilePath = animationPath
     }
   }
 }

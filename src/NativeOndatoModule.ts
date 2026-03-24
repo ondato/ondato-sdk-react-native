@@ -80,13 +80,13 @@ export type OndatoConfig = {
   mode?: Mode;
   /** Language code for localization */
   language?: Language;
-  /** Switch primary buttons (shared, defaults to false) */
+  /** Switch primary buttons (defaults to false) */
   switchPrimaryButtons?: boolean;
-  /** Enable network issues screen (shared, defaults to true) */
+  /** Enable network issues screen (defaults to true) */
   enableNetworkIssuesScreen?: boolean;
-  /** Disable PDF file upload (shared, defaults to false) */
+  /** Disable PDF file upload (defaults to false) */
   disablePdfFileUpload?: boolean;
-  /** Skip registration if driver’s license (iOS only, defaults to false) */
+  /** Skip registration if driver’s license (defaults to false) */
   skipRegistrationIfDriverLicense?: boolean;
   /** Show translation keys (iOS only, defaults to false) */
   showTranslationKeys?: boolean;
