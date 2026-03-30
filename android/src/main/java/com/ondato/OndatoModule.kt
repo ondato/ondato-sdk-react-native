@@ -6,7 +6,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.module.annotations.ReactModule
 import com.ondato.sdk.Ondato
-import com.ondato.sdk.OndatoError
+import com.ondato.sdk.enums.OndatoError
 
 @ReactModule(name = OndatoModule.NAME)
 class OndatoModule(reactContext: ReactApplicationContext) :
@@ -24,7 +24,7 @@ class OndatoModule(reactContext: ReactApplicationContext) :
       Ondato.init(ondatoConfig)
 
       val activity = reactApplicationContext.currentActivity ?: run {
-        promise.reject("NO_ACTIVITY", "Current activity is null")
+        promise.reject("UI_NOT_AVAILABLE", "Current activity is null")
         return
       }
 
@@ -49,7 +49,7 @@ class OndatoModule(reactContext: ReactApplicationContext) :
         }
       })
     } catch (e: Exception) {
-      promise.reject("INIT_ERROR", e)
+      promise.reject("CONFIG_ERROR", "Initialization failed: ${e.message}")
     }
   }
 

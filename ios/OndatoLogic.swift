@@ -16,7 +16,7 @@ import React
       do {
         conf = try OndatoConfiguration.fromDictionary(config)
       } catch {
-        reject("INVALID_CONFIG", "Failed to parse config: \(error.localizedDescription)", error)
+        reject("CONFIG_ERROR", "Failed to parse config: \(error.localizedDescription)", error)
         return
       }
       
@@ -43,15 +43,17 @@ import React
       }
       
       if let appearance = conf.appearance {
-        if let appearanceJson = appearance.data(using: .utf8) {
-          do {
-            try Ondato.sdk.setWhitelabel(appearanceJson)
-          } catch {
-            reject("INVALID_APPEARANCE", "Failed to set appearance: \(error.localizedDescription)", error)
-            return
-          }
-        } else {
-          reject("INVALID_APPEARANCE", "Failed to convert appearance JSON to data", nil)
+        // 1. Try to convert string to Data
+        guard let appearanceData = appearance.data(using: .utf8) else {
+          reject("CONFIG_ERROR", "Failed to convert appearance JSON string to Data", nil)
+          return
+        }
+        
+        // 2. Try to apply the whitelabeling
+        do {
+          try Ondato.sdk.setWhitelabel(appearanceData)
+        } catch {
+          reject("CONFIG_ERROR", "Failed to set appearance: \(error.localizedDescription)", error)
           return
         }
       }
@@ -66,7 +68,7 @@ import React
       
       // Present view controller
       guard let root = RCTPresentedViewController() else {
-        reject("NO_UI", "No presented view controller", nil)
+        reject("UI_NOT_AVAILABLE", "No presented view controller found", nil)
         return
       }
       
@@ -181,7 +183,7 @@ extension OndatoLogic: OndatoFlowDelegate {
   }
   
   private func applyCustomIllustrations() {
-    var resources = Ondato.sdk.configuration.resources
+    let resources = Ondato.sdk.configuration.resources
     let images = resources.images
     
     // --- Part A: Simple Top-Level Images ---
@@ -307,17 +309,19 @@ extension OndatoLogic: OndatoFlowDelegate {
 extension OndatoServiceError {
   var code: String {
     switch type {
-    case .cancelled: return "CANCELLED"
-    case .consentDenied: return "CONSENT_DENIED"
-    case .invalidServerResponse: return "INVALID_SERVER_RESPONSE"
-    case .invalidCredentials: return "INVALID_CREDENTIALS"
-    case .recorderPermissions: return "RECORDER_PERMISSIONS"
-    case .unexpectedInternalError: return "UNEXPECTED_INTERNAL_ERROR"
-    case .verificationFailed: return "VERIFICATION_FAILED"
-    case .nfcNotSupported: return "NFC_NOT_SUPPORTED"
-    case .missingModule: return "MISSING_MODULE"
-    case .hostCanceled: return "HOST_CANCELED"
-    @unknown default: return "UNKNOWN_ERROR"
+    case .badFlowSetup:             return "BAD_FLOW_SETUP"
+    case .consentDeclined:          return "CONSENT_DECLINED"
+    case .failureExit:              return "FAILURE_EXIT"
+    case .invalidID:                return "INVALID_ID"
+    case .unauthorized:             return "UNAUTHORIZED"
+    case .internalServerError:      return "INTERNAL_SERVER_ERROR"
+    case .aborted:                  return "ABORTED"
+    case .nfcNotSupported:          return "NFC_NOT_SUPPORTED"
+    case .recorderFailure:          return "RECORDER_FAILURE"
+    case .tooManyAttempts:          return "TOO_MANY_ATTEMPTS"
+    case .noAvailableDocumentTypes: return "NO_AVAILABLE_DOCUMENT_TYPES"
+    case .generic:                  return "GENERIC"
+    @unknown default:               return "GENERIC"
     }
   }
 }
