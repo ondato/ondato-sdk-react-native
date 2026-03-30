@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.3.1/osrn-v3.3.1.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
 ```
 
 #### iOS Specific Setup
@@ -1077,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.3.2")
+      implementation("com.kyc.ondato:screen-recorder:3.4.0")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.3.2")
+      implementation("com.kyc.ondato:nfc-reader:3.4.0")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.3.2")
+      implementation("com.kyc.ondato:document-autoresolver:3.4.0")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1091,11 +1091,11 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.2.2'
+    pod 'OndatoNFC', '= 3.2.3'
     # and/or
-    pod 'OndatoAutocapture', '= 3.2.2'
+    pod 'OndatoAutocapture', '= 3.2.3'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.2.2'
+    pod 'OndatoScreenRecorder', '= 3.2.3'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
@@ -1139,7 +1139,7 @@ export default function App() {
       const result: OndatoResult = await startIdentification({
         identityVerificationId: identityVerificationId,
         mode: 'test', // Use 'live' for production
-        language: 'en', // optional: bg, ca, cs, de, el, en, es, et, fi, fr, hr, hu, it, lt, lv, nl, pl, pt, ro, ru, sk, sl, sq, sv, uk, vi
+        language: 'en', // optional: bg, ca, cs, da, de, el, en, es, et, fi, fr, hr, hu, it, ko, lt, lv, nl, pl, pt, ro, ru, sk, sl, sq, sv, th, uk, vi, zh
         logLevel: 'debug', // 'error', 'info' or 'debug'
         switchPrimaryButtons: false,
         enableNetworkIssuesScreen: true,
@@ -1250,10 +1250,62 @@ The `startIdentification` function returns a `Promise` that resolves with an `On
   }
   ```
 
-### Platform-Specific Error Codes
+### Error Handling
 
-- **iOS**: `CANCELLED`, `CONSENT_DENIED`, `INVALID_SERVER_RESPONSE`, `INVALID_CREDENTIALS`, `RECORDER_PERMISSIONS`, `UNEXPECTED_INTERNAL_ERROR`, `VERIFICATION_FAILED`, `NFC_NOT_SUPPORTED`, `MISSING_MODULE`, `HOST_CANCELED`, `UNKNOWN_ERROR`.
-- **Android**: `CANCELED`, `BAD_SERVER_RESPONSE`, `NFC_NOT_SUPPORTED`, `TOO_MANY_ATTEMPTS`, `NO_AVAILABLE_DOCUMENT_TYPES`, `UNKNOWN`.
+The Ondato SDK returns errors in two distinct ways: **Flow Errors** (returned in the result object) and **Bridge Errors** (rejected promises).
+
+#### 1. Flow Errors (`OndatoError`)
+
+These errors occur during the identification process. They are returned in the `error` field of the `OndatoResult` object. These codes are identical on both iOS and Android.
+
+| Error Code                    | Description                                                |
+| :---------------------------- | :--------------------------------------------------------- |
+| `BAD_FLOW_SETUP`              | The setup has no steps or is misconfigured.                |
+| `CONSENT_DECLINED`            | User has declined consent.                                 |
+| `FAILURE_EXIT`                | Process failed by rejection or was cancelled by the user.  |
+| `INVALID_ID`                  | Invalid session ID or access token provided.               |
+| `UNAUTHORIZED`                | Session ID does not have access to this resource.          |
+| `INTERNAL_SERVER_ERROR`       | Internal server error occurred.                            |
+| `ABORTED`                     | User has aborted the process.                              |
+| `NFC_NOT_SUPPORTED`           | NFC is not supported (in mandatory or optional mode).      |
+| `RECORDER_FAILURE`            | Screen recorder cannot be started on the device.           |
+| `TOO_MANY_ATTEMPTS`           | Number of max attempts reached (e.g. face authentication). |
+| `NO_AVAILABLE_DOCUMENT_TYPES` | The setup has no available document types.                 |
+| `GENERIC`                     | An unknown or unexpected error occurred.                   |
+
+#### 2. Bridge Errors (Promise Rejections)
+
+These errors occur when the SDK **fails to start**. In these cases, the `startIdentification` promise will be rejected.
+
+| Error Code         | Description                                                                                                       |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `CONFIG_ERROR`     | Provided configuration is invalid (e.g., empty `identityVerificationId` or malformed `appearance` JSON).          |
+| `UI_NOT_AVAILABLE` | The bridge could not find a base UI component (Activity on Android or View Controller on iOS) to present the SDK. |
+
+---
+
+### Implementation Example
+
+```typescript
+try {
+  const result = await Ondato.startIdentification(config);
+
+  if (result.status === 'success') {
+    console.log('Success:', result.id);
+  } else {
+    // Handling Flow Errors
+    console.log('Flow Error Code:', result.error);
+    if (result.error === 'CONSENT_DECLINED') {
+      // Handle specific logic for declined consent
+    }
+  }
+} catch (e) {
+  // Handling Bridge Errors
+  if (e.code === 'CONFIG_ERROR') {
+    console.error('Check your OndatoConfig object:', e.message);
+  }
+}
+```
 
 ### Logging
 

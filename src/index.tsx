@@ -21,6 +21,7 @@ export const languages: Language[] = [
   'bg',
   'ca',
   'cs',
+  'da',
   'de',
   'el',
   'en',
@@ -31,6 +32,7 @@ export const languages: Language[] = [
   'hr',
   'hu',
   'it',
+  'ko',
   'lt',
   'lv',
   'nl',
@@ -42,8 +44,10 @@ export const languages: Language[] = [
   'sl',
   'sq',
   'sv',
+  'th',
   'uk',
   'vi',
+  'zh',
 ];
 export const logLevels: LogLevel[] = ['error', 'info', 'debug'];
 export const modes: Mode[] = ['test', 'live'];

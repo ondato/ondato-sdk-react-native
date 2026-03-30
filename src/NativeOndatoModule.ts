@@ -7,6 +7,7 @@ export type Language =
   | 'bg'
   | 'ca'
   | 'cs'
+  | 'da' // Android only
   | 'de'
   | 'el'
   | 'en'
@@ -17,6 +18,7 @@ export type Language =
   | 'hr'
   | 'hu'
   | 'it'
+  | 'ko' // Android only
   | 'lt'
   | 'lv'
   | 'nl'
@@ -28,9 +30,27 @@ export type Language =
   | 'sl'
   | 'sq'
   | 'sv'
+  | 'th' // Android only
   | 'uk'
-  | 'vi';
+  | 'vi'
+  | 'zh'; // Android only
 
+/** Standardized error codes returned by the Ondato SDK flow */
+export type OndatoError =
+  | 'BAD_FLOW_SETUP'
+  | 'CONSENT_DECLINED'
+  | 'FAILURE_EXIT'
+  | 'INVALID_ID'
+  | 'UNAUTHORIZED'
+  | 'INTERNAL_SERVER_ERROR'
+  | 'ABORTED'
+  | 'NFC_NOT_SUPPORTED'
+  | 'RECORDER_FAILURE'
+  | 'TOO_MANY_ATTEMPTS'
+  | 'NO_AVAILABLE_DOCUMENT_TYPES'
+  | 'GENERIC';
+
+/** Supported font weights for iOS */
 export type IosFontWeight =
   | 'ultralight'
   | 'thin'
@@ -122,7 +142,7 @@ export type OndatoNativeConfig = {
 /** Result of the identification process */
 export type OndatoResult =
   | { status: 'success'; id?: string }
-  | { status: 'failure'; id?: string; error: string };
+  | { status: 'failure'; id?: string; error: OndatoError };
 
 export interface Spec extends TurboModule {
   /** Starts the Ondato identification flow */

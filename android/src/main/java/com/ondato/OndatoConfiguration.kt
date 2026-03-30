@@ -32,6 +32,7 @@ data class OndatoConfiguration(
         "bg" -> Language.Bulgarian
         "ca" -> Language.Catalan
         "cs" -> Language.Czech
+        "da" -> Language.Danish
         "de" -> Language.German
         "el" -> Language.Greek
         "en" -> Language.English
@@ -42,6 +43,7 @@ data class OndatoConfiguration(
         "hr" -> Language.Croatian
         "hu" -> Language.Hungarian
         "it" -> Language.Italian
+        "ko" -> Language.Korean
         "lt" -> Language.Lithuanian
         "lv" -> Language.Latvian
         "nl" -> Language.Dutch
@@ -53,8 +55,10 @@ data class OndatoConfiguration(
         "sl" -> Language.Slovenian
         "sq" -> Language.Albanian
         "sv" -> Language.Swedish
+        "th" -> Language.Thai
         "uk" -> Language.Ukrainian
         "vi" -> Language.Vietnamese
+        "zh" -> Language.Chinese
         else -> null
       }
 
