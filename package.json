@@ -1,6 +1,6 @@
 {
   "name": "ondato-sdk-react-native",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "Ondato React Native SDK: A drop-in component library for capturing identity documents and facial biometrics. Features advanced image quality detection and direct upload to simplify identity verification integration.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -40,7 +40,11 @@
     "lint": "eslint",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build && yarn expo:prepare",
-    "release": "release-it --only-version",
+    "release": "release-it",
+    "release:beta": "release-it --preRelease=beta",
+    "release:beta:patch": "release-it --preRelease=beta --increment=patch",
+    "release:beta:minor": "release-it --preRelease=beta --increment=minor",
+    "release:beta:major": "release-it --preRelease=beta --increment=major",
     "expo:build:plugin": "expo-module build plugin",
     "expo:clean:plugin": "expo-module clean plugin",
     "expo:test:plugin": "cd plugin && jest",
@@ -158,21 +162,29 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
+      "commit": false,
+      "tag": false,
+      "push": false,
+      "requireUpstream": false,
+      "requireCleanWorkingDir": false
     },
     "npm": {
-      "publish": true
+      "publish": false,
+      "ignoreVersion": false
     },
     "github": {
-      "release": true
+      "release": false
     },
     "plugins": {
       "@release-it/conventional-changelog": {
         "preset": {
           "name": "angular"
-        }
+        },
+        "infile": "CHANGELOG.md"
       }
+    },
+    "hooks": {
+      "after:bump": "bash ../scripts/bump-versions.sh ${version}"
     }
   },
   "jest": {

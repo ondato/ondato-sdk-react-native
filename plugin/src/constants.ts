@@ -1,8 +1,8 @@
 export const MIN_SDK_VERSION = 24;
 export const DEPLOYMENT_TARGET = '15.1';
 
-export const ONDATO_VERSION_ANDROID = '3.4.0';
-export const ONDATO_VERSION_IOS = '3.2.3';
+export const ONDATO_VERSION_ANDROID = '3.4.1';
+export const ONDATO_VERSION_IOS = '3.2.4';
 
 export const MAVEN_REPOS = [
   'https://gitlab.com/api/v4/projects/65297321/packages/maven',

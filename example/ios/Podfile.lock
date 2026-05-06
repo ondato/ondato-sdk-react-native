@@ -8,10 +8,10 @@ PODS:
   - hermes-engine (0.81.1):
     - hermes-engine/Pre-built (= 0.81.1)
   - hermes-engine/Pre-built (0.81.1)
-  - OndatoAutocapture (3.2.3)
-  - OndatoNFC (3.2.3)
-  - OndatoScreenRecorder (3.2.3)
-  - OndatoSDK (3.2.3)
+  - OndatoAutocapture (3.2.4)
+  - OndatoNFC (3.2.4)
+  - OndatoScreenRecorder (3.2.4)
+  - OndatoSDK (3.2.4)
   - OndatoSdkReactNative (3.4.0):
     - boost
     - DoubleConversion
@@ -19,7 +19,7 @@ PODS:
     - fmt
     - glog
     - hermes-engine
-    - OndatoSDK (= 3.2.3)
+    - OndatoSDK (= 3.2.4)
     - RCT-Folly
     - RCT-Folly/Fabric
     - RCTRequired
@@ -2384,9 +2384,9 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - OndatoAutocapture (= 3.2.3)
-  - OndatoNFC (= 3.2.3)
-  - OndatoScreenRecorder (= 3.2.3)
+  - OndatoAutocapture (= 3.2.4)
+  - OndatoNFC (= 3.2.4)
+  - OndatoScreenRecorder (= 3.2.4)
   - OndatoSdkReactNative (from `../..`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -2621,11 +2621,11 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 4f8246b1f6d79f625e0d99472d1f3a71da4d28ca
-  OndatoAutocapture: 25c4eb19049008242cbaa9b0afad1ae7bceff20e
-  OndatoNFC: d107d577b75c5b8a5452bbc1cd679a9e028ad5c8
-  OndatoScreenRecorder: ce544fc279780cf9e54d5f3c888a0272ef4b76f9
-  OndatoSDK: 799aaf3b45cc6cf2464d0473913ec77b50764751
-  OndatoSdkReactNative: 871a6fb2ed48c203ff2cc4a82cbd655f494a4cd1
+  OndatoAutocapture: 4fea4ac6069d7f2046a37238aed976b76e53e3a3
+  OndatoNFC: 92807846b3c684e5cf621db65f7b5c8451e47e2e
+  OndatoScreenRecorder: 0a51ec60c48404976a6a81d29b4499e13fec4cc7
+  OndatoSDK: 790632db3c1e26ec89f80e503bb9300c4ee8c205
+  OndatoSdkReactNative: e2ec0dbc3361e3f83c53519a3151accefd088e85
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: c4b9e2fd0ab200e3af72b013ed6113187c607077
   RCTRequired: e97dd5dafc1db8094e63bc5031e0371f092ae92a
@@ -2693,6 +2693,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fa23995c18b65978347b096d0836f4f5093df545
 
-PODFILE CHECKSUM: 9ad9c2fec151ea6003074790b704b539f507d212
+PODFILE CHECKSUM: a97fd67df767f00f1652429ff87e1addc020f480
 
 COCOAPODS: 1.15.2

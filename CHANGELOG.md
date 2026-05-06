@@ -16,6 +16,13 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 
+## [3.4.1] - 2026-04-29
+
+### Changed
+
+- **Android:** [Updated native SDK to v3.4.1](https://github.com/ondato/ondato-sdk-android/releases/tag/3.4.1)
+- **iOS:** [Updated native SDK to v3.2.4](https://github.com/ondato/ondato-sdk-ios/releases/tag/3.2.4)
+
 ## [3.4.0] - 2026-03-31
 
 ### Added

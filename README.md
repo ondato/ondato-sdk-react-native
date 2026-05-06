@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.0/osrn-v3.4.0.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
 ```
 
 #### iOS Specific Setup
@@ -1077,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.4.0")
+      implementation("com.kyc.ondato:screen-recorder:3.4.1")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.4.0")
+      implementation("com.kyc.ondato:nfc-reader:3.4.1")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.4.0")
+      implementation("com.kyc.ondato:document-autoresolver:3.4.1")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1091,11 +1091,11 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.2.3'
+    pod 'OndatoNFC', '= 3.2.4'
     # and/or
-    pod 'OndatoAutocapture', '= 3.2.3'
+    pod 'OndatoAutocapture', '= 3.2.4'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.2.3'
+    pod 'OndatoScreenRecorder', '= 3.2.4'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
