@@ -72,7 +72,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
 ```
 
 ### Configure Ondato SDK with config plugin
@@ -298,9 +298,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.1/osrn-v3.4.1.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
 ```
 
 #### iOS Specific Setup
@@ -1077,11 +1077,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.4.1")
+      implementation("com.kyc.ondato:screen-recorder:3.4.2")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.4.1")
+      implementation("com.kyc.ondato:nfc-reader:3.4.2")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.4.1")
+      implementation("com.kyc.ondato:document-autoresolver:3.4.2")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
