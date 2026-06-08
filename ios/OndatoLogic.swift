@@ -1,10 +1,13 @@
 import Foundation
+import UIKit
 import OndatoSDK
 import React
 
 @objc public class OndatoLogic: NSObject {
   private var resolve: RCTPromiseResolveBlock?
   private var reject: RCTPromiseRejectBlock?
+  private var presentationWindow: UIWindow?
+  private weak var hostViewController: UIViewController?
   
   @objc public func startIdentification(
     config: NSDictionary,
@@ -66,20 +69,17 @@ import React
       
       self.applyCustomIllustrations()
       
-      // Present view controller
-      guard let root = RCTPresentedViewController() else {
-        reject("UI_NOT_AVAILABLE", "No presented view controller found", nil)
-        return
-      }
+      self.resolve = resolve
+      self.reject = reject
       
       let sdkVC = Ondato.sdk.instantiateOndatoViewController()
       sdkVC.modalPresentationStyle = .fullScreen
       Ondato.sdk.delegate = self
       
-      root.present(sdkVC, animated: true, completion: nil)
-      
-      self.resolve = resolve
-      self.reject = reject
+      guard self.presentInDedicatedWindow(sdkVC) else {
+        self.finishWithReject("UI_NOT_AVAILABLE", "Unable to present Ondato SDK", nil)
+        return
+      }
     }
   }
   
@@ -102,9 +102,85 @@ extension OndatoLogic: OndatoFlowDelegate {
   }
   
   private func finish(with result: [String: Any]) {
+    tearDownPresentationWindow()
     resolve?(result)
     resolve = nil
     reject = nil
+  }
+  
+  private func finishWithReject(_ code: String, _ message: String, _ error: Error?) {
+    tearDownPresentationWindow()
+    reject?(code, message, error)
+    resolve = nil
+    reject = nil
+  }
+  
+  /// Presents Ondato in a dedicated UIWindow so camera/autocapture views are not laid out
+  /// inside React Native's view hierarchy (which can produce zero-width camera frames).
+  private func presentInDedicatedWindow(_ sdkVC: UIViewController) -> Bool {
+    let screenBounds = Self.activeScreenBounds()
+    
+    if let windowScene = Self.activeWindowScene() {
+      let window = UIWindow(windowScene: windowScene)
+      let host = UIViewController()
+      host.view.backgroundColor = .black
+      host.view.frame = screenBounds
+      
+      window.rootViewController = host
+      window.windowLevel = .normal + 1
+      window.frame = screenBounds
+      window.makeKeyAndVisible()
+      
+      presentationWindow = window
+      hostViewController = host
+      
+      prepareViewControllerForPresentation(sdkVC, bounds: screenBounds)
+      host.present(sdkVC, animated: true) {
+        sdkVC.view.setNeedsLayout()
+        sdkVC.view.layoutIfNeeded()
+      }
+      return true
+    }
+    
+    guard let root = RCTPresentedViewController() else {
+      return false
+    }
+    
+    prepareViewControllerForPresentation(sdkVC, bounds: screenBounds)
+    root.present(sdkVC, animated: true) {
+      sdkVC.view.setNeedsLayout()
+      sdkVC.view.layoutIfNeeded()
+    }
+    return true
+  }
+  
+  private func prepareViewControllerForPresentation(_ viewController: UIViewController, bounds: CGRect) {
+    viewController.loadViewIfNeeded()
+    viewController.view.frame = bounds
+    viewController.view.setNeedsLayout()
+    viewController.view.layoutIfNeeded()
+  }
+  
+  private func tearDownPresentationWindow() {
+    guard presentationWindow != nil else {
+      return
+    }
+    
+    hostViewController?.dismiss(animated: false)
+    presentationWindow?.isHidden = true
+    presentationWindow?.rootViewController = nil
+    presentationWindow = nil
+    hostViewController = nil
+  }
+  
+  private static func activeWindowScene() -> UIWindowScene? {
+    UIApplication.shared.connectedScenes
+      .compactMap { $0 as? UIWindowScene }
+      .first(where: { $0.activationState == .foregroundActive || $0.activationState == .foregroundInactive })
+  }
+  
+  private static func activeScreenBounds() -> CGRect {
+    activeWindowScene()?.screen.bounds ?? UIScreen.main.bounds
   }
   
   private func applyCustomFonts(fontsDict: [String: Any]) {
