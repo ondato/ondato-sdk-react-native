@@ -5,7 +5,7 @@ export const defaultAppearance = {
   // CORE STYLING
   brand: {
     colors: {
-      primaryColor: '#64749c', // Primary brand color - used in illustration and primary button
+      primaryColor: '#64749C', // Primary brand color - used in illustration and primary button
 
       textColor: '#000000', // Text color for content
       backgroundColor: '#FFFFFF', // Base background color for screens
@@ -22,11 +22,14 @@ export const defaultAppearance = {
       grey600: '#6D7580', // Color for Proof of Address icon color, Text input Active state border
       grey700: '#282B2F', // Color for feedback bar background color
 
-      statusBarColor: '#64749c', // Default: brand.colors.primaryColor
+      statusBarColor: '#64749C', // Default: brand.colors.primaryColor
+      navigationBarColor: '#FFFFFF', // Default: brand.colors.backgroundColor
+
+      certificateColor: '#6D7580', // Type: String  |  Default: brand.colors.grey600
     },
 
     baseComponentStyling: {
-      cornerRadius: 6, // Used for all input components (Buttons, Text inputs and other elements)
+      cornerRadius: 6.0, // Used for all input components (Buttons, Text inputs and other elements)
       buttonPadding: { top: 14, bottom: 14, left: 24, right: 24 }, // Used for Primary and Secondary button paddings
       borderWidth: 1.0, // Used for Secondary button, Text input, Selection button border
     },
@@ -78,7 +81,7 @@ export const defaultAppearance = {
   buttons: {
     primary: {
       base: {
-        cornerRadius: 6, // Default: brand.baseComponentStyling.cornerRadius
+        cornerRadius: 6.0, // Default: brand.baseComponentStyling.cornerRadius
         padding: { top: 14, bottom: 14, left: 24, right: 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
         fontSize: 16, // Type: Int  |   Default: typography.button.fontSize
@@ -88,15 +91,15 @@ export const defaultAppearance = {
       },
       normal: {
         textColor: '#000000', // Type: String  |  Default: brand.colors.textColor
-        backgroundColor: '#64749c', // Type: String  |  Default: brand.colors.primaryColor
+        backgroundColor: '#64749C', // Type: String  |  Default: brand.colors.primaryColor
         borderWidth: 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
-        borderColor: '#64749c', // Type: String  |  Default: colors.primaryColor
+        borderColor: '#64749C', // Type: String  |  Default: colors.primaryColor
         iconColor: '#000000', // Type: String  |  Default: colors.textColor
         opacity: 1.0, // Type: Float
       },
       pressed: {
         textColor: '#000000', // Type: String  |  Default: brand.colors.textColor
-        backgroundColor: '#64749c', // Type: String  |  Default: brand.colors.primaryColor
+        backgroundColor: '#64749C', // Type: String  |  Default: brand.colors.primaryColor
         borderWidth: 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
         borderColor: '#64749c', // Type: String  |  Default: colors.primaryColor
         iconColor: '#000000', // Type: String  |  Default: colors.textColor
@@ -105,7 +108,7 @@ export const defaultAppearance = {
       disabled: {
         textColor: '#96A0AE', // Type: String  |  Default: brand.colors.grey500
         backgroundColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-        borderWidth: 1, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
         borderColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
         iconColor: '#96A0AE', // Type: String  |  Default: brand.colors.grey500
         opacity: 1.0, // Type: Float
@@ -114,7 +117,7 @@ export const defaultAppearance = {
 
     secondary: {
       base: {
-        cornerRadius: 6, // Default: brand.baseComponentStyling.cornerRadius
+        cornerRadius: 6.0, // Default: brand.baseComponentStyling.cornerRadius
         padding: { top: 14, bottom: 14, left: 24, right: 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
         fontSize: 16, // Type: Int  |   Default: typography.button.fontSize
@@ -151,50 +154,50 @@ export const defaultAppearance = {
     // Icon buttons (e.g. in proof-of-address upload screen) customisation
     iconButton: {
       base: {
-        cornerRadius: 6, // Default: brand.baseComponentStyling.cornerRadius
+        cornerRadius: 6.0, // Default: brand.baseComponentStyling.cornerRadius
       },
       normal: {
         iconColor: '#000000', // Type: String  |  Default: brand.colors.textColor
         backgroundColor: '#FFFFFF', // Type: String  |  Default: brand.colors.backgroundColor
         borderColor: '#FFFFFF', // Type: String  |  Default: brand.colors.backgroundColor
-        borderWidth: 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       pressed: {
         iconColor: '#000000', // Type: String  |  Default: brand.colors.textColor
         backgroundColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
         borderColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-        borderWidth: 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       disabled: {
         iconColor: '#96A0AE', // Type: String  |  Default: brand.colors.grey500
         backgroundColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
         borderColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-        borderWidth: 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
     },
 
     // Back and close navigation buttons customisation
     navigationButton: {
       base: {
-        cornerRadius: 6, // Default: brand.baseComponentStyling.cornerRadius
+        cornerRadius: 6.0, // Default: brand.baseComponentStyling.cornerRadius
       },
       normal: {
         iconColor: '#000000', // Type: String  |  Default: brand.colors.textColor
         backgroundColor: '#FFFFFF', // Type: String  |  Default: brand.colors.backgroundColor
         borderColor: '#FFFFFF', // Type: String  |  Default: brand.colors.backgroundColor
-        borderWidth: 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       pressed: {
         iconColor: '#000000', // Type: String  |  Default: brand.colors.textColor
         backgroundColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
         borderColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-        borderWidth: 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       disabled: {
         iconColor: '#96A0AE', // Type: String  |  Default: brand.colors.grey500
         backgroundColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
         borderColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-        borderWidth: 0, // Type: Float  |  Default: bbrand.baseComponentStyling.borderWidth
+        borderWidth: 0.0, // Type: Float  |  Default: bbrand.baseComponentStyling.borderWidth
       },
     },
   },
@@ -202,7 +205,7 @@ export const defaultAppearance = {
   // Customisation options for all text types in the SDK
   textInput: {
     base: {
-      cornerRadius: 6, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      cornerRadius: 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
       padding: { top: 14, bottom: 14, left: 24, right: 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
       fontSize: 16, // Type: Int  |   Default: typography.body.fontSize
@@ -247,7 +250,7 @@ export const defaultAppearance = {
   // Used for tinkering the document selection card UI
   selectionCard: {
     base: {
-      cornerRadius: 6, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      cornerRadius: 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
 
       fontSize: 16, // Type: Int  |   Default: typography.body.fontSize
       fontWeight: 500, // Type: Int  |   Default: typography.body.fontWeight
@@ -281,7 +284,7 @@ export const defaultAppearance = {
 
   // Used for changing the colour of the loading indicator
   activityIndicator: {
-    color: '#64749c', // Type: String  |  Default: brand.colors.primaryColor
+    color: '#64749C', // Type: String  |  Default: brand.colors.primaryColor
   },
 
   // Used for customising the face authorisation screen frame and feedback bar
@@ -289,12 +292,12 @@ export const defaultAppearance = {
     frame: {
       borderColor: '#282B2F', // Type: String  |  Default: brand.colors.grey700
       borderWidth: 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
-      progressColor: '#64749c', // Type: String  |  Default: brand.colors.primaryColor
+      progressColor: '#64749C', // Type: String  |  Default: brand.colors.primaryColor
     },
     feedbackBar: {
       backgroundColor: '#282B2F', // Type: String  |  Default: brand.colors.grey700
       textColor: '#F2F5F8', // Type: String  |  Default: brand.colors.grey200
-      cornerRadius: 6, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      cornerRadius: 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
     },
   },
 
@@ -336,6 +339,14 @@ export const defaultAppearance = {
     fontSize: 16, // Type: Int  |   Default: typography.body.fontSize
     fontWeight: 500, // Type: Int  |   Default: typography.body.fontWeight
     lineHeight: 22, // Type: Int  |   Default: typography.body.lineHeight
+  },
+
+  // Used for the various pop-ups
+  modalConfiguration: {
+    backgroundColor: '#FFFFFF', // Type: String  |  Default: brand.colors.backgroundColor
+    textColor: '#000000', // Type: String  |  Default: brand.colors.textColor
+    cornerRadius: 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+    backdropOpacity: 0.5, // Type: Float
   },
 };
 

@@ -14,6 +14,7 @@ data class OndatoConfiguration(
   val disablePdfFileUpload: Boolean,
   val switchPrimaryButtons: Boolean,
   val skipRegistrationIfDriverLicense: Boolean,
+  val showComplianceTextDocSelect: Boolean,
   val appearance: String?,
   val logLevel: OndatoLoggingLevel,
   val fonts: ReadableMap?,
@@ -48,7 +49,8 @@ data class OndatoConfiguration(
         "lv" -> Language.Latvian
         "nl" -> Language.Dutch
         "pl" -> Language.Polish
-        "pt" -> Language.Portuguese
+        "pt-pt" -> Language.PortuguesePortugal
+        "pt-br" -> Language.PortugueseBrazil
         "ro" -> Language.Romanian
         "ru" -> Language.Russian
         "sk" -> Language.Slovak
@@ -82,6 +84,7 @@ data class OndatoConfiguration(
         disablePdfFileUpload = map.getBoolean("disablePdfFileUpload"),
         switchPrimaryButtons = map.getBoolean("switchPrimaryButtons"),
         skipRegistrationIfDriverLicense = map.getBoolean("skipRegistrationIfDriverLicense"),
+        showComplianceTextDocSelect = map.getBoolean("showComplianceTextDocSelect"),
         appearance = map.getString("appearance"),
         logLevel = logLevel,
         fonts = androidFonts,
@@ -99,6 +102,7 @@ data class OndatoConfiguration(
       .disablePdfFileUploadForProofOfAddress(disablePdfFileUpload)
       .setSwitchPrimaryButtons(switchPrimaryButtons)
       .setSkipRegistrationIfDriverLicense(skipRegistrationIfDriverLicense)
+      .showComplianceTextDocSelect(showComplianceTextDocSelect)
       .setLoggingLevel(logLevel)
       .setTermsAndConditionsRules(requireScrollToEnableTermsButton, termsButtonTimeout)
 

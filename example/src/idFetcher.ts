@@ -1,4 +1,4 @@
-const CLIENT_ID = 'idv.demo.api@ondato.com';
+const CLIENT_ID = 'ondato.sdk';
 const URL = 'https://sandbox-idvapi.ondato.com';
 const OAUTH2_URL = 'https://sandbox-id.ondato.com/connect/token';
 

@@ -46,6 +46,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         requireScrollToEnableTermsButton: true,
         termsButtonTimeout: 10000,
         showTranslationKeys: false,
+        showComplianceTextDocSelect: false,
         logLevel: 'info',
         fonts: undefined,
         appearance: undefined,
@@ -84,6 +85,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         requireScrollToEnableTermsButton: true,
         termsButtonTimeout: 10000,
         showTranslationKeys: false,
+        showComplianceTextDocSelect: false,
       });
     });
 
@@ -104,6 +106,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         logLevel: 'info',
         mode: 'test',
         showTranslationKeys: false,
+        showComplianceTextDocSelect: false,
         skipRegistrationIfDriverLicense: false,
         switchPrimaryButtons: false,
         requireScrollToEnableTermsButton: true,

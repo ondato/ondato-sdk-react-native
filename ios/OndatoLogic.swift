@@ -27,6 +27,7 @@ import React
       Ondato.sdk.configuration.mode = conf.mode
       Ondato.sdk.configuration.flowConfiguration.skipRegistrationIfDriverLicense = conf.skipRegistrationIfDriverLicense
       Ondato.sdk.configuration.flowConfiguration.showTranslationKeys = conf.showTranslationKeys
+      Ondato.sdk.configuration.flowConfiguration.showComplianceTextDocSelect = conf.showComplianceTextDocSelect
       Ondato.sdk.configuration.flowConfiguration.showNoInternetConnectionView = conf.showNoInternetConnectionView
       Ondato.sdk.configuration.flowConfiguration.disablePdfFileUpload = conf.disablePdfFileUpload
       Ondato.sdk.configuration.flowConfiguration.switchPrimaryButtons = conf.switchPrimaryButtons
@@ -300,7 +301,7 @@ extension OndatoLogic: OndatoFlowDelegate {
 
 extension OndatoServiceError {
   var code: String {
-    switch type {
+    switch self {
     case .badFlowSetup:             return "BAD_FLOW_SETUP"
     case .consentDeclined:          return "CONSENT_DECLINED"
     case .failureExit:              return "FAILURE_EXIT"

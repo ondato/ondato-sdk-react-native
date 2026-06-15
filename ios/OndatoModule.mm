@@ -33,19 +33,20 @@ using namespace facebook::react;
   configDict[@"language"] = config.language() ?: [NSNull null];
   configDict[@"skipRegistrationIfDriverLicense"] = @(config.skipRegistrationIfDriverLicense());
   configDict[@"showTranslationKeys"] = @(config.showTranslationKeys());
+  configDict[@"showComplianceTextDocSelect"] = @(config.showComplianceTextDocSelect());
   configDict[@"enableNetworkIssuesScreen"] = @(config.enableNetworkIssuesScreen());
   configDict[@"disablePdfFileUpload"] = @(config.disablePdfFileUpload());
   configDict[@"switchPrimaryButtons"] = @(config.switchPrimaryButtons());
   configDict[@"appearance"] = config.appearance() ?: [NSNull null];
   configDict[@"logLevel"] = config.logLevel();
-  
+
   if (auto fontsOpt = config.fonts()) {
     auto fontsStruct = *fontsOpt;
-    
+
     if (auto iosOpt = fontsStruct.ios()) {
       auto iosStruct = *iosOpt;
       NSMutableDictionary *iosDict = [NSMutableDictionary dictionary];
-      
+
       auto createFontDict = ^NSMutableDictionary *(const JS::NativeOndatoModule::IosFont& fontStruct) {
         NSMutableDictionary *fontDict = [NSMutableDictionary dictionary];
         fontDict[@"postScriptName"] = fontStruct.postScriptName();
@@ -57,7 +58,7 @@ using namespace facebook::react;
         }
         return fontDict;
       };
-      
+
       if (auto titleOpt = iosStruct.title()) {
         iosDict[@"title"] = createFontDict(*titleOpt);
       }
@@ -73,13 +74,13 @@ using namespace facebook::react;
       if (auto buttonOpt = iosStruct.button()) {
         iosDict[@"button"] = createFontDict(*buttonOpt);
       }
-      
+
       if (iosDict.count > 0) {
         configDict[@"fonts"] = iosDict;
       }
     }
   }
-  
+
   [ondato startIdentificationWithConfig:configDict resolve:resolve reject:reject];
 }
 

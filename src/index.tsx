@@ -37,7 +37,8 @@ export const languages: Language[] = [
   'lv',
   'nl',
   'pl',
-  'pt',
+  'pt-PT',
+  'pt-BR',
   'ro',
   'ru',
   'sk',
@@ -88,6 +89,7 @@ const configSchema = z
     requireScrollToEnableTermsButton: z.boolean().default(true),
     termsButtonTimeout: z.number().default(10000),
     showTranslationKeys: z.boolean().default(false),
+    showComplianceTextDocSelect: z.boolean().default(false),
     logLevel: z.enum(logLevels as [LogLevel, ...LogLevel[]]).default('info'),
     fonts: z
       .object({

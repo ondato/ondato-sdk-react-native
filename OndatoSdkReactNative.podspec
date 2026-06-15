@@ -16,7 +16,17 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
   s.private_header_files = "ios/**/*.h"
 
-  s.dependency "OndatoSDK", "= 3.2.4"
+  # Used to test local ondato sdk builds, if used, ondato pod dependencies should be commented out in the Podfiles (don't forget example)
+  # s.vendored_frameworks = [
+  #   "ios/Frameworks/FaceTecSDK.xcframework",
+  #   "ios/Frameworks/OndatoAutocapture.xcframework",
+  #   "ios/Frameworks/OndatoNFC.xcframework",
+  #   "ios/Frameworks/OndatoScreenRecorder.xcframework",
+  #   "ios/Frameworks/OndatoSDK.xcframework",
+  #   "ios/Frameworks/OpenSSL.xcframework"
+  # ]
+
+  s.dependency "OndatoSDK-Core", "= 3.5.1"
 
   install_modules_dependencies(s)
 end

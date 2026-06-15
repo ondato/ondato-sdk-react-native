@@ -16,6 +16,22 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 
+# [3.5.0] - 2026-06-12
+
+### Added
+
+- Support for navigation bar color customization via `brand.colors.navigationBarColor`
+- Support for certificate icon color customization via `brand.colors.certificateColor`
+- Support for modal whitelabel configuration via `modalConfiguration`
+- New `showComplianceTextDocSelect` configuration property
+- Support for additional iOS locales: `zh`, `th`, `pt-PT`, `ko`, and `da`
+- Separate Portuguese locales for Android: `pt-PT` and `pt-BR`
+
+### Changed
+
+- **Android:** [Updated native SDK to v3.5.0](https://github.com/ondato/ondato-sdk-android/releases/tag/3.5.0)
+- **iOS:** [Updated native SDK to v3.5.1](https://github.com/ondato/ondato-sdk-ios/releases/tag/3.5.1)
+
 ## [3.4.2] - 2026-05-27
 
 ### Changed

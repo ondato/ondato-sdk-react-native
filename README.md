@@ -72,8 +72,11 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
 ```
+
+> [!IMPORTANT]
+> Automatic document capture is enabled by default for identity verification flows in most, if not all, internal system configurations. Therefore, setting enableDocumentResolver to true is highly recommended to ensure proper SDK functionality.
 
 ### Configure Ondato SDK with config plugin
 
@@ -298,10 +301,13 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.4.2/osrn-v3.4.2.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
 ```
+
+> [!IMPORTANT]
+> In most (if not all) configurations, automatic document capture is enabled by default for identity verification flows in internal systems. To ensure proper SDK behavior, it is highly recommended to include the OndatoAutocapture pod (iOS) and the document-autoresolver dependency (Android).
 
 #### iOS Specific Setup
 
@@ -336,7 +342,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
   // CORE STYLING
   "brand": {
     "colors": {
-      "primaryColor": "#64749c", // Primary brand color
+      "primaryColor": "#64749C", // Primary brand color - used in illustration and primary button
 
       "textColor": "#000000", // Text color for content
       "backgroundColor": "#FFFFFF", // Base background color for screens
@@ -353,11 +359,14 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
       "grey600": "#6D7580", // Color for Proof of Address icon color, Text input Active state border
       "grey700": "#282B2F", // Color for feedback bar background color
 
-      "statusBarColor": "#64749c" // Default: brand.colors.primaryColor
+      "statusBarColor": "#64749C", // Default: brand.colors.primaryColor
+      "navigationBarColor": "#FFFFFF", // Default: brand.colors.backgroundColor
+
+      "certificateColor": "#6D7580" // Type: String  |  Default: brand.colors.grey600
     },
 
     "baseComponentStyling": {
-      "cornerRadius": 6, // Used for all input components (Buttons, Text inputs and other elements)
+      "cornerRadius": 6.0, // Used for all input components (Buttons, Text inputs and other elements)
       "buttonPadding": { "top": 14, "bottom": 14, "left": 24, "right": 24 }, // Used for Primary and Secondary button paddings
       "borderWidth": 1.0 // Used for Secondary button, Text input, Selection button border
     },
@@ -409,7 +418,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
   "buttons": {
     "primary": {
       "base": {
-        "cornerRadius": 6, // Default: brand.baseComponentStyling.cornerRadius
+        "cornerRadius": 6.0, // Default: brand.baseComponentStyling.cornerRadius
         "padding": { "top": 14, "bottom": 14, "left": 24, "right": 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
         "fontSize": 16, // Type: Int  |   Default: typography.button.fontSize
@@ -419,15 +428,15 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
       },
       "normal": {
         "textColor": "#000000", // Type: String  |  Default: brand.colors.textColor
-        "backgroundColor": "#64749c", // Type: String  |  Default: brand.colors.primaryColor
+        "backgroundColor": "#64749C", // Type: String  |  Default: brand.colors.primaryColor
         "borderWidth": 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
-        "borderColor": "#64749c", // Type: String  |  Default: colors.primaryColor
+        "borderColor": "#64749C", // Type: String  |  Default: colors.primaryColor
         "iconColor": "#000000", // Type: String  |  Default: colors.textColor
         "opacity": 1.0 // Type: Float
       },
       "pressed": {
         "textColor": "#000000", // Type: String  |  Default: brand.colors.textColor
-        "backgroundColor": "#64749c", // Type: String  |  Default: brand.colors.primaryColor
+        "backgroundColor": "#64749C", // Type: String  |  Default: brand.colors.primaryColor
         "borderWidth": 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
         "borderColor": "#64749c", // Type: String  |  Default: colors.primaryColor
         "iconColor": "#000000", // Type: String  |  Default: colors.textColor
@@ -436,7 +445,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
       "disabled": {
         "textColor": "#96A0AE", // Type: String  |  Default: brand.colors.grey500
         "backgroundColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-        "borderWidth": 1, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
         "borderColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
         "iconColor": "#96A0AE", // Type: String  |  Default: brand.colors.grey500
         "opacity": 1.0 // Type: Float
@@ -445,7 +454,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
 
     "secondary": {
       "base": {
-        "cornerRadius": 6, // Default: brand.baseComponentStyling.cornerRadius
+        "cornerRadius": 6.0, // Default: brand.baseComponentStyling.cornerRadius
         "padding": { "top": 14, "bottom": 14, "left": 24, "right": 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
         "fontSize": 16, // Type: Int  |   Default: typography.button.fontSize
@@ -482,50 +491,50 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
     // Icon buttons (e.g. in proof-of-address upload screen) customisation
     "iconButton": {
       "base": {
-        "cornerRadius": 6, // Default: brand.baseComponentStyling.cornerRadius
+        "cornerRadius": 6.0 // Default: brand.baseComponentStyling.cornerRadius
       },
       "normal": {
         "iconColor": "#000000", // Type: String  |  Default: brand.colors.textColor
         "backgroundColor": "#FFFFFF", // Type: String  |  Default: brand.colors.backgroundColor
         "borderColor": "#FFFFFF", // Type: String  |  Default: brand.colors.backgroundColor
-        "borderWidth": 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       "pressed": {
         "iconColor": "#000000", // Type: String  |  Default: brand.colors.textColor
         "backgroundColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
         "borderColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-        "borderWidth": 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       "disabled": {
         "iconColor": "#96A0AE", // Type: String  |  Default: brand.colors.grey500
         "backgroundColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
         "borderColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-        "borderWidth": 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       }
     },
 
     // Back and close navigation buttons customisation
     "navigationButton": {
       "base": {
-        "cornerRadius": 6, // Default: brand.baseComponentStyling.cornerRadius
+        "cornerRadius": 6.0 // Default: brand.baseComponentStyling.cornerRadius
       },
       "normal": {
         "iconColor": "#000000", // Type: String  |  Default: brand.colors.textColor
         "backgroundColor": "#FFFFFF", // Type: String  |  Default: brand.colors.backgroundColor
         "borderColor": "#FFFFFF", // Type: String  |  Default: brand.colors.backgroundColor
-        "borderWidth": 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       "pressed": {
         "iconColor": "#000000", // Type: String  |  Default: brand.colors.textColor
         "backgroundColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
         "borderColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-        "borderWidth": 0, // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: brand.baseComponentStyling.borderWidth
       },
       "disabled": {
         "iconColor": "#96A0AE", // Type: String  |  Default: brand.colors.grey500
         "backgroundColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
         "borderColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-        "borderWidth": 0, // Type: Float  |  Default: bbrand.baseComponentStyling.borderWidth
+        "borderWidth": 0.0 // Type: Float  |  Default: bbrand.baseComponentStyling.borderWidth
       }
     }
   },
@@ -533,7 +542,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
   // Customisation options for all text types in the SDK
   "textInput": {
     "base": {
-      "cornerRadius": 6, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      "cornerRadius": 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
       "padding": { "top": 14, "bottom": 14, "left": 24, "right": 24 }, // Default: brand.baseComponentStyling.buttonPadding
 
       "fontSize": 16, // Type: Int  |   Default: typography.body.fontSize
@@ -578,7 +587,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
   // Used for tinkering the document selection card UI
   "selectionCard": {
     "base": {
-      "cornerRadius": 6, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      "cornerRadius": 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
 
       "fontSize": 16, // Type: Int  |   Default: typography.body.fontSize
       "fontWeight": 500, // Type: Int  |   Default: typography.body.fontWeight
@@ -612,7 +621,7 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
 
   // Used for changing the colour of the loading indicator
   "activityIndicator": {
-    "color": "#64749c" // Type: String  |  Default: brand.colors.primaryColor
+    "color": "#64749C" // Type: String  |  Default: brand.colors.primaryColor
   },
 
   // Used for customising the face authorisation screen frame and feedback bar
@@ -620,12 +629,12 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
     "frame": {
       "borderColor": "#282B2F", // Type: String  |  Default: brand.colors.grey700
       "borderWidth": 1.0, // Type: Float   |  Default: brand.baseComponentStyling.borderWidth
-      "progressColor": "#64749c" // Type: String  |  Default: brand.colors.primaryColor
+      "progressColor": "#64749C" // Type: String  |  Default: brand.colors.primaryColor
     },
     "feedbackBar": {
       "backgroundColor": "#282B2F", // Type: String  |  Default: brand.colors.grey700
       "textColor": "#F2F5F8", // Type: String  |  Default: brand.colors.grey200
-      "cornerRadius": 6 // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+      "cornerRadius": 6.0 // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
     }
   },
 
@@ -667,6 +676,14 @@ Customize the SDK’s appearance using the `appearance` field in the configurati
     "fontSize": 16, // Type: Int  |   Default: typography.body.fontSize
     "fontWeight": 500, // Type: Int  |   Default: typography.body.fontWeight
     "lineHeight": 22 // Type: Int  |   Default: typography.body.lineHeight
+  },
+
+  // Used for the various pop-ups
+  "modalConfiguration": {
+    "backgroundColor": "#FFFFFF", // Type: String  |  Default: brand.colors.backgroundColor
+    "textColor": "#000000", // Type: String  |  Default: brand.colors.textColor
+    "cornerRadius": 6.0, // Type: Float  |   Default: brand.baseComponentStyling.cornerRadius
+    "backdropOpacity": 0.5 // Type: Float
   }
 }
 ```
@@ -939,28 +956,33 @@ Ondato SDK comes with out-of-the-box translations for the following locales:
 
 - English (en) 🇬🇧
 - Lithuanian (lt) 🇱🇹
-- German (de) 🇩🇪
-- Latvian (lv) 🇱🇻
-- Estonian (et) 🇪🇪
-- Russian (ru) 🇷🇺
 - Albanian (sq) 🇦🇱
 - Bulgarian (bg) 🇧🇬
-- Spanish (es) 🇪🇸
-- French (fr) 🇫🇷
-- Italian (it) 🇮🇹
-- Romanian (ro) 🇷🇴
-- Greek (el) 🇬🇷
-- Dutch (nl) 🇳🇱
 - Catalan (ca) 🇪🇸
+- Chinese (simplified) (zh) 🇨🇳
 - Croatian (hr) 🇭🇷
 - Czech (cs) 🇨🇿
+- Danish (da) 🇩🇰
+- Dutch (nl) 🇳🇱
+- Estonian (et) 🇪🇪
 - Finnish (fi) 🇫🇮
+- French (fr) 🇫🇷
+- German (de) 🇩🇪
+- Greek (el) 🇬🇷
 - Hungarian (hu) 🇭🇺
+- Italian (it) 🇮🇹
+- Korean (ko) 🇰🇷
+- Latvian (lv) 🇱🇻
 - Polish (pl) 🇵🇱
-- Portuguese (pt) 🇵🇹🇧🇷
+- Portuguese (Portugal) (pt-PT) 🇵🇹
+- Portuguese (Brazil) (pt-BR) 🇧🇷
+- Romanian (ro) 🇷🇴
+- Russian (ru) 🇷🇺
 - Slovak (sk) 🇸🇰
 - Slovenian (sl) 🇸🇮
+- Spanish (es) 🇪🇸
 - Swedish (sv) 🇸🇪
+- Thai (th) 🇹🇭
 - Ukrainian (uk) 🇺🇦
 - Vietnamese (vi) 🇻🇳
 
@@ -1077,11 +1099,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.4.2")
+      implementation("com.kyc.ondato:screen-recorder:3.5.0rn-beta01")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.4.2")
+      implementation("com.kyc.ondato:nfc-reader:3.5.0rn-beta01")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.4.2")
+      implementation("com.kyc.ondato:document-autoresolver:3.5.0rn-beta01")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1091,11 +1113,11 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.2.4'
+    pod 'OndatoNFC', '= 3.5.1'
     # and/or
-    pod 'OndatoAutocapture', '= 3.2.4'
+    pod 'OndatoAutocapture', '= 3.5.1'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.2.4'
+    pod 'OndatoScreenRecorder', '= 3.5.1'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
@@ -1146,6 +1168,7 @@ export default function App() {
         disablePdfFileUpload: false,
         skipRegistrationIfDriverLicense: false,
         showTranslationKeys: false, // iOS only
+        showComplianceTextDocSelect: false,
         appearance: {
           /* whitelabel JSON object, see Customization > Styling */
         },
@@ -1215,20 +1238,21 @@ The `startIdentification` function accepts a single configuration object. There 
 
 ### Configuration Options
 
-| Property                           | Type                               | Default      | Platform | Description                                                                     |
-| ---------------------------------- | ---------------------------------- | ------------ | -------- | ------------------------------------------------------------------------------- |
-| **`identityVerificationId`**       | `string`                           | _(Required)_ | All      | The unique ID for the verification session, obtained from the Ondato API.       |
-| `mode`                             | `'test'` \| `'live'`               | `'test'`     | All      | Sets the SDK environment.                                                       |
-| `language`                         | `string`                           | `'en'`       | All      | Sets the localization for the SDK (e.g., 'bg', 'ca', 'cs', etc.).               |
-| `logLevel`                         | `'error'` \| `'info'` \| `'debug'` | `'info'`     | All      | Sets the verbosity of logs. See [Logging](#logging) for details.                |
-| `switchPrimaryButtons`             | `boolean`                          | `false`      | All      | Switches primary buttons if true.                                               |
-| `enableNetworkIssuesScreen`        | `boolean`                          | `true`       | All      | Enables network issues screen if true.                                          |
-| `disablePdfFileUpload`             | `boolean`                          | `false`      | All      | Disables PDF file upload if true.                                               |
-| `skipRegistrationIfDriverLicense`  | `boolean`                          | `false`      | All      | Skips registration if driver's license is used.                                 |
-| `showTranslationKeys`              | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                                 |
-| `appearance`                       | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.                 |
-| `requireScrollToEnableTermsButton` | `boolean`                          | `true`       | Android  | Requires scrolling to the end of consent text before enabling the agree button. |
-| `termsButtonTimeout`               | `number`                           | `10000`      | Android  | Delay in milliseconds before enabling the agree button.                         |
+| Property                           | Type                               | Default      | Platform | Description                                                                                       |
+| ---------------------------------- | ---------------------------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------- |
+| **`identityVerificationId`**       | `string`                           | _(Required)_ | All      | The unique ID for the verification session, obtained from the Ondato API.                         |
+| `mode`                             | `'test'` \| `'live'`               | `'test'`     | All      | Sets the SDK environment.                                                                         |
+| `language`                         | `string`                           | `'en'`       | All      | Sets the localization for the SDK (e.g., 'bg', 'ca', 'cs', etc.).                                 |
+| `logLevel`                         | `'error'` \| `'info'` \| `'debug'` | `'info'`     | All      | Sets the verbosity of logs. See [Logging](#logging) for details.                                  |
+| `switchPrimaryButtons`             | `boolean`                          | `false`      | All      | Switches primary buttons if true.                                                                 |
+| `enableNetworkIssuesScreen`        | `boolean`                          | `true`       | All      | Enables network issues screen if true.                                                            |
+| `disablePdfFileUpload`             | `boolean`                          | `false`      | All      | Disables PDF file upload if true.                                                                 |
+| `skipRegistrationIfDriverLicense`  | `boolean`                          | `false`      | All      | Skips registration if driver's license is used.                                                   |
+| `showTranslationKeys`              | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                                                   |
+| `showComplianceTextDocSelect`      | `boolean`                          | `false`      | All      | Shows additional compliance text at the top of the certificate icons in document selection screen |
+| `appearance`                       | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.                                   |
+| `requireScrollToEnableTermsButton` | `boolean`                          | `true`       | Android  | Requires scrolling to the end of consent text before enabling the agree button.                   |
+| `termsButtonTimeout`               | `number`                           | `10000`      | Android  | Delay in milliseconds before enabling the agree button.                                           |
 
 ### Handling the Result
 

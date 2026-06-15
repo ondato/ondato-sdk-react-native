@@ -7,6 +7,7 @@ struct OndatoConfiguration {
   let mode: OndatoEnvironment
   let language: OndatoSupportedLanguage
   let showTranslationKeys: Bool
+  let showComplianceTextDocSelect: Bool
   let skipRegistrationIfDriverLicense: Bool
   let showNoInternetConnectionView: Bool
   let disablePdfFileUpload: Bool
@@ -26,6 +27,7 @@ struct OndatoConfiguration {
     // Booleans with defaults
     let showTransKeys = dict["showTranslationKeys"] as? Bool ?? false
     let skipReg = dict["skipRegistrationIfDriverLicense"] as? Bool ?? false
+    let showComplianceSelect = dict["showComplianceTextDocSelect"] as? Bool ?? false
     let showNoInternet = dict["enableNetworkIssuesScreen"] as? Bool ?? true
     let disablePdf = dict["disablePdfFileUpload"] as? Bool ?? false
     let switchButtons = dict["switchPrimaryButtons"] as? Bool ?? false
@@ -38,6 +40,7 @@ struct OndatoConfiguration {
     case "bg": language = .BG
     case "ca": language = .CA
     case "cs": language = .CS
+    case "da": language = .DK
     case "de": language = .DE
     case "el": language = .EL
     case "en": language = .EN
@@ -47,18 +50,22 @@ struct OndatoConfiguration {
     case "fr": language = .FR
     case "hu": language = .HU
     case "it": language = .IT
+    case "ko": language = .KR
     case "lt": language = .LT
     case "lv": language = .LV
     case "nl": language = .NL
     case "pl": language = .PL
-    case "pt": language = .PT
+    case "pt-PT": language = .PT
+    case "pt-BR": language = .PT
     case "ro": language = .RO
     case "ru": language = .RU
     case "sk": language = .SK
     case "sq": language = .SQ
     case "sv": language = .SV
+    case "th": language = .TH
     case "uk": language = .UA
     case "vi": language = .VI
+    case "zh": language = .CN
     default:
       language = .EN
     }
@@ -81,6 +88,7 @@ struct OndatoConfiguration {
       mode: mode,
       language: language,
       showTranslationKeys: showTransKeys,
+      showComplianceTextDocSelect: showComplianceSelect,
       skipRegistrationIfDriverLicense: skipReg,
       showNoInternetConnectionView: showNoInternet,
       disablePdfFileUpload: disablePdf,

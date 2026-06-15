@@ -7,7 +7,7 @@ export type Language =
   | 'bg'
   | 'ca'
   | 'cs'
-  | 'da' // Android only
+  | 'da'
   | 'de'
   | 'el'
   | 'en'
@@ -18,22 +18,23 @@ export type Language =
   | 'hr'
   | 'hu'
   | 'it'
-  | 'ko' // Android only
+  | 'ko'
   | 'lt'
   | 'lv'
   | 'nl'
   | 'pl'
-  | 'pt'
+  | 'pt-PT' // Android only; iOS falls back to pt-BR
+  | 'pt-BR'
   | 'ro'
   | 'ru'
   | 'sk'
   | 'sl'
   | 'sq'
   | 'sv'
-  | 'th' // Android only
+  | 'th'
   | 'uk'
   | 'vi'
-  | 'zh'; // Android only
+  | 'zh';
 
 /** Standardized error codes returned by the Ondato SDK flow */
 export type OndatoError =
@@ -110,6 +111,8 @@ export type OndatoConfig = {
   skipRegistrationIfDriverLicense?: boolean;
   /** Show translation keys (iOS only, defaults to false) */
   showTranslationKeys?: boolean;
+  /** Shows additional compliance text at the top of the certificate icons in document selection screen (defaults to false) */
+  showComplianceTextDocSelect?: boolean;
   /** Appearance customization (merged and stringified to whitelabel JSON) */
   appearance?: OptionalAppearance;
   /** Logging level for Ondato SDK (defaults to 'info') */
@@ -132,6 +135,7 @@ export type OndatoNativeConfig = {
   disablePdfFileUpload: boolean;
   skipRegistrationIfDriverLicense: boolean;
   showTranslationKeys: boolean;
+  showComplianceTextDocSelect: boolean;
   appearance?: string;
   logLevel: LogLevel;
   fonts?: Fonts;

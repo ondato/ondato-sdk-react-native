@@ -7,7 +7,7 @@ import {
 describe('appearance.ts', () => {
   it('should export defaultAppearance as a valid object', () => {
     expect(defaultAppearance).toBeDefined();
-    expect(defaultAppearance.brand.colors.primaryColor).toBe('#64749c');
+    expect(defaultAppearance.brand.colors.primaryColor).toBe('#64749C');
   });
 
   describe('mergeAppearance', () => {
@@ -41,7 +41,7 @@ describe('appearance.ts', () => {
         defaultAppearance.brand.colors.danger
       );
       // Defaults not mutated
-      expect(defaultAppearance.brand.colors.primaryColor).toBe('#64749c');
+      expect(defaultAppearance.brand.colors.primaryColor).toBe('#64749C');
     });
 
     it('should handle nested partials correctly (e.g., typography)', () => {
