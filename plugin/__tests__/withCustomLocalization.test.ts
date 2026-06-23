@@ -1,3 +1,5 @@
+import { it, describe, expect, jest, beforeEach } from '@jest/globals';
+
 jest.mock('fs-extra', () => ({
   existsSync: jest.fn(),
   readdirSync: jest.fn(),
@@ -5,7 +7,9 @@ jest.mock('fs-extra', () => ({
   copySync: jest.fn(),
 }));
 jest.mock('expo/config-plugins', () => ({
-  ...jest.requireActual('expo/config-plugins'),
+  ...jest.requireActual<typeof import('expo/config-plugins')>(
+    'expo/config-plugins'
+  ),
   WarningAggregator: {
     addWarningAndroid: jest.fn(),
     addWarningIOS: jest.fn(),
@@ -75,9 +79,12 @@ describe('withCustomLocalization', () => {
 
     it('should skip a language folder if it does not contain a strings.xml file', async () => {
       // ARRANGE
-      (fs.existsSync as jest.Mock).mockImplementation((p: string) => {
+      (
+        fs.existsSync as jest.MockedFunction<typeof fs.existsSync>
+      ).mockImplementation((p) => {
+        const pathString = typeof p === 'string' ? p : p.toString();
         // Make the strings.xml for 'values-es' be missing.
-        if (p.endsWith('values-es/strings.xml')) {
+        if (pathString.endsWith('values-es/strings.xml')) {
           return false;
         }
         return true;
@@ -233,9 +240,12 @@ describe('iOS Custom Localization', () => {
 
     it('should skip a language folder if it does not contain an OndatoSDK.strings file', () => {
       // ARRANGE
-      (fs.existsSync as jest.Mock).mockImplementation((p: string) => {
+      (
+        fs.existsSync as jest.MockedFunction<typeof fs.existsSync>
+      ).mockImplementation((p) => {
+        const pathString = typeof p === 'string' ? p : p.toString();
         // Make the strings file for de.lproj be missing.
-        if (p.endsWith('de.lproj/OndatoSDK.strings')) {
+        if (pathString.endsWith('de.lproj/OndatoSDK.strings')) {
           return false;
         }
         return true;

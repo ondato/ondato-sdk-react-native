@@ -45,14 +45,20 @@ This SDK provides a set of pre-built screens and tools for React Native applicat
 
 | Platform     | Version |
 | :----------- | :------ |
-| React Native | 0.77+   |
-| Expo SDK     | 53+     |
+| React Native | 0.83+   |
+| Expo SDK     | 54+     |
 
-| React Native Version | Architecture            | Status                               |
-| -------------------: | ----------------------- | :----------------------------------- |
-|            **0.77+** | ✅ **New Architecture** | Fully supported                      |
-|      **0.77 – 0.79** | ⚙️ **Old Architecture** | Supported via fallback legacy bridge |
-|           **< 0.77** | ❌                      | Not supported                        |
+| React Native Version | Architecture            | Status                        |
+| -------------------: | ----------------------- | :---------------------------- |
+|            **0.83+** | ✅ **New Architecture** | Supported                     |
+|      **0.80 - 0.82** | ⚠️ **New Architecture** | May work, not actively tested |
+|           **< 0.83** | ❌                      | Not supported                 |
+
+### Notes
+
+This library is developed and tested using the latest React Native library template and the New Architecture.
+
+Support for React Native versions below 0.83 is not actively maintained or tested. Compatibility with older React Native releases or the Legacy (Old) Architecture is not guaranteed.
 
 ## Prerequisites
 
@@ -72,7 +78,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
 ```
 
 > [!IMPORTANT]
@@ -301,9 +307,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.0/osrn-v3.5.0.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
 ```
 
 > [!IMPORTANT]

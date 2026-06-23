@@ -1,3 +1,5 @@
+import { it, describe, expect, jest, beforeEach } from '@jest/globals';
+
 // Mock the direct dependencies of index.tsx at the top.
 jest.mock('../NativeOndatoModule', () => ({
   startIdentification: jest.fn(),

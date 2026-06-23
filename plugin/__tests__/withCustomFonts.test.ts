@@ -1,3 +1,5 @@
+import { it, describe, expect, jest, beforeEach } from '@jest/globals';
+
 jest.mock('fs-extra', () => ({
   existsSync: jest.fn(),
   readdirSync: jest.fn(),
@@ -6,7 +8,9 @@ jest.mock('fs-extra', () => ({
 }));
 
 jest.mock('expo/config-plugins', () => ({
-  ...jest.requireActual('expo/config-plugins'),
+  ...jest.requireActual<typeof import('expo/config-plugins')>(
+    'expo/config-plugins'
+  ),
   WarningAggregator: {
     addWarningAndroid: jest.fn(),
     addWarningIOS: jest.fn(),

@@ -16,7 +16,17 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 
-# [3.5.0] - 2026-06-12
+## [3.5.1] - 2026-06-22
+
+### Fixed
+
+- bump iOS deployment target to 16.4 for Expo modules compatibility
+
+### Deprecated
+
+- support for old React Native architecture
+
+## [3.5.0] - 2026-06-12
 
 ### Added
 
