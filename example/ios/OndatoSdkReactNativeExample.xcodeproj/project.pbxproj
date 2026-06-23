@@ -7,22 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		034E04A02EB0FCBF00031BA8 /* OndatoSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034E049E2EB0FCBF00031BA8 /* OndatoSDK.strings */; };
-		038CA4E42EB802B200153441 /* ondato.animations.waitingScreenAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 038CA4E32EB802B200153441 /* ondato.animations.waitingScreenAnimation.json */; };
-		038CA4E62EBB671C00153441 /* story_script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 038CA4E52EBB671C00153441 /* story_script.ttf */; };
+		035330212FE45C6000353F10 /* story_script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 035330202FE45C6000353F10 /* story_script.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-OndatoSdkReactNativeExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-OndatoSdkReactNativeExample.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		58B5DAB24A1708B642F8442B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		6602AFA0FB41B940D0C7F986 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		034E049F2EB0FCBF00031BA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OndatoSDK.strings; sourceTree = "<group>"; };
-		034E04A62EB23F3500031BA8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OndatoSDK.strings; sourceTree = "<group>"; };
-		034E04A72EB23F3700031BA8 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/OndatoSDK.strings; sourceTree = "<group>"; };
-		038CA4E32EB802B200153441 /* ondato.animations.waitingScreenAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ondato.animations.waitingScreenAnimation.json; path = OndatoSdkReactNativeExample/ondato.animations.waitingScreenAnimation.json; sourceTree = "<group>"; };
-		038CA4E52EBB671C00153441 /* story_script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = story_script.ttf; sourceTree = "<group>"; };
+		035330202FE45C6000353F10 /* story_script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = story_script.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* OndatoSdkReactNativeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OndatoSdkReactNativeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = OndatoSdkReactNativeExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OndatoSdkReactNativeExample/Info.plist; sourceTree = "<group>"; };
@@ -50,14 +44,12 @@
 		13B07FAE1A68108700A75B9A /* OndatoSdkReactNativeExample */ = {
 			isa = PBXGroup;
 			children = (
+				035330202FE45C6000353F10 /* story_script.ttf */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
-				034E049E2EB0FCBF00031BA8 /* OndatoSDK.strings */,
-				038CA4E32EB802B200153441 /* ondato.animations.waitingScreenAnimation.json */,
-				038CA4E52EBB671C00153441 /* story_script.ttf */,
 			);
 			name = OndatoSdkReactNativeExample;
 			sourceTree = "<group>";
@@ -153,8 +145,6 @@
 			knownRegions = (
 				en,
 				Base,
-				de,
-				lt,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -172,11 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				034E04A02EB0FCBF00031BA8 /* OndatoSDK.strings in Resources */,
+				035330212FE45C6000353F10 /* story_script.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				58B5DAB24A1708B642F8442B /* PrivacyInfo.xcprivacy in Resources */,
-				038CA4E62EBB671C00153441 /* story_script.ttf in Resources */,
-				038CA4E42EB802B200153441 /* ondato.animations.waitingScreenAnimation.json in Resources */,
+				6602AFA0FB41B940D0C7F986 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"\\\"$WITH_ENVIRONMENT\\\" \\\"$REACT_NATIVE_XCODE\\\"\"\n";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -207,9 +195,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -246,9 +238,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OndatoSdkReactNativeExample/Pods-OndatoSdkReactNativeExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -267,19 +263,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		034E049E2EB0FCBF00031BA8 /* OndatoSDK.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				034E049F2EB0FCBF00031BA8 /* en */,
-				034E04A62EB23F3500031BA8 /* de */,
-				034E04A72EB23F3700031BA8 /* lt */,
-			);
-			name = OndatoSDK.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
@@ -304,8 +287,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ondatosdkreactnative.example;
 				PRODUCT_NAME = OndatoSdkReactNativeExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -331,7 +316,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ondatosdkreactnative.example;
 				PRODUCT_NAME = OndatoSdkReactNativeExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -397,6 +384,10 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -404,10 +395,12 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 			};
 			name = Debug;
@@ -465,6 +458,10 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -472,9 +469,11 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -1,3 +1,5 @@
+import { it, describe, expect, jest, beforeEach } from '@jest/globals';
+
 jest.mock('fs-extra', () => ({
   existsSync: jest.fn(),
   ensureDirSync: jest.fn(),
@@ -7,7 +9,9 @@ jest.mock('fs-extra', () => ({
 
 jest.mock('expo/config-plugins', () => {
   // We need to keep the original implementation for things we don't mock.
-  const original = jest.requireActual('expo/config-plugins');
+  const original = jest.requireActual<typeof import('expo/config-plugins')>(
+    'expo/config-plugins'
+  );
   return {
     ...original,
     WarningAggregator: {
@@ -68,11 +72,14 @@ describe('withCustomIllustrations Android', () => {
 
   it('should only copy the drawable directory if raw does not exist', async () => {
     // ARRANGE: Simulate only the 'drawable' subdirectory existing.
-    (fs.existsSync as jest.Mock).mockImplementation((p: string) => {
+    (
+      fs.existsSync as jest.MockedFunction<typeof fs.existsSync>
+    ).mockImplementation((p) => {
+      const pathString = typeof p === 'string' ? p : p.toString();
       // The main source path and the drawable path exist.
       if (
-        p.endsWith('/illustrations/android') ||
-        p.endsWith('/illustrations/android/drawable')
+        pathString.endsWith('/illustrations/android') ||
+        pathString.endsWith('/illustrations/android/drawable')
       ) {
         return true;
       }

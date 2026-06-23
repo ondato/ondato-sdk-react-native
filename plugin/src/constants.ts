@@ -1,5 +1,5 @@
 export const MIN_SDK_VERSION = 24;
-export const DEPLOYMENT_TARGET = '15.1';
+export const DEPLOYMENT_TARGET = '16.4';
 
 export const ONDATO_VERSION_ANDROID = '3.5.0rn-beta01';
 export const ONDATO_VERSION_IOS = '3.5.1';

@@ -14,18 +14,16 @@ class OndatoPackage : BaseReactPackage() {
     }
   }
 
-  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
-    return ReactModuleInfoProvider {
-      mapOf(
-        OndatoModule.NAME to ReactModuleInfo(
-          name = OndatoModule.NAME,
-          className = OndatoModule.NAME,
-          canOverrideExistingModule = false,
-          needsEagerInit = false,
-          isCxxModule = false,
-          isTurboModule = true
-        )
+  override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
+    mapOf(
+      OndatoModule.NAME to ReactModuleInfo(
+        name = OndatoModule.NAME,
+        className = OndatoModule.NAME,
+        canOverrideExistingModule = false,
+        needsEagerInit = false,
+        isCxxModule = false,
+        isTurboModule = true
       )
-    }
+    )
   }
 }
