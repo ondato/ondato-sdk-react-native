@@ -44,8 +44,8 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
-  pod 'OndatoScreenRecorder', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -103,9 +103,9 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
-  pod 'OndatoScreenRecorder', '= 3.5.1'
-  pod 'OndatoAutocapture', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
+  pod 'OndatoAutocapture', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -163,7 +163,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoAutocapture', '= 3.5.1'
+  pod 'OndatoAutocapture', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -221,7 +221,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -279,7 +279,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoScreenRecorder', '= 3.5.1'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -351,7 +351,7 @@ target 'HelloWorld' do
   end
 end
 
-  pod 'OndatoNFC', '= 3.5.1'"
+  pod 'OndatoNFC', '= 3.5.2'"
 `;
 
 exports[`Config Plugin iOS Tests for SDK 54 - addPods skips adding duplicate document resolver pod 1`] = `
@@ -408,7 +408,7 @@ target 'HelloWorld' do
   end
 end
 
-  pod 'OndatoAutocapture', '= 3.5.1'"
+  pod 'OndatoAutocapture', '= 3.5.2'"
 `;
 
 exports[`Config Plugin iOS Tests for SDK 54 - addPods skips adding pods when none are enabled 1`] = `
@@ -523,8 +523,8 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
-  pod 'OndatoScreenRecorder', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -594,9 +594,9 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
-  pod 'OndatoScreenRecorder', '= 3.5.1'
-  pod 'OndatoAutocapture', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
+  pod 'OndatoAutocapture', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -666,7 +666,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoAutocapture', '= 3.5.1'
+  pod 'OndatoAutocapture', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -736,7 +736,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -806,7 +806,7 @@ target 'HelloWorld' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
-  pod 'OndatoScreenRecorder', '= 3.5.1'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(
@@ -890,7 +890,7 @@ target 'HelloWorld' do
   end
 end
 
-  pod 'OndatoNFC', '= 3.5.1'"
+  pod 'OndatoNFC', '= 3.5.2'"
 `;
 
 exports[`Config Plugin iOS Tests for SDK 56 - addPods skips adding duplicate document resolver pod 1`] = `
@@ -959,7 +959,7 @@ target 'HelloWorld' do
   end
 end
 
-  pod 'OndatoAutocapture', '= 3.5.1'"
+  pod 'OndatoAutocapture', '= 3.5.2'"
 `;
 
 exports[`Config Plugin iOS Tests for SDK 56 - addPods skips adding pods when none are enabled 1`] = `

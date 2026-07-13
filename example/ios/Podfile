@@ -23,9 +23,9 @@ target 'OndatoSdkReactNativeExample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  pod 'OndatoNFC', '= 3.5.1'
-  pod 'OndatoAutocapture', '= 3.5.1'
-  pod 'OndatoScreenRecorder', '= 3.5.1'
+  pod 'OndatoNFC', '= 3.5.2'
+  pod 'OndatoAutocapture', '= 3.5.2'
+  pod 'OndatoScreenRecorder', '= 3.5.2'
 
   post_install do |installer|
     react_native_post_install(

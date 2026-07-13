@@ -1,8 +1,8 @@
 buildscript {
   ext.Ondato = [
-    kotlinVersion: "2.0.21",
+    kotlinVersion: "2.2.0",
     minSdkVersion: 24,
-    compileSdkVersion: 36
+    compileSdkVersion: 37
   ]
 
   ext.getExtOrDefault = { prop ->
@@ -50,7 +50,7 @@ dependencies {
   implementation "com.facebook.react:react-android"
 
   // SDK core - required in all cases
-  implementation("com.kyc.ondato:sdk-core:3.5.0rn-beta01")
+  implementation("com.kyc.ondato:sdk-core:3.5.0")
   // Required by Ondato SDK
   implementation "com.squareup.okhttp3:logging-interceptor:4.12.0"
 }

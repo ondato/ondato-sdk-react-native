@@ -16,6 +16,14 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 
+## [3.5.2] - 2026-07-13
+
+### Changed
+
+- **Android:** [Updated native SDK to v3.5.0 from v3.5.0rn-beta01](https://github.com/ondato/ondato-sdk-android/releases/tag/3.5.0)
+- **Android:** Documented bare React Native minimum build requirements: `minSdkVersion` 24+, `compileSdkVersion` 37+, Kotlin 2.2.0+, and matching `kotlin-gradle-plugin` when configured manually.
+- **iOS:** [Updated native SDK to v3.5.2](https://github.com/ondato/ondato-sdk-ios/releases/tag/3.5.2)
+
 ## [3.5.1] - 2026-06-22
 
 ### Fixed

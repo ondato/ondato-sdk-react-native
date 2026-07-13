@@ -3,11 +3,11 @@ PODS:
   - hermes-engine (250829098.0.10):
     - hermes-engine/Pre-built (= 250829098.0.10)
   - hermes-engine/Pre-built (250829098.0.10)
-  - OndatoAutocapture (3.5.1)
-  - OndatoNFC (3.5.1)
-  - OndatoScreenRecorder (3.5.1)
+  - OndatoAutocapture (3.5.2)
+  - OndatoNFC (3.5.2)
+  - OndatoScreenRecorder (3.5.2)
   - OndatoSDK-Core (3.5.1)
-  - OndatoSdkReactNative (3.5.0):
+  - OndatoSdkReactNative (3.5.1):
     - hermes-engine
     - OndatoSDK-Core (= 3.5.1)
     - RCTRequired
@@ -1848,9 +1848,9 @@ PODS:
 DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - OndatoAutocapture (= 3.5.1)
-  - OndatoNFC (= 3.5.1)
-  - OndatoScreenRecorder (= 3.5.1)
+  - OndatoAutocapture (= 3.5.2)
+  - OndatoNFC (= 3.5.2)
+  - OndatoScreenRecorder (= 3.5.2)
   - OndatoSdkReactNative (from `../..`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
   - RCTRequired (from `../node_modules/react-native/Libraries/Required`)
@@ -2089,11 +2089,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBLazyVector: c00c20551d40126351a6783c47ce75f5b374851b
   hermes-engine: 24c42e09f301d657ca85dd4eae151df3c578aaf0
-  OndatoAutocapture: 46919d723aec0070542f53c94515d41f554bb31c
-  OndatoNFC: 04ab4ea2614460c888609afdd229170a50106341
-  OndatoScreenRecorder: 4801337e5005fb15f71f64111d719b406f27c4b0
+  OndatoAutocapture: 10464291d7b8226e14d5758ff0f097e1578c2646
+  OndatoNFC: f45f88455dcab4a2f5014c4ef5570e7ecabccb9e
+  OndatoScreenRecorder: 9aa62c88faef2a5b6bd77d6d4d36ad3d4ef6b669
   OndatoSDK-Core: 1c1faeadb2cc1a630e86529218aadc1dcbdd65cb
-  OndatoSdkReactNative: 4e4efd417eb9cf26d6ac2ff702f390628b082a46
+  OndatoSdkReactNative: fef6ca11c4a5f42f71b81db2baba43d0e9d7ab9a
   RCTDeprecation: 3bb167081b134461cfeb875ff7ae1945f8635257
   RCTRequired: 74839f55d5058a133a0bc4569b0afec750957f64
   RCTSwiftUI: 87a316382f3eab4dd13d2a0d0fd2adcce917361a
@@ -2167,6 +2167,6 @@ SPEC CHECKSUMS:
   ReactNativeDependencies: 70ffee01d8f014106466790b97095fac449c495e
   Yoga: cc155241ea30670878e270d52d74cf29487c4bbb
 
-PODFILE CHECKSUM: 2822fd9b9dc1ad518a044dc043b3ce021929cbb5
+PODFILE CHECKSUM: 2e73a2f4a8bc264841595d7fe8c4c445df330ff4
 
 COCOAPODS: 1.15.2
