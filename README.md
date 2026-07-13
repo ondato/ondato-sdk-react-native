@@ -70,6 +70,8 @@ The Ondato SDK for React Native can be integrated into Expo projects using a [de
 
 **Note**: The Ondato SDK for React Native cannot be used in the pre-compiled [Expo Go app](https://docs.expo.dev/workflow/overview/#expo-go-an-optional-tool-for-learning) because it includes native code that is not compiled into Expo Go.
 
+When you use the Ondato Expo config plugin, it applies the native build settings and dependency wiring for you, including the Android build properties, the Kotlin Gradle plugin version, and the iOS deployment target. In Expo projects, you should usually only need to update the plugin configuration and re-run `expo prebuild`.
+
 To create a new Expo project, see the [Get Started](https://docs.expo.dev/get-started/create-a-project/) guide in the Expo documentation.
 
 ### Installation
@@ -78,7 +80,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
 ```
 
 > [!IMPORTANT]
@@ -307,9 +309,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.1/osrn-v3.5.1.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
 ```
 
 > [!IMPORTANT]
@@ -333,7 +335,8 @@ npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/
 
 #### Android Specific Setup
 
-No native changes are required for the core functionality to work.
+1.  **Match the SDK build settings:** Ensure your project uses at least `minSdkVersion` 24, `compileSdkVersion` 37 or above, Kotlin `2.2.0` or above, and a matching `kotlin-gradle-plugin` version in your project-level `android/build.gradle` file if it is set manually.
+2.  **Add optional module dependencies only if needed:** The core SDK works without extra Android dependencies, but NFC, screen recorder, and document resolver still need the Maven repositories and Gradle dependencies listed below.
 
 ### Customization
 
@@ -1105,11 +1108,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.5.0rn-beta01")
+      implementation("com.kyc.ondato:screen-recorder:3.5.0")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.5.0rn-beta01")
+      implementation("com.kyc.ondato:nfc-reader:3.5.0")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.5.0rn-beta01")
+      implementation("com.kyc.ondato:document-autoresolver:3.5.0")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
