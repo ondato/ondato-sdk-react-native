@@ -9,6 +9,8 @@ struct OndatoConfiguration {
   let showTranslationKeys: Bool
   let showComplianceTextDocSelect: Bool
   let skipRegistrationIfDriverLicense: Bool
+  let enableAgreeButtonAfterScrolling: Bool
+  let termsAgreementButtonTimeout: Double
   let showNoInternetConnectionView: Bool
   let disablePdfFileUpload: Bool
   let switchPrimaryButtons: Bool
@@ -27,6 +29,8 @@ struct OndatoConfiguration {
     // Booleans with defaults
     let showTransKeys = dict["showTranslationKeys"] as? Bool ?? false
     let skipReg = dict["skipRegistrationIfDriverLicense"] as? Bool ?? false
+    let enableAgreeButtonAfterScrolling = dict["requireScrollToEnableTermsButton"] as? Bool ?? false
+    let termsAgreementButtonTimeout = (dict["termsButtonTimeout"] as? Double ?? 10000) / 1000
     let showComplianceSelect = dict["showComplianceTextDocSelect"] as? Bool ?? false
     let showNoInternet = dict["enableNetworkIssuesScreen"] as? Bool ?? true
     let disablePdf = dict["disablePdfFileUpload"] as? Bool ?? false
@@ -90,6 +94,8 @@ struct OndatoConfiguration {
       showTranslationKeys: showTransKeys,
       showComplianceTextDocSelect: showComplianceSelect,
       skipRegistrationIfDriverLicense: skipReg,
+      enableAgreeButtonAfterScrolling: enableAgreeButtonAfterScrolling,
+      termsAgreementButtonTimeout: termsAgreementButtonTimeout,
       showNoInternetConnectionView: showNoInternet,
       disablePdfFileUpload: disablePdf,
       switchPrimaryButtons: switchButtons,

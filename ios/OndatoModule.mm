@@ -34,6 +34,8 @@ using namespace facebook::react;
   configDict[@"skipRegistrationIfDriverLicense"] = @(config.skipRegistrationIfDriverLicense());
   configDict[@"showTranslationKeys"] = @(config.showTranslationKeys());
   configDict[@"showComplianceTextDocSelect"] = @(config.showComplianceTextDocSelect());
+  configDict[@"requireScrollToEnableTermsButton"] = @(config.requireScrollToEnableTermsButton());
+  configDict[@"termsButtonTimeout"] = @(config.termsButtonTimeout());
   configDict[@"enableNetworkIssuesScreen"] = @(config.enableNetworkIssuesScreen());
   configDict[@"disablePdfFileUpload"] = @(config.disablePdfFileUpload());
   configDict[@"switchPrimaryButtons"] = @(config.switchPrimaryButtons());

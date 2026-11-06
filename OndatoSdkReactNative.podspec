@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   "ios/Frameworks/OpenSSL.xcframework"
   # ]
 
-  s.dependency "OndatoSDK-Core", "= 3.5.1"
+  s.dependency "OndatoSDK-Core", "= 3.6.1"
 
   install_modules_dependencies(s)
 end

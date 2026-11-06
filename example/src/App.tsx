@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { IdentityVerificationID } from './IdentityVerificationID';
 import { View, StyleSheet, Pressable, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,10 +11,18 @@ const SECRET = process.env.ONDATO_SECRET_KEY;
 export default function App() {
   const [id, setId] = useState('');
   const [logs, setLogs] = useState('');
+  const [isStarting, setIsStarting] = useState(false);
+  const isStartingRef = useRef(false);
 
-  const disabled = !id;
+  const disabled = !id || isStarting;
 
   async function runOndato() {
+    if (isStartingRef.current) {
+      return;
+    }
+
+    isStartingRef.current = true;
+    setIsStarting(true);
     try {
       const result = await startIdentification({
         identityVerificationId: id,
@@ -47,6 +55,9 @@ export default function App() {
       }
     } catch (e) {
       console.error('Native error:', e);
+    } finally {
+      isStartingRef.current = false;
+      setIsStarting(false);
     }
   }
 
@@ -73,7 +84,9 @@ export default function App() {
           disabled && styles.buttonDisabled,
         ]}
       >
-        <Text style={styles.buttonText}>Start Ondato</Text>
+        <Text style={styles.buttonText}>
+          {isStarting ? 'Starting Ondato...' : 'Start Ondato'}
+        </Text>
       </Pressable>
 
       <Pressable

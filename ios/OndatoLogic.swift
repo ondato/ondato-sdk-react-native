@@ -26,6 +26,8 @@ import React
       Ondato.sdk.setIdentityVerificationId(conf.identityVerificationId)
       Ondato.sdk.configuration.mode = conf.mode
       Ondato.sdk.configuration.flowConfiguration.skipRegistrationIfDriverLicense = conf.skipRegistrationIfDriverLicense
+      Ondato.sdk.configuration.flowConfiguration.enableAgreeButtonAfterScrolling = conf.enableAgreeButtonAfterScrolling
+      Ondato.sdk.configuration.flowConfiguration.termsAgreementButtonTimeout = conf.termsAgreementButtonTimeout
       Ondato.sdk.configuration.flowConfiguration.showTranslationKeys = conf.showTranslationKeys
       Ondato.sdk.configuration.flowConfiguration.showComplianceTextDocSelect = conf.showComplianceTextDocSelect
       Ondato.sdk.configuration.flowConfiguration.showNoInternetConnectionView = conf.showNoInternetConnectionView

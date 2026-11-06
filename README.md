@@ -80,7 +80,7 @@ Install the required dependencies:
 
 ```bash
 npx expo install expo-build-properties
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.6.0/osrn-v3.6.0.tgz
 ```
 
 > [!IMPORTANT]
@@ -309,9 +309,9 @@ await startIdentification({
 ### Installation
 
 ```sh
-yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
+yarn add https://github.com/ondato/ondato-sdk-react-native/releases/download/3.6.0/osrn-v3.6.0.tgz
 # or
-npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.5.2/osrn-v3.5.2.tgz
+npm install https://github.com/ondato/ondato-sdk-react-native/releases/download/3.6.0/osrn-v3.6.0.tgz
 ```
 
 > [!IMPORTANT]
@@ -1108,11 +1108,11 @@ To find the full list of available string keys to override, please refer to the 
     ```groovy
     dependencies {
       // ... other dependencies
-      implementation("com.kyc.ondato:screen-recorder:3.5.0")
+      implementation("com.kyc.ondato:screen-recorder:3.6.2")
       // and/or
-      implementation("com.kyc.ondato:nfc-reader:3.5.0")
+      implementation("com.kyc.ondato:nfc-reader:3.6.2")
       // and/or
-      implementation("com.kyc.ondato:document-autoresolver:3.5.0")
+      implementation("com.kyc.ondato:document-autoresolver:3.6.2")
     }
     ```
 3.  Permissions are handled automatically via Manifest Merge.
@@ -1122,22 +1122,32 @@ To find the full list of available string keys to override, please refer to the 
 1.  Add the relevant pods to your `Podfile`:
     ```ruby
     # Podfile
-    pod 'OndatoNFC', '= 3.5.1'
+    pod 'OndatoNFC', '= 3.6.1'
     # and/or
-    pod 'OndatoAutocapture', '= 3.5.1'
+    pod 'OndatoAutocapture', '= 3.6.1'
     # and/or
-    pod 'OndatoScreenRecorder', '= 3.5.1'
+    pod 'OndatoScreenRecorder', '= 3.6.1'
     ```
 2.  Add the necessary permissions to your `Info.plist`:
     ```xml
     <!-- Required for NFC -->
     <key>NFCReaderUsageDescription</key>
     <string>This app uses NFC to scan identification documents</string>
+    <!-- Required for NFC passport chip reading (ICAO eMRTD application identifier) -->
+    <key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+    <array>
+        <string>A0000002471001</string>
+    </array>
+    <!-- Required for NFC (NFC Forum Type 3 / FeliCa system code) -->
+    <key>com.apple.developer.nfc.readersession.felica.systemcodes</key>
+    <array>
+        <string>12FC</string>
+    </array>
     <!-- Required by ScreenRecorder -->
     <key>NSMicrophoneUsageDescription</key>
     <string>This app uses the microphone to record audio during the screen recording verification process</string>
     ```
-3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file.
+3.  For NFC, enable the "Near Field Communication Tag Reading" [capability in Xcode](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app) under `Signing & Capabilities`, which will add the required entitlement to your `.entitlements` file. The NFC `Info.plist` keys from the previous step are also required. The Expo config plugin adds the entitlement and all NFC `Info.plist` entries when `enableNfc` is enabled.
 
 ## Usage
 
@@ -1181,8 +1191,8 @@ export default function App() {
         appearance: {
           /* whitelabel JSON object, see Customization > Styling */
         },
-        requireScrollToEnableTermsButton: true, // Android only
-        termsButtonTimeout: 15000, // Android only
+        requireScrollToEnableTermsButton: false,
+        termsButtonTimeout: 15000,
       });
 
       if (result.status === 'success') {
@@ -1260,8 +1270,8 @@ The `startIdentification` function accepts a single configuration object. There 
 | `showTranslationKeys`              | `boolean`                          | `false`      | iOS      | Shows translation keys if true.                                                                   |
 | `showComplianceTextDocSelect`      | `boolean`                          | `false`      | All      | Shows additional compliance text at the top of the certificate icons in document selection screen |
 | `appearance`                       | `object`                           | `{}`         | All      | An object to customize the colors, fonts, and styles of the UI.                                   |
-| `requireScrollToEnableTermsButton` | `boolean`                          | `true`       | Android  | Requires scrolling to the end of consent text before enabling the agree button.                   |
-| `termsButtonTimeout`               | `number`                           | `10000`      | Android  | Delay in milliseconds before enabling the agree button.                                           |
+| `requireScrollToEnableTermsButton` | `boolean`                          | `false`      | All      | Requires scrolling to the end of consent text before enabling the agree button. On iOS, maps to `enableAgreeButtonAfterScrolling`. |
+| `termsButtonTimeout`               | `number`                           | `10000`      | All      | Delay in milliseconds before enabling the agree button. On iOS, converted to seconds for `termsAgreementButtonTimeout`. |
 
 ### Handling the Result
 

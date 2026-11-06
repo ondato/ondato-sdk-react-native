@@ -16,7 +16,33 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 
-## [3.5.2] - 2026-07-13
+## [3.6.0] - 2026-11-04
+
+### Added
+
+- **iOS:** Exposed the 3.6.1 consent review settings through `requireScrollToEnableTermsButton` and `termsButtonTimeout`.
+
+### Changed
+
+- **Android:** [Updated native SDK to v3.6.2](https://github.com/ondato/ondato-sdk-android/releases/tag/3.6.2). Fixes multiple sessions being created when `Ondato.init()` and `Ondato.startIdentification()` are called in an improper sequence.
+- **iOS:** [Updated native SDK to v3.6.1](https://github.com/ondato/ondato-sdk-ios/releases/tag/3.6.1)
+
+### Fixed
+
+- **iOS:** The Expo config plugin now adds the ISO 7816 eMRTD application identifier (`A0000002471001`) and the FeliCa system code (`12FC`) to `Info.plist` when `enableNfc` is enabled. These are required for NFC document reading.
+
+## [3.5.3] - 2026-09-29
+
+### Changed
+
+- **Android:** [Updated native SDK to v3.5.1](https://github.com/ondato/ondato-sdk-android/releases/tag/3.5.1)
+- **Android:** Changed the default value of `requireScrollToEnableTermsButton` from `true` to `false`.
+
+### Removed
+
+- **iOS:** Removed the legacy React Native architecture module; support for the legacy architecture was deprecated in 3.5.1.
+
+## [3.5.2] - 2026-07-09
 
 ### Changed
 

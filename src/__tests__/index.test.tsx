@@ -45,7 +45,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         enableNetworkIssuesScreen: true,
         disablePdfFileUpload: false,
         skipRegistrationIfDriverLicense: false,
-        requireScrollToEnableTermsButton: true,
+        requireScrollToEnableTermsButton: false,
         termsButtonTimeout: 10000,
         showTranslationKeys: false,
         showComplianceTextDocSelect: false,
@@ -84,7 +84,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         enableNetworkIssuesScreen: true,
         disablePdfFileUpload: false,
         skipRegistrationIfDriverLicense: false,
-        requireScrollToEnableTermsButton: true,
+        requireScrollToEnableTermsButton: false,
         termsButtonTimeout: 10000,
         showTranslationKeys: false,
         showComplianceTextDocSelect: false,
@@ -111,7 +111,7 @@ describe('Ondato SDK Module (index.tsx)', () => {
         showComplianceTextDocSelect: false,
         skipRegistrationIfDriverLicense: false,
         switchPrimaryButtons: false,
-        requireScrollToEnableTermsButton: true,
+        requireScrollToEnableTermsButton: false,
         termsButtonTimeout: 10000,
       });
     });

@@ -26,6 +26,18 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>This app uses NFC to scan identification documents</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app uses the microphone to record audio during the screen recording verification process</string>
+	<key>com.apple.developer.nfc.readersession.felica.systemcodes</key>
+	<array>
+		<string>12FC</string>
+	</array>
+	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+	<array>
+		<string>A0000002471001</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

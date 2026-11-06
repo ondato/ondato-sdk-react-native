@@ -12,8 +12,50 @@ jest.mock('expo/config-plugins');
 import fs from 'fs/promises';
 import path from 'path';
 import { WarningAggregator } from 'expo/config-plugins';
-import { addPods } from '../src/withIos';
+import { addPods, withEntitlements, withPermissions } from '../src/withIos';
 import { ONDATO_VERSION_IOS } from '../src/constants';
+
+describe('Config Plugin iOS NFC configuration', () => {
+  it('adds the TAG reader session entitlement when NFC is enabled', () => {
+    const config = { modResults: {} };
+
+    withEntitlements(config as never, { enableNfc: true });
+
+    expect(config.modResults).toEqual({
+      'com.apple.developer.nfc.readersession.formats': ['TAG'],
+    });
+  });
+
+  it('adds eMRTD and FeliCa identifiers to Info.plist when NFC is enabled', () => {
+    const config = { modResults: {} as Record<string, unknown> };
+
+    withPermissions(config as never, { enableNfc: true });
+
+    expect(
+      config.modResults[
+        'com.apple.developer.nfc.readersession.iso7816.select-identifiers'
+      ]
+    ).toEqual(['A0000002471001']);
+    expect(
+      config.modResults[
+        'com.apple.developer.nfc.readersession.felica.systemcodes'
+      ]
+    ).toEqual(['12FC']);
+  });
+
+  it('does not add NFC configuration when NFC is disabled', () => {
+    const entitlements = { modResults: {} };
+    const infoPlist = { modResults: {} as Record<string, unknown> };
+
+    withEntitlements(entitlements as never, { enableNfc: false });
+    withPermissions(infoPlist as never, { enableNfc: false });
+
+    expect(entitlements.modResults).toEqual({});
+    expect(Object.keys(infoPlist.modResults)).not.toContain(
+      'com.apple.developer.nfc.readersession.iso7816.select-identifiers'
+    );
+  });
+});
 
 describe('Config Plugin iOS Tests for SDK 54 - addPods', () => {
   let podfile: string;

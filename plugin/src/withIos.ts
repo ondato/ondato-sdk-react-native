@@ -42,6 +42,12 @@ export const withPermissions: ConfigPlugin<OndatoPluginProps> = (
 
     if (props.enableNfc) {
       plist.NFCReaderUsageDescription = nfcUsageDescription;
+      plist[
+        'com.apple.developer.nfc.readersession.iso7816.select-identifiers'
+      ] = ['A0000002471001'];
+      plist['com.apple.developer.nfc.readersession.felica.systemcodes'] = [
+        '12FC',
+      ];
     }
 
     if (props.enableScreenRecorder) {
