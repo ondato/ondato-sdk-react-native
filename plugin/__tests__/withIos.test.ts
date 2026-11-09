@@ -12,7 +12,12 @@ jest.mock('expo/config-plugins');
 import fs from 'fs/promises';
 import path from 'path';
 import { WarningAggregator } from 'expo/config-plugins';
-import { addPods, withEntitlements, withPermissions } from '../src/withIos';
+import {
+  addLottieConflictFix,
+  addPods,
+  withEntitlements,
+  withPermissions,
+} from '../src/withIos';
 import { ONDATO_VERSION_IOS } from '../src/constants';
 
 describe('Config Plugin iOS NFC configuration', () => {
@@ -369,6 +374,42 @@ describe('Config Plugin iOS Tests for SDK 56 - addPods', () => {
     expect(WarningAggregator.addWarningIOS).toHaveBeenCalledWith(
       'ondato-sdk-react-native',
       'Could not find use_react_native! block in Podfile to add dependencies.'
+    );
+  });
+});
+
+describe('Config Plugin iOS Tests - addLottieConflictFix', () => {
+  const podfileWithPostInstall = `post_install do |installer|
+    react_native_post_install(installer)
+  end
+`;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('adds the fix at the start of post_install', () => {
+    const result = addLottieConflictFix(podfileWithPostInstall);
+
+    expect(result.startsWith('post_install do |installer|\n    # ondato')).toBe(
+      true
+    );
+    expect(result).toContain("'BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'");
+    expect(result).toContain('OndatoSDK-Core/Lottie.framework');
+    expect(result).toContain('react_native_post_install(installer)');
+  });
+
+  it('does not add the fix twice', () => {
+    const once = addLottieConflictFix(podfileWithPostInstall);
+
+    expect(addLottieConflictFix(once)).toBe(once);
+  });
+
+  it('logs a warning when there is no post_install block', () => {
+    expect(addLottieConflictFix('')).toBe('');
+    expect(WarningAggregator.addWarningIOS).toHaveBeenCalledWith(
+      'ondato-sdk-react-native',
+      expect.stringContaining('post_install')
     );
   });
 });
